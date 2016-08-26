@@ -6,4 +6,4 @@ node_js:
 before_script:
   - npm install -g react-native
 
-script: start
+script: npm run start
