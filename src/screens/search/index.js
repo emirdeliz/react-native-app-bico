@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-
+import { Image } from 'react-native'
 import { Container, Header, View, Title, Text, Content, Button,
     Icon, InputGroup, Input, List, ListItem, Thumbnail } from 'native-base'
 
-import { Image } from 'react-native'
 import * as ProfissionalMock from '../../mock/professional'
 import { Style } from './assets/style'
 

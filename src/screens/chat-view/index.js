@@ -30,7 +30,7 @@ export default class ChatView extends Component {
                             latitude: this.props.currentMessage.location.latitude,
                             longitude: this.props.currentMessage.location.longitude,
                         }]}
-                        scrollEnabled={ false } zoomEnabled={ false } />
+                        scrollEnabled={ false } zoomEnabled={ true } />
                 </TouchableOpacity>
             )
         }

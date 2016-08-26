@@ -1,77 +1,24 @@
 import React, { Component, PropTypes } from 'react'
 import { Platform } from 'react-native'
+import { GiftedChat } from 'react-native-gifted-chat'
 import { Container, Content, Header, Title, Button, Icon,
     Text, View } from 'native-base'
 
-import { GiftedChat } from 'react-native-gifted-chat'
-
+import * as ChatMock from '../../mock/chat'
 import ChatActions from '../chat-actions'
 import ChatView from '../chat-view'
+import ChatImage from '../chat-image'
+
 import { Style } from './assets/style'
 
-export default class Home extends Component {
+export default class Chat extends Component {
 
     constructor(props) {
         super(props)
 
-        this.state = { messages: [] };
-        this.onSend = this.onSend.bind(this);
-    }
-
-    componentWillMount() {
-        this.setState({
-            messages: [
-                {
-                    _id: 1,
-                    user: {
-                        _id: 1,
-                        name: 'React Native',
-                        avatar: 'https://facebook.github.io/react/img/logo_og.png',
-                    },
-                    text: 'Aqui é Body renderer Ipsum PORRA! Que não vai dá rapaiz, não vai dá essa porra. Não vai dá não.' +
-                        'Sabe o que é isso daí? Trapézio descendente é o nome disso aí. Eita porra!, tá saindo da jaula o monstro!' +
-                        'Bora caralho, você quer ver essa porra velho. Vo derrubar tudo essas árvore do parque ibirapuera.',
-                    createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0))
-                }, {
-                    _id: 2,
-                    user: {
-                        _id: 2,
-                        name: this.props.professional.name,
-                        avatar: this.props.professional.picture,
-                    },
-                    text: 'Eu quero esse 13',
-                    createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0))
-                }, {
-                    _id: 3,
-                    user: {
-                        _id: 2,
-                        name: this.props.professional.name,
-                        avatar: this.props.professional.picture,
-                    },
-                    text: 'É verão o ano ano ano',
-                    createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0))
-                }, {
-                    _id: 4,
-                    user: {
-                        _id: 1,
-                        name: this.props.professional.name,
-                        avatar: 'https://facebook.github.io/react/img/logo_og.png',
-                    },
-                    text: ' Que não vai dá rapaiz, não vai dá essa porra.' +
-                    'Tá comigo porra. Bora caralho, você quer ver essa porra velho.',
-                    createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0))
-                }, {
-                    _id: 5,
-                    user: {
-                        _id: 2,
-                        name: this.props.professional.name,
-                        avatar: this.props.professional.picture,
-                    },
-                    text: ' Bora caralho, você quer ver essa porra velho.',
-                    createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0))
-                }
-            ],
-        });
+        this.state = {
+            messages: ChatMock.data
+        }
     }
 
     onSend(messages = []) {
@@ -92,7 +39,13 @@ export default class Home extends Component {
 
     buildCustomView(props) {
         return (
-            <ChatView {...props} />
+            <ChatView { ...props } />
+        )
+    }
+
+    buildMessageImage(props) {
+        return (
+            <ChatImage { ...props } images={ this.state.messages }/>
         )
     }
 
@@ -106,8 +59,10 @@ export default class Home extends Component {
                     <Title>{ this.props.professional.name }</Title>
                 </Header>
                 <View>
-                    <GiftedChat { ...this.props } messages={ this.state.messages } renderActions={ this.buildCustomActions }
-                        onSend={ this.onSend } user={{ _id: 1}} renderCustomView={ this.buildCustomView } />
+                    <GiftedChat { ...this.props } messages={ this.state.messages }
+                        renderActions={ this.buildCustomActions } renderCustomView={ this.buildCustomView }
+                        renderMessageImage={ this.buildMessageImage.bind(this) } onSend={ this.onSend.bind(this) }
+                        user={ { _id: 1} } />
                 </View>
             </Container>
         );
