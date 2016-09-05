@@ -76,7 +76,7 @@ const message7 = {
         name: ProfessionalMock.data[1].name,
         avatar: ProfessionalMock.data[1].picture,
     },
-    text: ' Bora caralho, você quer ver essa porra velho.',
+    text: 'Bora caralho, você quer ver essa porra velho.',
     createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0))
 }
 

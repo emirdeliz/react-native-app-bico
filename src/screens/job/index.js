@@ -6,7 +6,7 @@ import { Container, Header, Title, Thumbnail, Content,
 
 import { Style } from './assets/style'
 
-export default class Work extends Component {
+export default class Job extends Component {
     constructor(props) {
         super(props)
 
@@ -19,7 +19,7 @@ export default class Work extends Component {
     buildPhotosModal() {
         let rows = []
 
-        this.props.work.images.forEach((item, i) => {
+        this.props.job.images.forEach((item, i) => {
             rows.push(
                 <View key={ i } style={ Style.imageModalItem }>
                     <Button style={ Style.buttonClose } bordered onPress={() => {
@@ -43,7 +43,7 @@ export default class Work extends Component {
     buildPhotos() {
         let rows = []
 
-        this.props.work.images.forEach((item, i) => {
+        this.props.job.images.forEach((item, i) => {
             rows.push(
                 <ListItem key={ i } onPress={() => {
                     this.setState({ imageModalVisible: true, imageModalSelected: i })
@@ -85,7 +85,7 @@ export default class Work extends Component {
                         </ListItem>
                         <ListItem>
                             <View>
-                                <Text style={ Style.textNormal }>{ this.props.work.description }</Text>
+                                <Text style={ Style.textSmall }>{ this.props.job.description }</Text>
                             </View>
                         </ListItem>
                     </List>

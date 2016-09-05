@@ -9,7 +9,7 @@ import { Colors } from '../../shared/assets/style'
 import * as JobMock from '../../mock/job'
 import { Style } from './assets/style'
 
-export default class Provider extends Component {
+export default class WorkContract extends Component {
     constructor(props) {
         super(props)
 
@@ -23,27 +23,36 @@ export default class Provider extends Component {
         let rows = []
 
         this.state.jobs.forEach((item, i) => {
+
+            let executed = item.dateExecution.getTime() < new Date().getTime()
+
             rows.push(
                 <ListItem key={ i } iconRight>
-                    <Swipeout right={ [{text: 'Remover', backgroundColor: Colors.RED, onPress:this.remove.bind(this, item, i) }]}
+                    <Swipeout right={ [{text: 'Remover', backgroundColor: Colors.RED, onPress: this.remove.bind(this, item, i) }]}
                         backgroundColor={ 'transparent' } close={ !this.state.editable }>
                         <View style={ Style.containerRow } >
                             <View style={ Style.containerProfessional }>
                                 <Thumbnail style={ Style.picture } circular size={ 80 }
                                     source={ {uri: item.professional.picture} } />
+                                <Text style={ Style.textSmall }>{ item.professional.name }</Text>
                                 <Text style={ Style.typeJob }>{ item.typeJob.description }</Text>
                                 <FormattedDate style={ Style.dateJob } value={ item.dateExecution } skeleton="yMdhm" />
                                 <View style={ Style.containerButtom }>
-                                    <Button info normal iconLeft onPress={ () => this.props.navigate.push({
-                                            name: 'chat',
-                                            passProps: { professional: item.professional }
-                                        })}><Icon name='ios-chatbubbles' />
-                                    </Button>
-                                    <Button info normal iconLeft success style={ Style.buttonEvaluate } onPress={ () => this.props.navigate.push({
-                                            name: 'evaluation',
-                                            passProps: { job: item }
-                                        })}><Icon name='ios-ribbon' />
-                                    </Button>
+                                    <View>
+                                        <Button info normal iconLeft bordered onPress={ () => this.props.navigate.push({
+                                                name: 'chat',
+                                                passProps: { professional: item.professional }
+                                            }) }><Icon name='ios-chatbubbles' />
+                                        </Button>
+                                    </View>
+                                    <View style={ [Style.containerEvaluate, (executed? {}: Style.disabled)] }>
+                                        <Button info normal iconLeft success bordered disabled={ !executed }  onPress={ () => executed?
+                                            this.props.navigate.push({
+                                                name: 'evaluation',
+                                                passProps: { job: item }
+                                            }): null }><Icon name='ios-ribbon' />
+                                        </Button>
+                                    </View>
                                 </View>
                             </View>
                             <View style={ Style.containerTypeJob }>
@@ -77,7 +86,7 @@ export default class Provider extends Component {
                     <Button transparent onPress={ () => this.props.navigate.pop() }>
                         <Icon name="ios-arrow-back" />
                     </Button>
-                    <Title>Contratados</Title>
+                    <Title>Serviços Contratados</Title>
                     <Button transparent onPress={ () => this.props.navigate.pop() } onPress={ this.edit.bind(this) }>
                         { this.state.editable? 'OK':'Editar' }
                     </Button>

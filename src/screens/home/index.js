@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { View } from 'react-native'
 import { Button, Icon } from 'native-base'
 
-import Providers from '../providers'
+import Account from '../account'
 import Clients from '../clients'
+import Contact from '../contact'
 import Search from '../search'
 import Footer from '../../shared/footer'
 import { Style } from './assets/style'
@@ -11,7 +12,7 @@ import { Style } from './assets/style'
 export default class Home extends Component {
     // /Users/emir.liz/Library/Android/sdk
     // android avd
-    // clear & emulator -avd react_native_nexus_4 & npm run android --stacktrace
+    // clear & emulator -avd nexus_4 & npm run android --stacktrace
     // --simulator 'iPhone 4s'
     // run in device: http://moduscreate.com/automated-ip-configuration-for-react-native-development/
 
@@ -24,7 +25,7 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentPage: 'search'
+            currentPage: 'account'
         }
     }
 
@@ -37,16 +38,16 @@ export default class Home extends Component {
     buildContent() {
         switch (this.state.currentPage) {
             case 'search':
-                return <Search navigate={ this.props.navigate }/>
+                return <Search navigate={ this.props.navigate } />
 
-            case 'providers':
-                return <Providers navigate={ this.props.navigate }/>
+            case 'account':
+                return <Account navigate={ this.props.navigate } />
 
-            case 'clients':
-                return <Clients navigate={ this.props.navigate }/>
+        //  case 'clients':
+        //      return <Clients navigate={ this.props.navigate }/>
 
             case 'chat':
-                return <Providers navigate={ this.props.navigate }/>
+                return <Contact navigate={ this.props.navigate } />
         }
     }
 
@@ -57,14 +58,17 @@ export default class Home extends Component {
                 icon: 'ios-search',
                 page: 'search'
             }, {
-                desc: 'Fornecedor',
-                icon: 'ios-people',
-                page: 'providers'
-            }, {
+                desc: 'Minha Conta',
+                icon: 'ios-create',
+                page: 'account'
+            },
+            /*
+            {
                 desc: 'Cliente',
                 icon: 'ios-archive',
                 page: 'clients'
-            }, {
+            },
+            */ {
                 desc: 'Chat',
                 icon: 'ios-chatboxes',
                 page: 'chat'
@@ -73,7 +77,6 @@ export default class Home extends Component {
 
         return (
             <View style={ Style.containerColumn }>
-    			<View></View>
     			<View style={ Style.content }>
                     { this.buildContent() }
     			</View>

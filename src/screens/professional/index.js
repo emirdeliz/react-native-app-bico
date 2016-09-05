@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Container, Content, Header, Title, Button, Icon,
-    Thumbnail, List, ListItem, View, Text } from 'native-base'
+    Thumbnail, List, ListItem, View, Text  } from 'native-base'
 
 import { FormattedDate } from 'react-native-globalize'
 
@@ -15,58 +15,69 @@ export default class Professional extends Component {
     componentDidMount() {
         // MOCK
         /*
-        this.onPress('chat', {
+        this.changePage('chat', {
             professional: this.props.professional
         })
         */
     }
 
-    onPress(target, props) {
+    changePage(target, props) {
         this.props.navigate.push({
             name: target,
             passProps: props
         })
     }
 
-    buildLastWork() {
+    buildLastJob() {
         let rows = []
-
-        this.props.professional.work.forEach((item, i) => {
+        this.props.professional.job.forEach((item, i) => {
             rows.push(
-                <ListItem key={ i } onPress={ this.onPress.bind(this, 'work', {
-                    work: item,
+                <ListItem key={ i } onPress={ this.changePage.bind(this, 'job', {
+                    job: item,
                     professional: this.props.professional
                 }) } iconRight>
                     <View>
                         <View style={ Style.containerRow }>
-                            <Text style={ Style.typeWork }>{ item.typeWork.description }</Text>
-                            <FormattedDate style={ Style.dateWork } value={ item.dateExecution } skeleton="yMdhm" />
+                            <Text style={ Style.typeJob }>{ item.typeJob.description }</Text>
+                            <FormattedDate style={ Style.dateJob } value={ item.dateExecution } skeleton="yMdhm" />
                         </View>
                         <View style={ Style.containerRow }>
-                            <Icon name="logo-usd" style={ Style.iconRating }/>
-                            <Text style={ Style.textRating }>{ item.rating.notePrice }</Text>
-
-                            <Icon name="ios-pricetag" style={ Style.iconRating }/>
-                            <Text style={ Style.textRating }>{ item.rating.noteService }</Text>
-
-                            <Icon name="ios-timer" style={ Style.iconRating }/>
-                            <Text style={ Style.textRating }>{ item.rating.noteScore }</Text>
+                            <View style={ Style.containerRow }>
+                                <Icon style={ Style.iconRating } name="logo-usd" />
+                                <Text style={ Style.descriptionRating }>{ item.rating.notePrice }</Text>
+                            </View>
+                            <View style={ Style.containerRow }>
+                                <Icon style={ Style.iconRating } name="ios-pricetag" />
+                                <Text style={ Style.descriptionRating }>{ item.rating.noteService }</Text>
+                            </View>
+                            <View style={ Style.containerRow }>
+                                <Icon style={ Style.iconRating } name="ios-timer" />
+                                <Text style={ Style.descriptionRating }>{ item.rating.noteScore }</Text>
+                            </View>
                         </View>
-                        <Text style={ Style.descriptionWork }>{ item.rating.description }</Text>
+                        <Text style={ Style.descriptionJob }>{ item.rating.description }</Text>
                     </View>
                     <Icon name="ios-arrow-forward" style={ Style.iconList }/>
                 </ListItem>
             )
         })
 
-        return rows
+        return (
+            <List>
+                <ListItem itemDivider>
+                    <Text>Últimos serviços</Text>
+                </ListItem>
+                { rows }
+            </List>
+        )
     }
 
     buildRating() {
+
         let items = [
-            { icon: 'logo-usd', value: this.props.professional.noteAveragePrice },
-            { icon: 'ios-pricetag', value: this.props.professional.noteAverageService },
-            { icon: 'ios-timer', value: this.props.professional.noteAverageScore }
+            { icon: 'logo-usd', description: 'PREÇO', value: this.props.professional.noteAveragePrice },
+            { icon: 'ios-pricetag', description: 'QUALIDADE', value: this.props.professional.noteAverageService },
+            { icon: 'ios-timer', description: 'PRAZO', value: this.props.professional.noteAverageScore }
         ]
 
         let rows = []
@@ -74,8 +85,13 @@ export default class Professional extends Component {
         items.forEach((item, i) => {
             rows.push(
                 <ListItem iconLeft key={ i }>
-                    <Icon name={ item.icon } style={ Style.iconRating }/>
-                    <Rating style={ Style.rating } score={ item.value }/>
+                    <View>
+                        <View style={ Style.containerRow }>
+                            <Icon style={ Style.iconRating } name={ item.icon } />
+                            <Text style={ Style.descriptionItem }>{ item.description }</Text>
+                        </View>
+                        <Rating score={ item.value }/>
+                    </View>
                 </ListItem>
             )
         })
@@ -100,7 +116,7 @@ export default class Professional extends Component {
 
         items.forEach((item, i) => {
             rows.push (
-                <ListItem style={ Style.menuItem } iconLeft key={ i } onPress={ this.onPress.bind(this, item.target, { professional: this.props.professional }) }>
+                <ListItem style={ Style.menuItem } iconLeft key={ i } onPress={ this.changePage.bind(this, item.target, { professional: this.props.professional }) }>
                     <Text>{ item.description }</Text>
                 </ListItem>
             )
@@ -126,14 +142,14 @@ export default class Professional extends Component {
                    <View style={ Style.containerRow }>
                         <Thumbnail style={ Style.picture } circular size={ 80 }
                             source={ {uri: this.props.professional.picture} } />
-                        <View style={ Style.containerRow }>
+                        <View style={ Style.containerHeader }>
                             <View>
-                                <Icon name="ios-navigate" style={ Style.iconRating }/>
-                                <Text style={ Style.textDistance }>{ this.props.professional.distance } KM</Text>
+                                <Icon name="ios-navigate" style={ Style.iconNormal }/>
+                                <Text style={ Style.textHeader }>{ this.props.professional.distance } KM</Text>
                             </View>
-                            <View>
-                                <Icon name="ios-call" style={ Style.iconRating }/>
-                                <Text style={ Style.textDistance }> (47) 8888-8888</Text>
+                            <View style={ Style.containerPhone }>
+                                <Icon name="ios-call" style={ Style.iconNormal }/>
+                                <Text style={ Style.textHeader }> (47) 8888-8888</Text>
                             </View>
                         </View>
                     </View>
@@ -143,12 +159,7 @@ export default class Professional extends Component {
                     </View>
                     { this.buildMenu() }
                     { this.buildRating() }
-                    <List>
-                        <ListItem itemDivider>
-                            <Text>Últimos serviços</Text>
-                        </ListItem>
-                        { this.buildLastWork() }
-                    </List>
+                    { this.buildLastJob() }
                </Content>
            </Container>
         )

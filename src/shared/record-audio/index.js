@@ -92,3 +92,26 @@ export default class RecordAudio extends Component {
         )
     }
 }
+
+/*
+
+For Android
+
+import React, { Component } from 'react'
+import { Button, Icon, View, Text } from 'native-base'
+
+import { Style } from './assets/style'
+
+export default class RecordAudio extends Component {
+
+    constructor(props){
+        super(props)
+    }
+
+    render() {
+        return (
+            <Text>AUDIO</Text>
+        )
+    }
+}
+*/

@@ -1,16 +1,7 @@
-import { job1, job2, job3, job4, job5 } from '../job'
-import { typeJob1, typeJob2, typeJob3 } from '../type-job'
-
-const professional1 = {
-    name: 'Tyrion Lannister',
+const client1 = {
+    name: 'Arya Stark',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'https://pbs.twimg.com/profile_images/668279339838935040/8sUE9d4C.jpg',
-    note: 'This is item # 1',
-    typeJob: [typeJob1, typeJob3],
-    job: [job1, job2, job3],
-    noteAveragePrice: 4,
-    noteAverageService: 3.3,
-    noteAverageScore: 1.5,
+    picture: 'http://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/5331dfe4e4b0f77da2dde21c/1395777673152/06-06-arya-portrait.jpg?format=1000w',
     distance: 456,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -18,16 +9,10 @@ const professional1 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional2 = {
-    name: 'Perdigueiro',
+const client2 = {
+    name: 'Shae',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'http://www.gameofthronesbrasil.com.br/wp-content/uploads/2014/04/game-of-thrones-4-temporada-mortes-c%C3%A3o-de-ca%C3%A7a.jpg',
-    note: 'This is item # 2',
-    typeJob: [typeJob2, typeJob3],
-    job: [job3, job4, job5],
-    noteAveragePrice: 5,
-    noteAverageService: 4.5,
-    noteAverageScore: 5,
+    picture: 'http://assets.viewers-guide.hbo.com/large534da4d1ef818.jpg',
     distance: 876,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -35,16 +20,10 @@ const professional2 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional3 = {
-    name: 'Daenerys Targaryen',
+const client3 = {
+    name: 'Margaery Tyrell',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'http://i.lv3.hbo.com/assets/images/series/game-of-thrones/character/s5/daenarys-1024.jpg',
-    note: 'This is item # 3',
-    typeJob: [typeJob1, typeJob2],
-    job: [job2, job1, job3],
-    noteAveragePrice: 3,
-    noteAverageService: 3.4,
-    noteAverageScore: 5,
+    picture: 'https://s-media-cache-ak0.pinimg.com/236x/d7/4f/70/d74f70e0b7ca0eb5ece5364e3c7fc424.jpg',
     distance: 123,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -52,16 +31,10 @@ const professional3 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional4 = {
-    name: 'Rob Stark',
+const client4 = {
+    name: 'Khal Drogo',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'https://s-media-cache-ak0.pinimg.com/564x/a4/8a/d9/a48ad96bb5be9e5bf0d8347e0e3f3487.jpg',
-    note: 'This is item # 4',
-    typeJob: [typeJob3],
-    job: [job1],
-    noteAveragePrice: 3,
-    noteAverageService: 3,
-    noteAverageScore: 2.3,
+    picture: 'http://images.hellogiggles.com/uploads/2016/06/14003242/khal.jpg',
     distance: 899,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -69,16 +42,10 @@ const professional4 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional5 = {
-    name: 'Jamie Lannister',
+const client5 = {
+    name: 'Tormund Giantsbane',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'http://i.lv3.hbo.com/assets/images/series/game-of-thrones/character/s5/jamie-lannister-512x512.jpg',
-    note: 'This is item # 5',
-    typeJob: [typeJob1],
-    job: [job1, job2],
-    noteAveragePrice: 4.5,
-    noteAverageService: 3,
-    noteAverageScore: 5,
+    picture: 'https://pbs.twimg.com/profile_images/488492306438180867/3fZ7sTHv.jpeg',
     distance: 456,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -86,16 +53,10 @@ const professional5 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional6 = {
-    name: 'Lorde Petyr Baelish',
+const client6 = {
+    name: 'Samwell Tarly',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'https://s-media-cache-ak0.pinimg.com/236x/39/31/53/39315356859d7a6ce322d7c544962896.jpg',
-    note: 'This is item # 1',
-    typeJob: [typeJob1, typeJob3],
-    job: [job1, job2, job3],
-    noteAveragePrice: 4,
-    noteAverageService: 3.3,
-    noteAverageScore: 1.5,
+    picture: 'http://images3.wikia.nocookie.net/__cb20130113224412/gameofthrones/images/e/ef/Samwell_profile.png',
     distance: 456,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -103,16 +64,10 @@ const professional6 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional7 = {
-    name: 'Joffrey Baratheon',
+const client7 = {
+    name: 'Grey Worm',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'http://s00.yaplakal.com/pics/pics_original/1/4/2/8192241.jpg',
-    note: 'This is item # 2',
-    typeJob: [typeJob2, typeJob3],
-    job: [job3, job4, job5],
-    noteAveragePrice: 5,
-    noteAverageService: 4.5,
-    noteAverageScore: 5,
+    picture: 'http://www.geekbomb.net/wp-content/uploads/2016/04/greyworm-200x200.jpg',
     distance: 876,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -120,16 +75,10 @@ const professional7 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional8 = {
-    name: 'Jorah Mormont',
+const client8 = {
+    name: 'Brienne of Tarth',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Jorah_Mormont-Iain_Glen.jpg/220px-Jorah_Mormont-Iain_Glen.jpg',
-    note: 'This is item # 3',
-    typeJob: [typeJob1, typeJob2],
-    job: [job2, job1, job3],
-    noteAveragePrice: 3,
-    noteAverageService: 3.4,
-    noteAverageScore: 5,
+    picture: 'http://vignette1.wikia.nocookie.net/gameofthrones/images/4/4c/Brenne.jpg/revision/latest?cb=20130609223805',
     distance: 123,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -137,16 +86,10 @@ const professional8 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional9 = {
-    name: 'Lorde Varys',
+const client9 = {
+    name: 'Bronn',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'http://img3.rnkr-static.com/user_node_img/3144/62863639/870/varys-tv-characters-photo-u2.jpg',
-    note: 'This is item # 4',
-    typeJob: [typeJob3],
-    job: [job1],
-    noteAveragePrice: 3,
-    noteAverageService: 3,
-    noteAverageScore: 2.3,
+    picture: 'http://4.bp.blogspot.com/-4gT-CAtgVB4/UUjIf144LTI/AAAAAAAAAJ8/afjBlVdSRMY/s1600/Bronn.jpg',
     distance: 899,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -154,16 +97,10 @@ const professional9 = {
         'at vestibulum netus, egestas aliquet. Primis purus, non velit. Dignissim condimentum'
 }
 
-const professional10 = {
-    name: 'Oberyn Martell',
+const client10 = {
+    name: 'Eddard Stark',
     adress: 'Tincidunt fermentum, sit dolor',
-    picture: 'http://vignette3.wikia.nocookie.net/gameofthrones/images/9/90/Oberyn-Martell-Profile-HD.png/revision/latest?cb=20140515152752',
-    note: 'This is item # 5',
-    typeJob: [typeJob1],
-    job: [job1, job2],
-    noteAveragePrice: 4.5,
-    noteAverageService: 3,
-    noteAverageScore: 5,
+    picture: 'http://basementrejects.com/wp-content/uploads/2011/06/eddard-stark-game-of-thrones.jpg',
     distance: 456,
     description:
         'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -172,16 +109,16 @@ const professional10 = {
 }
 
 const data = [
-    professional1,
-    professional2,
-    professional3,
-    professional4,
-    professional5,
-    professional6,
-    professional7,
-    professional8,
-    professional9,
-    professional10
+    client1,
+    client2,
+    client3,
+    client4,
+    client5,
+    client6,
+    client7,
+    client8,
+    client9,
+    client10
 ]
 
-export { data, professional1, professional2, professional3, professional4, professional5 }
+export { data, client1, client2, client3, client4, client5 }

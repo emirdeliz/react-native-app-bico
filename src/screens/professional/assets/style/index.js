@@ -2,47 +2,62 @@ import { StyleSheet } from 'react-native'
 import { Colors, Commons, MergeStyle } from '../../../../shared/assets/style'
 
 const StyleCustom = {
-    textDistance: {
+    textHeader: {
         ...Commons.textNormal,
         marginTop: 5,
-        marginLeft: 5
-    },
-    rating: {
-        marginTop: 10
     },
     iconRating: {
-        ...Commons.iconNormal,
-        marginLeft: 10,
-        marginRight: 10
+        ...Commons.iconSmall,
+        lineHeight: 15,
+        width: 12
     },
     picture: {
         marginTop: 5,
         marginLeft: 15
     },
     description: {
-        ...Commons.textNormal,
+        ...Commons.textSmall,
         marginTop: 5,
         marginLeft: 15,
         marginRight: 15,
         textAlign: 'left'
     },
-    typeWork: {
+    descriptionRating: {
+        ...Commons.textSmall,
+         lineHeight: 15,
+         marginLeft: 5
+    },
+    descriptionItem: {
+        ...Commons.textSmall,
+         textAlign:'center',
+         lineHeight: 15,
+         marginLeft: 5
+    },
+    typeJob: {
         ...Commons.textNormal,
         fontWeight: 'bold',
         marginRight: 10,
         marginBottom: 5
     },
-    dateWork: {
+    dateJob: {
         ...Commons.textNormal,
         marginRight: 10,
         marginBottom: 5
     },
-    descriptionWork: {
+    descriptionJob: {
         ...Commons.textSmall,
         textAlign: 'left'
     },
     containerDescription: {
         marginBottom: 10
+    },
+    containerHeader: {
+        ...Commons.containerRow,
+        marginLeft: 10
+    },
+    containerPhone: {
+        marginLeft: 10,
+        marginRight: 10
     },
     menu: {
         marginBottom: 5

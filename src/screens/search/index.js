@@ -1,17 +1,22 @@
 import React, { Component, PropTypes } from 'react'
-import { Image } from 'react-native'
+import { Image, Modal } from 'react-native'
 import { Container, Header, View, Title, Text, Content, Button,
-    Icon, InputGroup, Input, List, ListItem, Thumbnail } from 'native-base'
+    Icon, InputGroup, Input, List, ListItem, Thumbnail, Badge } from 'native-base'
 
 import * as ProfissionalMock from '../../mock/professional'
+import * as FilterMock from '../../mock/filter'
+
+import Filter from '../filter'
 import { Style } from './assets/style'
 
 export default class Search extends Component {
+
     constructor(props) {
         super(props)
 
         this.state = {
-            result: ProfissionalMock.data
+            result: ProfissionalMock.data,
+            categoryFilter: null
         }
     }
 
@@ -39,23 +44,27 @@ export default class Search extends Component {
                             professional: item
                         }
                     })
-                }} iconRight>
+                }} style={ Style.containerItem } iconRight>
                     <View style={ Style.containerRow }>
-                        <Thumbnail circular size={ 55 } source={{ uri: item.picture }} />
+                        <Thumbnail circular size={ 80 } source={{ uri: item.picture }} />
                         <View>
                             <View style={ Style.containerDistance }>
                                 <Text>{ item.name }</Text>
                                 <Text style={ Style.textDistance }>{ item.distance } KM</Text>
                             </View>
-                            <View style={ Style.containerRating }>
-                                <Icon name="logo-usd" style={ Style.iconRating }/>
-                                <Text style={ Style.textRating }>{ item.noteAveragePrice }</Text>
-
-                                <Icon name="ios-pricetag" style={ Style.iconRating }/>
-                                <Text style={ Style.textRating }>{ item.noteAverageService }</Text>
-
-                                <Icon name="ios-timer" style={ Style.iconRating }/>
-                                <Text style={ Style.textRating }>{ item.noteAverageScore }</Text>
+                            <View style={ Style.containerRow }>
+                                <View style={ Style.containerRating }>
+                                    <Icon name="logo-usd" style={ Style.iconRating }/>
+                                    <Text style={ Style.textRating }>{ item.noteAveragePrice }</Text>
+                                </View>
+                                <View style={ Style.containerRating }>
+                                    <Icon name="ios-pricetag" style={ Style.iconRating }/>
+                                    <Text style={ Style.textRating }>{ item.noteAverageService }</Text>
+                                </View>
+                                <View style={ Style.containerRating }>
+                                    <Icon name="ios-timer" style={ Style.iconRating }/>
+                                    <Text style={ Style.textRating }>{ item.noteAverageScore }</Text>
+                                </View>
                             </View>
                         </View>
                     </View>
@@ -64,7 +73,9 @@ export default class Search extends Component {
             )
         })
 
-        return rows
+        return (
+            <List>{ rows }</List>
+        )
     }
 
     render() {
@@ -72,17 +83,21 @@ export default class Search extends Component {
             <Container>
                 <Header style={ Style.header } searchBar rounded>
                     <InputGroup>
-                        <Icon name="ios-search" />
-                        <Input placeholder="Busca" style={ Style.inputSearch }/>
+                        <Input placeholder="Buscar" style={ Style.inputSearch }/>
                     </InputGroup>
-                    <Button transparent>
+                    <Button transparent onPress={ () => {
+                        this.props.navigate.push({
+                            name: 'filter',
+                            passProps: {
+                                selectedFilter: (item) => this.setState({ categoryFilter: item }),
+                                filter: FilterMock.data
+                            }
+                        }) }}>
                         <Icon style={ Style.iconFilter } name="ios-list" />
                     </Button>
                 </Header>
                 <Content>
-                   <List>
-                      { this.buildRows() }
-                   </List>
+                    { this.buildRows() }
                 </Content>
             </Container>
         );

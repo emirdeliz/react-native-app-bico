@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { View } from 'react-native'
-import { Text, Button, Icon} from 'native-base'
+import { Button, Text, Icon} from 'native-base'
+
 import { Style } from './assets/style'
 
 export default class Footer extends Component {
@@ -12,7 +13,7 @@ export default class Footer extends Component {
         }
     }
 
-    onPress(item, index) {
+    changeTab(item, index) {
         this.setState({ currentTab: index })
         this.props.onChangeTab(item, index)
     }
@@ -21,10 +22,12 @@ export default class Footer extends Component {
         let rows = []
         this.props.items.forEach((item, index) => {
             rows.push(
-                <Button transparent style={ Style.button } key={ index } onPress={ this.onPress.bind(this, item, index) }>
-                    <Icon name={ item.icon } style={ [Style.iconSmall, (index == this.state.currentTab? Style.selected: {})] }/>
-                    <Text style={ [Style.textSmall, (index == this.state.currentTab? Style.selected: {})] }>{ item.desc }</Text>
-                </Button>
+                <View key={ index } style={ [Style.containerRow, (index == this.state.currentTab? { opacity: 1 }: { opacity: 0.7 })] }>
+                    <Button transparent style={ Style.buttonFooter } onPress={ this.changeTab.bind(this, item, index) }>
+                        <Icon name={ item.icon } style={ [Style.iconFooter, (index == this.state.currentTab? Style.selected: {})] }/>
+                        <Text style={ Style.titleFooter}>{ item.desc }</Text>
+                    </Button>
+                </View>
             )
         })
 

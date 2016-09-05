@@ -26,12 +26,12 @@ const StyleCustom = {
         textAlign: 'left',
         marginRight: 3
     },
-    buttonEvaluate: {
-        marginLeft: 10
+    containerChat: {
+        marginRight: 15,
+        flex: 1
     },
     containerButtom: {
-        ...Commons.containerRow,
-        marginTop: 5
+        ...Commons.containerRow
     }
 }
 

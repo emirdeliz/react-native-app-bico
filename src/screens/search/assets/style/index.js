@@ -6,18 +6,16 @@ const StyleCustom = {
         color: Colors.WHITE
     },
     iconRating: {
-        ...Commons.iconNormal,
-        marginRight: 5,
-        color: Colors.POSITIVE
+        ...Commons.iconSmall,
+        lineHeight: 15
     },
     textRating: {
-        ...Commons.textNormal,
-        fontWeight: 'bold',
-        marginBottom: 5,
-        marginRight: 10
+        ...Commons.textSmall,
+        marginLeft: 5,
+        lineHeight: 15
     },
     containerRating: {
-        ...Commons.containerRow,
+        flexDirection: 'row',
         marginLeft: 15
     },
     containerDistance: {
@@ -27,6 +25,10 @@ const StyleCustom = {
         ...Commons.textNormal,
         color: Colors.POSITIVE,
         fontWeight: 'bold'
+    },
+    containerItem: {
+        ...Commons.containerRow,
+        height: undefined
     },
     inputSearch: {
         paddingBottom: 10

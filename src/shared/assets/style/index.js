@@ -1,9 +1,12 @@
 const Colors = {
+    RED      : '#b22222',
     BLUE     : '#4682b4',
     WHITE    : '#f6f6f6',
     POSITIVE : '#9acd32',
     BLACK    : '#000',
-    GRAY     : '#696969',
+    GRAY     : '#808080',
+    SILVER   : '#c0c0c0',
+    GAINSBORO: '#dcdcdc',
 
     LIGHT    : '#858585',
     STABLE   : '#f8f8f8',
@@ -20,16 +23,16 @@ const text = {
 }
 
 const icon = {
-    color: Colors.GRAY
+    color: Colors.SILVER
 }
 
 const container = {
-    flex: 1
+    flex: 5
 }
 
 const input = {
     height: 40,
-    borderColor: Colors.GRAY,
+    borderColor: Colors.SILVER,
     borderWidth: 1
 }
 
@@ -41,8 +44,7 @@ const Commons = {
         backgroundColor: Colors.BLUE
     },
     iconList:{
-        ...icon,
-        fontSize: 13
+        ...icon
     },
     textNormal: {
         ...text,
@@ -50,7 +52,7 @@ const Commons = {
     },
     textSmall: {
         ...text,
-        fontSize: 10
+        fontSize: 13
     },
     containerColumn: {
         ...container,
@@ -63,11 +65,11 @@ const Commons = {
     },
     iconLarge: {
         ...icon,
-        fontSize: 50
+        fontSize: 40
     },
     iconNormal: {
         ...icon,
-        fontSize: 20
+        fontSize: 17
     },
     iconSmall: {
         ...icon,
@@ -82,6 +84,9 @@ const Commons = {
     buttonRoundedNormal: {
         width: 80,
         height: 80
+    },
+    disabled:  {
+        opacity: 0.3
     }
 }
 

@@ -3,27 +3,36 @@ import { Colors, Commons, MergeStyle } from '../../../../shared/assets/style'
 
 const StyleCustom = {
     footer: {
-        shadowColor: Colors.WHITE,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.1,
-        shadowRadius: 1.5,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        height: 60,
+        height: 50,
         backgroundColor: Colors.WHITE,
-        borderTopColor: Colors.GRAY,
+        borderTopColor: Colors.GAINSBORO,
         borderTopWidth: 1
     },
-    button: {
-        flex: 1,
-        flexDirection: 'column',
+    containerButton: {
         alignItems: 'center',
-        height: 50
+        flexDirection: 'column',
+        height: 55,
+        flex: 1
+    },
+    buttonFooter: {
+        height: 50,
+        alignItems: 'center',
+        flexDirection: 'column',
+        flex: 1
+    },
+    iconFooter: {
+        ...Commons.iconNormal,
+        marginBottom: 15
+    },
+    titleFooter: {
+        ...Commons.textSmall,
+        marginBottom: 5,
+        paddingTop: 10
     },
     selected: {
-        color: Colors.BLUE,
-        fontWeight: '600'
+        color: Colors.BLUE
     }
 }
 const Style = StyleSheet.create(MergeStyle(StyleCustom, Commons))

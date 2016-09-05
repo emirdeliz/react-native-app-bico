@@ -4,9 +4,13 @@ import { connect } from 'react-redux'
 
 import Home from '../home'
 import Professional from '../professional'
-import Work from '../work'
+import Job from '../job'
 import Budget from '../budget'
 import Chat from '../chat'
+import Filter from '../filter'
+import Evaluation from '../evaluation'
+import WorkContract from '../work-contract'
+import WorkOffered from '../work-offered' 
 
 @connect(
     state => state,
@@ -31,14 +35,26 @@ export default class Router extends Component {
             case 'professional':
                 return <Professional navigate={ navigate } { ...route.passProps }/>
 
-            case 'work':
-                return <Work navigate={ navigate } { ...route.passProps }/>
+            case 'job':
+                return <Job navigate={ navigate } { ...route.passProps }/>
 
             case 'budget':
                 return <Budget navigate={ navigate } { ...route.passProps }/>
 
             case 'chat':
                 return <Chat navigate={ navigate } { ...route.passProps }/>
+
+            case 'filter':
+                return <Filter navigate={ navigate } { ...route.passProps }/>
+
+            case 'evaluation':
+                return <Evaluation navigate={ navigate } { ...route.passProps }/>
+
+            case 'work-contract':
+                return <WorkContract navigate={ navigate } { ...route.passProps }/>
+
+            case 'work-offered':
+                return <WorkOffered navigate={ navigate } { ...route.passProps }/>
         }
     }
 
