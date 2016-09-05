@@ -4,6 +4,9 @@ import { Colors, Commons, MergeStyle } from '../../../../shared/assets/style'
 const StyleCustom = {
     subTitle: {
         ...Commons.textNormal
+    },
+    filterContainer: {
+        height: 50
     }
 }
 

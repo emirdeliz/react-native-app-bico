@@ -17,7 +17,7 @@ export default class Chat extends Component {
         super(props)
 
         this.state = {
-            messages: ChatMock.data
+            messages: this.props.messages? this.props.messages: ChatMock.data
         }
     }
 
@@ -56,7 +56,7 @@ export default class Chat extends Component {
                     <Button transparent onPress={ () => this.props.navigate.pop() }>
                          <Icon name="ios-arrow-back" />
                     </Button>
-                    <Title>{ this.props.professional.name }</Title>
+                    <Title>{ this.props.sender.name }</Title>
                 </Header>
                 <View>
                     <GiftedChat { ...this.props } messages={ this.state.messages }

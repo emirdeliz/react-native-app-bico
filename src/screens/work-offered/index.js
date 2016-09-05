@@ -38,7 +38,7 @@ export default class WorkOffered extends Component {
                                     <View style={ Style.containerChat }>
                                         <Button info normal iconLeft block bordered onPress={ () => this.props.navigate.push({
                                                 name: 'chat',
-                                                passProps: { professional: item.professional }
+                                                passProps: { sender: item.professional }
                                             })}><Icon name='ios-chatbubbles' />
                                         </Button>
                                     </View>

@@ -20,7 +20,7 @@ export default class Filter extends Component {
         let currentFilter = this.state.currentFilter.types? this.state.currentFilter.types: this.state.currentFilter
 
         currentFilter.forEach((item, i) => rows.push(
-            <ListItem key={ i } onPress={ () => {
+            <ListItem style={ Style.filterContainer } key={ i } onPress={ () => {
                 if(item.types){
                     this.state.path.push(this.state.currentFilter)
                     this.setState({ currentFilter: item, path:  this.state.path})

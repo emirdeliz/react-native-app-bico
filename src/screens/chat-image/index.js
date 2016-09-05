@@ -26,7 +26,7 @@ export default class ChatImage extends Component {
                         <Button style={ Style.buttonClose } bordered onPress={() => {
                             this.setState({ imageModalVisible: false })
                         }}>Fechar</Button>
-                        <Thumbnail style={ Style.imageModal } square source={ {uri:item.image} } />
+                        <Thumbnail style={ Style.imageModal } square source={ {uri: item.image} } />
                     </View>
                 )
 

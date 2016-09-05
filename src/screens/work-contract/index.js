@@ -41,7 +41,7 @@ export default class WorkContract extends Component {
                                     <View>
                                         <Button info normal iconLeft bordered onPress={ () => this.props.navigate.push({
                                                 name: 'chat',
-                                                passProps: { professional: item.professional }
+                                                passProps: { sender: item.professional }
                                             }) }><Icon name='ios-chatbubbles' />
                                         </Button>
                                     </View>

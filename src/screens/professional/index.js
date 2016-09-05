@@ -116,7 +116,9 @@ export default class Professional extends Component {
 
         items.forEach((item, i) => {
             rows.push (
-                <ListItem style={ Style.menuItem } iconLeft key={ i } onPress={ this.changePage.bind(this, item.target, { professional: this.props.professional }) }>
+                <ListItem style={ Style.menuItem } iconLeft key={ i } onPress={
+                    this.changePage.bind(this, item.target, { sender: this.props.professional })
+                 }>
                     <Text>{ item.description }</Text>
                 </ListItem>
             )
