@@ -8,7 +8,8 @@ const StyleCustom = {
     },
     descriptionItem: {
         ...Commons.textSmall,
-        lineHeight: 15
+        lineHeight: 15,
+        marginLeft: 5
     },
     iconRating: {
         ...Commons.iconSmall,

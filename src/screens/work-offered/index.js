@@ -35,8 +35,8 @@ export default class WorkOffered extends Component {
                                 <Text style={ Style.typeJob }>{ item.typeJob.description }</Text>
                                 <FormattedDate style={ Style.dateJob } value={ item.dateExecution } skeleton="yMdhm" />
                                 <View style={ Style.containerButtom }>
-                                    <View style={ Style.containerChat }>
-                                        <Button info normal iconLeft block bordered onPress={ () => this.props.navigate.push({
+                                    <View>
+                                        <Button info normal bordered onPress={ () => this.props.navigate.push({
                                                 name: 'chat',
                                                 passProps: { sender: item.professional }
                                             })}><Icon name='ios-chatbubbles' />
@@ -75,7 +75,7 @@ export default class WorkOffered extends Component {
                     <Button transparent onPress={ () => this.props.navigate.pop() }>
                         <Icon name="ios-arrow-back" />
                     </Button>
-                    <Title>Serviços Fornecidos</Title>
+                    <Title>Clientes</Title>
                     <Button transparent onPress={ () => this.props.navigate.pop() } onPress={ this.edit.bind(this) }>
                         { this.state.editable? 'OK':'Editar' }
                     </Button>

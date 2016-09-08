@@ -12,7 +12,8 @@ export default class Account extends Component {
         super(props)
 
         this.state = {
-            account: AccountMock.account
+            account: AccountMock.account,
+            editable: false
         }
     }
 
@@ -32,7 +33,15 @@ export default class Account extends Component {
             <Container>
                 <Header style={ Style.toolbar }>
                     <Title style={ Style.textToolbar }>Minha conta</Title>
-                    <Button textStyle={{ color: Colors.WHITE }} transparent onPress={ () => this.props.navigate.pop() }>
+                    <Button textStyle={{ color: Colors.WHITE }} transparent onPress={ () => {
+                        this.props.navigate.push({
+                            name: 'account-edit',
+                            passProps: {
+                                account: this.state.account,
+                                editable: true
+                            }
+                        })
+                    } }>
                         Editar
                     </Button>
                 </Header>

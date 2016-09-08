@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Modal } from 'react-native'
 import Swiper from 'react-native-swiper'
 import { Container, Header, Title, Thumbnail, Content,
-    Button, Icon, List, ListItem } from 'native-base'
+    Button, Icon, List, ListItem, InputGroup, Input } from 'native-base'
 import { View, Text } from 'react-native'
 
 import Rating from '../../shared/rating'
@@ -48,6 +48,11 @@ export default class Evaluation extends Component {
                     <Text>Notas</Text>
                 </ListItem>
                 { rows }
+                <ListItem>
+                    <InputGroup>
+                        <Input stackedLabel placeholder="OBSERVAÇÕES" />
+                    </InputGroup>
+                </ListItem>
             </List>
         )
     }

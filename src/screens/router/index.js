@@ -8,9 +8,11 @@ import Job from '../job'
 import Budget from '../budget'
 import Chat from '../chat'
 import Filter from '../filter'
+import Login from '../login'
 import Evaluation from '../evaluation'
 import WorkContract from '../work-contract'
-import WorkOffered from '../work-offered' 
+import WorkOffered from '../work-offered'
+import AccountEdit from '../account-edit'
 
 @connect(
     state => state,
@@ -30,7 +32,7 @@ export default class Router extends Component {
     renderScene(route, navigate) {
         switch (route.name) {
             case 'home':
-                return el = <Home navigate={ navigate }/>
+                return <Home navigate={ navigate }/>
 
             case 'professional':
                 return <Professional navigate={ navigate } { ...route.passProps }/>
@@ -55,6 +57,12 @@ export default class Router extends Component {
 
             case 'work-offered':
                 return <WorkOffered navigate={ navigate } { ...route.passProps }/>
+
+            case 'account-edit':
+                return <AccountEdit navigate={ navigate } { ...route.passProps }/>
+
+            case 'login':
+                return <Login navigate={ navigate } { ...route.passProps }/>
         }
     }
 

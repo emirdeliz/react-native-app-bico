@@ -9,16 +9,6 @@ const StyleCustom = {
         color: Colors.WHITE,
         textAlign: 'center'
     },
-    iconRating: {
-        ...Commons.iconNormal,
-        lineHeight: 20,
-        width: 15
-    },
-    descriptionRating: {
-        ...Commons.textSmall,
-         lineHeight: 15,
-         marginRight: 15
-    },
     containerPhoto: {
         height: 165,
         backgroundColor: Colors.ROYAL,

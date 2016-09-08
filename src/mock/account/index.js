@@ -5,7 +5,8 @@ const account = {
     ddd: 47,
     noteAveragePrice: 4,
     noteAverageService: 3.3,
-    noteAverageScore: 1.5
+    noteAverageScore: 1.5,
+    email: 'john.snow@gmail.com'
 }
 
 export { account }

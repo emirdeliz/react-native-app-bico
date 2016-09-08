@@ -26,12 +26,9 @@ const StyleCustom = {
         textAlign: 'left',
         marginRight: 3
     },
-    containerChat: {
-        marginRight: 15,
-        flex: 1
-    },
     containerButtom: {
-        ...Commons.containerRow
+        ...Commons.containerColumn,
+        alignItems: 'center'
     }
 }
 

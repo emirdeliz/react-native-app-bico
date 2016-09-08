@@ -7,6 +7,9 @@ import Clients from '../clients'
 import Contact from '../contact'
 import Search from '../search'
 import Footer from '../../shared/footer'
+
+import Login from '../login'
+
 import { Style } from './assets/style'
 
 export default class Home extends Component {
@@ -27,6 +30,17 @@ export default class Home extends Component {
         this.state = {
             currentPage: 'account'
         }
+    }
+
+    componentDidMount() {
+        /*
+        this.props.navigate.push({
+            name: 'login',
+            passProps: {
+                navigate: this.props.navigate
+            }
+        })
+        */
     }
 
     onChangeTab(item, index) {
@@ -77,13 +91,13 @@ export default class Home extends Component {
 
         return (
             <View style={ Style.containerColumn }>
-    			<View style={ Style.content }>
+                <View style={ Style.content }>
                     { this.buildContent() }
-    			</View>
-    			<View>
-    		        <Footer items={ menuItems } onChangeTab={ this.onChangeTab.bind(this) }></Footer>
-    			</View>
-			</View>
-        );
+                </View>
+                <View>
+                    <Footer items={ menuItems } onChangeTab={ this.onChangeTab.bind(this) }></Footer>
+                </View>
+            </View>
+        )
     }
 }

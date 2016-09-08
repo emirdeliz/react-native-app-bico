@@ -37,19 +37,18 @@ export default class Budget extends Component {
     takePicture() {
         let self = this
 
-        this.camera.capture(function(err, data) {
+        this.camera.capture().then((data) => {
             let images = self.state.images
             images.push({
                 isStatic: true,
-                uri: 'file://' + data
+                uri: 'file://' + data.path
             })
 
             self.setState({
                 images: images,
-                cameraModalVisible: false,
-                teste: data
+                cameraModalVisible: false
             })
-        })
+        }).catch(err => console.error(err));
     }
 
     buildPhotos() {
@@ -95,8 +94,8 @@ export default class Budget extends Component {
         return (
             <Modal transparent={ false } visible={ this.state.cameraModalVisible }>
                 <Camera ref={(cam) => { this.camera = cam }} style={ Style.containerCamera }
-                    onBarCodeRead={ this.onBarCodeRead } type={ this.state.cameraType }
-                    captureTarget={ this.state.cameraTarget }>
+                    type={ this.state.cameraType } captureAudio={ false }
+                    captureTarget={ this.state.cameraTarget } >
                     <Button style={ Style.buttonClose } bordered onPress={() => {
                         this.setState({ cameraModalVisible: false })
                     }}>Fechar</Button>

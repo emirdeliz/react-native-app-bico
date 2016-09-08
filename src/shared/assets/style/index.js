@@ -7,6 +7,7 @@ const Colors = {
     GRAY     : '#808080',
     SILVER   : '#c0c0c0',
     GAINSBORO: '#dcdcdc',
+    ROYAL    : '#886aea',
 
     LIGHT    : '#858585',
     STABLE   : '#f8f8f8',
@@ -15,7 +16,6 @@ const Colors = {
     BALANCED : '#33cd5f',
     ENERGIZED: '#ffc900',
     ASSERTIVE: '#ef473a',
-    ROYAL    : '#886aea'
 }
 
 const text = {
@@ -75,15 +75,25 @@ const Commons = {
         ...icon,
         fontSize: 15
     },
+    iconInputGroup: {
+        ...icon
+    },
     textArea: {
          ...input,
          flex: 1,
          flexDirection: 'row',
          height: 80
     },
+    buttonRoundedSmall: {
+        width: 55,
+        height: 55
+    },
     buttonRoundedNormal: {
         width: 80,
         height: 80
+    },
+    inputGroup: {
+        margin: 10
     },
     disabled:  {
         opacity: 0.3
