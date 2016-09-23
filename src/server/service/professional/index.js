@@ -1,0 +1,52 @@
+import { Professional } from '../../database';
+import { MergeObjects } from '../../../imports/utils';
+
+export default class ProfessionalService {
+    findById(id) {
+        return new Promise((resolve, reject) => {
+            Professional.findById(id, (err, object) => {
+                if (err) reject(err);
+                resolve(object);
+            });
+        });
+    }
+
+    findAll() {
+        return new Promise((resolve, reject) => {
+            Professional.find((err, result) => {
+                if (err) reject(err);
+                resolve(result);
+            });
+        });
+    }
+
+    persist(object) {
+        return new Promise((resolve, reject) => {
+            let professional = new Professional();
+            professional = MergeObjects(professional, object);
+
+            professional.save((err) => {
+                if (err) reject(err);
+                resolve({ message: 'Professional created!' });
+            });
+        });
+    }
+
+    remove(id) {
+        return new Promise((resolve, reject) => {
+            Professional.remove({ _id: id }, (err) => {
+                if (err) reject(err);
+                resolve({ message: 'Successfully deleted' });
+            });
+        });
+    }
+
+    removeAll() {
+        return new Promise((resolve, reject) => {
+            Professional.remove({}, (err) => {
+                if (err) reject(err);
+                resolve({ message: 'Successfully All deleted' });
+            });
+        });
+    }
+}
