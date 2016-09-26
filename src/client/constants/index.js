@@ -8,6 +8,6 @@ export default class Server {
     }
 
     static get SERVER_REST() {
-        return `http://${this.SERVER_HOST}:${this.SERVER_PORT}/api`;
+        return `http://${this.SERVER_HOST}/api`;
     }
 }

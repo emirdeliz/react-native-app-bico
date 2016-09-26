@@ -13,8 +13,14 @@ export default class ProfessionalService {
 
     findAll() {
         return new Promise((resolve, reject) => {
+
+            console.log('--- findAll ---')
+
             Professional.find((err, result) => {
                 if (err) reject(err);
+
+                if(err)
+                    console.log(err)
                 resolve(result);
             });
         });
