@@ -1,10 +1,10 @@
 export default class Server {
     static get SERVER_HOST() {
-        return '192.168.25.6';
+        return 'app-bico.herokuapp.com';
     }
 
     static get SERVER_PORT() {
-        return '8080';
+        return 'N\A';
     }
 
     static get SERVER_REST() {
