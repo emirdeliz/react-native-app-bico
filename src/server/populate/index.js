@@ -1,14 +1,15 @@
 import ProfessionalService from '../service/professional';
 import { data as professionalMock } from '../../imports/mock/professional';
 
-const professional = () => {
+const professionalPopulate = () => {
     const promises = [];
     const professionalService = new ProfessionalService();
 
     return new Promise((resolve, reject) => {
         professionalService.removeAll().then(() => {
             console.log('Remoção concluída...');
-            professionalMock.forEach((item, i) => {
+
+            professionalMock.slice(0, 10).forEach((item, i) => {
                 console.log(`Persistindo: ${i}`);
                 promises.push(professionalService.persist(item));
             });
@@ -20,8 +21,11 @@ const professional = () => {
                     (err) => reject(err)
                 );
             });
+        }, (err) => {
+            console.log(`Error ${err}`);
+            reject(err)
         });
     });
 };
 
-export default professional;
+export default professionalPopulate;

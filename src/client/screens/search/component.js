@@ -19,23 +19,9 @@ export default class SearchComponent extends Component {
         };
     }
 
-    componentDidMount() {
-        // MOCK
-        /*
-        this.props.navigate.push({
-            name: 'professional',
-            passProps: {
-                professional: ProfissionalMock.data[0]
-            }
-        })
-        */
-    }
-
     buildRows() {
         const rows = [];
-
         this.props.professional.forEach((item, key) => {
-            console.log(item);
             rows.push(
                 <ListItem key={key} onPress={() => {
                     this.props.navigate.push({
@@ -44,8 +30,7 @@ export default class SearchComponent extends Component {
                             professional: item,
                         },
                     });
-                }} style={Style.containerItem} iconRight
-                >
+                }} style={Style.containerItem} iconRight>
                     <View style={Style.containerRow}>
                         <Thumbnail circular size={80} source={{ uri: item.picture }} />
                         <View>

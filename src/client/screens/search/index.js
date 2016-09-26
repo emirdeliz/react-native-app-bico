@@ -2,28 +2,31 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as ProfessionalMock from '../../mock/professional';
-
-import * as professionalActions from '../../actions/professional';
 import SearchComponent from './component';
+import * as ProfessionalMock from '../../mock/professional';
+import * as ProfessionalActions from '../../actions/professional';
 
-@connect(
-    state => ({ state: state.professionalReducer }),
-    dispatch => ({ actions: bindActionCreators(professionalActions, dispatch) })
-)
-
-export default class Search extends Component {
+class Search extends Component {
     static propTypes = {
-        state: PropTypes.object,
+        professional: PropTypes.array,
         actions: PropTypes.object,
+        dispatch: PropTypes.func
+    }
+
+    componentDidMount() {
+        this.props.findAll();
     }
 
     render() {
-        const { state, actions } = this.props;
-        state.map(t => console.log(t.get('text')));
+        const {professional, navigate} = this.props;
 
         return (
-            <SearchComponent professional={ProfessionalMock.data} {...actions} {...this.props} />
+            <SearchComponent navigate={navigate} professional={professional}/>
         );
     }
 }
+
+export default connect(
+    state => ({professional: state.professionalReducer.get('professional') || []}),
+    dispatch => bindActionCreators(ProfessionalActions, dispatch)
+)(Search)

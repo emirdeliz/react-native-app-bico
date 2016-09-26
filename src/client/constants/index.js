@@ -1,6 +1,6 @@
 export default class Server {
     static get SERVER_HOST() {
-        return 'localhost';
+        return '192.168.25.6';
     }
 
     static get SERVER_PORT() {
@@ -8,6 +8,6 @@ export default class Server {
     }
 
     static get SERVER_REST() {
-        return `http://${this.SERVER_HOST}:${this.SERVER_HOST}/api`;
+        return `http://${this.SERVER_HOST}:${this.SERVER_PORT}/api`;
     }
 }

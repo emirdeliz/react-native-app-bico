@@ -1,18 +1,10 @@
-import { List, Map } from 'immutable';
+import { Map, List } from 'immutable';
 
-import Constants from '../../constants';
-
-const initialState = List([
-    Map({ id: 0, isDone: true, text: 'make components' }),
-    Map({ id: 1, isDone: false, text: 'design actions' }),
-]); // Immutable.Map({ professional: [] });
+const initialState = Map();
 
 const actionsMap = {
-    findAll(state) {
-        fetch(`${Constants.SERVER_REST}/professional`)
-            .then((response) => state.set('professional', response.json()));
-
-        return [];
+    findAll(state, action) {
+        return state.set('professional', action.professional);
     },
 };
 

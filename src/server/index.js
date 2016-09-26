@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import './database';
-import { router } from './router';
+import router from './router';
 
 const port = process.env.PORT || 8080;
 const app = express();

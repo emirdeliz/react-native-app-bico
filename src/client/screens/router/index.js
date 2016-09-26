@@ -14,12 +14,7 @@ import WorkContract from '../work-contract';
 import WorkOffered from '../work-offered';
 import AccountEdit from '../account-edit';
 
-@connect(
-    state => state,
-    dispatch => ({ dispatch })
-)
-
-export default class Router extends Component {
+class Router extends Component {
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
     }
@@ -78,3 +73,8 @@ export default class Router extends Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => ({ dispatch })
+)(Router)

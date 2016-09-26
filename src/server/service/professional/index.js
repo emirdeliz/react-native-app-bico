@@ -1,5 +1,5 @@
 import { Professional } from '../../database';
-import { MergeObjects } from '../../../imports/utils';
+import MergeObjects from '../../../imports/utils';
 
 export default class ProfessionalService {
     findById(id) {
@@ -45,7 +45,7 @@ export default class ProfessionalService {
         return new Promise((resolve, reject) => {
             Professional.remove({}, (err) => {
                 if (err) reject(err);
-                resolve({ message: 'Successfully All deleted' });
+                resolve({ message: 'Successfully all deleted' });
             });
         });
     }

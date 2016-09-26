@@ -1,4 +1,4 @@
-import { ProfessionalSchema } from '../professional';
+import ProfessionalSchema from '../professional';
 
 const ChatSchema = {
     user: ProfessionalSchema,

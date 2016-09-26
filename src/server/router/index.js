@@ -1,7 +1,7 @@
 import express from 'express';
 
 import ProfessionalService from '../service/professional';
-import { professional as professionalMock } from '../populate';
+import professionalPopulate from '../populate';
 
 const router = express.Router();
 const professionalService = new ProfessionalService();
@@ -17,7 +17,7 @@ router.route('/professional').post((req, res) => {
     );
 }).get((req, res) => {
     professionalService.findAll().then(
-        (result) => res.json(result),
+        (result) => res.json({result}),
         (err) => res.send(err)
     );
 });
@@ -40,7 +40,7 @@ router.route('/professional/:professional_id').get((req, res) => {
 });
 
 router.route('/populate/professional').get((req, res) => {
-    professionalMock().then(
+    professionalPopulate().then(
         (result) => res.json(result),
         (err) => res.send(err)
     );

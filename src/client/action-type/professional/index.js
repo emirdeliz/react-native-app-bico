@@ -1,4 +1,5 @@
 const findAll = 'findAll';
 const findById = 'findById';
+const error = 'error';
 
-export { findAll, findById };
+export { findAll, findById, error };
