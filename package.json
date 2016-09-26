@@ -14,8 +14,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "cover": "nyc npm test",
-    "remotedev": "remotedev-debugger --injectserver",
-    "postinstall": "npm run link && npm run remotedev && rndebugger-open"
+    "remotedev": "remotedev-debugger --injectserver"
   },
   "remotedev": {
     "hostname": "localhost",
