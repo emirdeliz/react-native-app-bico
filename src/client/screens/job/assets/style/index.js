@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { Commons, MergeStyle } from '../../../../shared/assets/style';
+import { Commons } from '../../../../shared/assets/style';
+import { mergeObjects } from '../../../../../imports/utils';
 
 const StyleCustom = {
     containerPhotoDescription: {
@@ -29,5 +30,5 @@ const StyleCustom = {
     },
 };
 
-const Style = StyleSheet.create(MergeStyle(StyleCustom, Commons));
+const Style = StyleSheet.create(mergeObjects(StyleCustom, Commons));
 export default Style;

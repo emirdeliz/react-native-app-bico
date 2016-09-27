@@ -1,5 +1,3 @@
-import MergeObjects from '../../../../imports/utils';
-
 const Colors = {
     RED: '#b22222',
     BLUE: '#4682b4',
@@ -106,8 +104,8 @@ const Commons = {
     },
 };
 
-const MergeStyle = (target, source) => {
-    return MergeObjects(target, source);
+const mergeStyle = (target, source) => {
+    return mergeObjects(target, source);
 };
 
-export { Colors, Commons, MergeStyle };
+export { Colors, Commons };

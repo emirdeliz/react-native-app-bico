@@ -34,8 +34,7 @@ export default class Account extends Component {
                                 editable: true,
                             },
                         });
-                    }}>
-                        Editar
+                    }}>Editar
                     </Button>
                 </Header>
                 <View>

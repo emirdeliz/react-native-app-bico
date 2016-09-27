@@ -1,4 +1,16 @@
-const MergeObjects = (target, source) => {
+import NativeModules from 'NativeModules';
+
+const convertImageToBase64 = (uri) => {
+    const RNImageToBase64 = NativeModules.RNImageToBase64;
+
+    return new Promise((resolve, reject) => {
+        RNImageToBase64.getBase64String(uri, (err, base64) => {
+            resolve(base64);
+        });
+    });
+};
+
+const mergeObjects = (target, source) => {
     const isObject = (item) => {
         return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
     };
@@ -7,9 +19,8 @@ const MergeObjects = (target, source) => {
         Object.keys(source).forEach(key => {
             if (isObject(source[key])) {
                 if (!target[key]) Object.assign(target, { [key]: {} });
-                MergeObjects(target[key], source[key]);
+                mergeObjects(target[key], source[key]);
             } else {
-                // if(!target[key])
                 Object.assign(target, { [key]: source[key] });
             }
         });
@@ -18,4 +29,4 @@ const MergeObjects = (target, source) => {
     return target;
 };
 
-export default MergeObjects;
+export { mergeObjects, convertImageToBase64 };

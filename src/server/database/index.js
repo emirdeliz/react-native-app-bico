@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Account from './account';
 import Professional from './professional';
 
 try {
@@ -16,4 +17,4 @@ try {
     console.log(`Error: ${e}`);
 }
 
-export { Professional };
+export { Account, Professional };

@@ -30,7 +30,7 @@ export default class Footer extends Component {
                 <View key={index} style={(index === this.state.currentTab ? Style.tabSelected : Style.containerRow)}>
                     <Button transparent style={Style.buttonFooter} onPress={this.changeTab.bind(this, item, index)}>
                         <Icon name={item.icon} style={
-                            [Style.iconFooter, (index === this.state.currentTab ? Style.selected : {})]
+                            [Style.iconFooter, (index === this.state.currentTab ? Style.iconSelected : {})]
                         } />
                     </Button>
                 </View>

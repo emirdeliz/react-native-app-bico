@@ -5,6 +5,7 @@ import { Container, Header, Title, Button, Icon,
 
 import Camera from 'react-native-camera';
 
+import { convertImageToBase64 } from '../../../imports/utils'
 import { Colors } from '../../shared/assets/style';
 import Style from './assets/style';
 
@@ -19,10 +20,12 @@ export default class AccountEdit extends Component {
         super(props);
 
         this.camera = null;
+
         this.state = {
             cameraType: Camera.constants.Type.back,
-            cameraTarget: Camera.constants.CaptureTarget.disk,
+            cameraTarget: Camera.constants.CaptureTarget.cameraRoll,
             cameraModalVisible: false,
+            cameraProcessing: false,
 
             account: this.props.account,
         };
@@ -30,25 +33,38 @@ export default class AccountEdit extends Component {
 
     takePicture() {
         const self = this;
+        self.setState({cameraProcessing: true})
+
         this.camera.capture().then((data) => {
-            const account = self.state.account;
-            account.picture = `file://${data.path}`;
-            this.setState({ account, cameraModalVisible: false });
-        }).catch(err => console.error(err));
+            convertImageToBase64(data.path).then(
+                (result) => {
+                    let account = self.state.account;
+                    account.picture = `data:image/png;base64,${result}`;
+                    self.setState({ account, cameraModalVisible: false, cameraProcessing: false });
+                },
+                (err) => {
+                    self.setState({cameraProcessing: false})
+                    console.log(err)
+                }
+            );
+        }).catch((err) => {
+            self.setState({cameraProcessing: false})
+            console.error(err);
+        });
     }
 
     buildCameraModal() {
         return (
             <Modal transparent={false} visible={this.state.cameraModalVisible}>
                 <Camera ref={(cam) => { this.camera = cam; }} style={Style.containerCamera}
-                  type={this.state.cameraType} captureAudio={false}
-                  captureTarget={this.state.cameraTarget}
-                >
-                    <Button style={Style.buttonClose} bordered onPress={() => {
+                    type={this.state.cameraType} captureAudio={false}
+                    captureTarget={this.state.cameraTarget}>
+                <Button style={Style.buttonClose} bordered onPress={() => {
                         this.setState({ cameraModalVisible: false });
                     }}>Fechar</Button>
 
-                    <View style={Style.containerButtonCapture}>
+                <View style={[Style.containerButtonCapture,
+                        (this.state.cameraProcessing? Style.disabled:{})]}>
                         <Button rounded style={Style.buttonCapture} onPress={this.takePicture.bind(this)}>
                             <Icon name="ios-camera" />
                         </Button>

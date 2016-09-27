@@ -5,9 +5,9 @@ import { Platform } from 'react-native';
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 
-import rootSaga from '../sagas/professional'
+import rootSaga from '../sagas';
 import packageJson from '../../../package.json';
 import reducer from '../reducers';
 import * as actionCreators from '../actions';

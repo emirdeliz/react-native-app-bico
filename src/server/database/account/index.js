@@ -1,17 +1,10 @@
 import mongoose from 'mongoose';
+import AccountSchema from '../../../imports/model/account';
 
 const Schema = mongoose.Schema;
+const AccountModel = {
+    ...AccountSchema
+};
 
-const AccountSchema = new Schema({
-    name: String,
-    adress: String,
-    picture: String,
-    ddd: Number,
-    noteAveragePrice: Number,
-    noteAverageService: Number,
-    noteAverageScore: Number,
-    email: String,
-});
-
-const Account = mongoose.model('account', AccountSchema);
-export { AccountSchema, Account };
+const Account = mongoose.model('account', new Schema(AccountModel));
+export default Account;

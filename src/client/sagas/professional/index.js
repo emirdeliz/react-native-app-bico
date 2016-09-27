@@ -20,7 +20,7 @@ export function* watchFindAll() {
     }
 }
 
-export default function* rootSaga() {
+export default function* () {
     yield [
         watchFindAll()
     ]

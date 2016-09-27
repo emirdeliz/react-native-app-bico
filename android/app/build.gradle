@@ -130,6 +130,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':react-native-image-to-base64')
     compile project(':react-native-fbsdk')
     compile project(':react-native-social-auth')
     compile project(':react-native-vector-icons')

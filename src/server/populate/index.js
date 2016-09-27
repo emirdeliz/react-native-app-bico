@@ -1,5 +1,29 @@
+import AccountService from '../service/account';
+import { data as accountMock } from '../../imports/mock/account';
+
 import ProfessionalService from '../service/professional';
 import { data as professionalMock } from '../../imports/mock/professional';
+
+const accountPopulate = () => {
+    const accountService = new AccountService();
+
+    return new Promise((resolve, reject) => {
+        accountService.removeAll().then(() => {
+            console.log('Remoção concluída...');
+
+            accountService.persist(accountMock)).then(() => {
+                console.log('Persistência concluída...');
+                accountService.find().then(
+                    (result) => resolve(result),
+                    (err) => reject(err)
+                );
+            });
+        }, (err) => {
+            console.log(`Error ${err}`);
+            reject(err)
+        });
+    });
+};
 
 const professionalPopulate = () => {
     const promises = [];
@@ -28,4 +52,5 @@ const professionalPopulate = () => {
     });
 };
 
-export default professionalPopulate;
+
+export { accountPopulate professionalPopulate };

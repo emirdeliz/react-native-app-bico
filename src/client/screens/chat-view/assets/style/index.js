@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Commons } from '../../../../shared/assets/style';
+import { mergeObjects } from '../../../../../imports/utils';
 
 const StyleCustom = StyleSheet.create({
     mapView: {
@@ -10,5 +11,5 @@ const StyleCustom = StyleSheet.create({
     },
 });
 
-const Style = StyleSheet.flatten(StyleCustom, Commons);
+const Style = StyleSheet.create(mergeObjects(StyleCustom, Commons));
 export default Style;

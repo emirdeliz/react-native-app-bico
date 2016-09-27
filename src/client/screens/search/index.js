@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import SearchComponent from './component';
-import * as ProfessionalMock from '../../mock/professional';
 import * as ProfessionalActions from '../../actions/professional';
 
 class Search extends Component {

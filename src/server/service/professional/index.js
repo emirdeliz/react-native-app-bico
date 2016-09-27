@@ -1,5 +1,5 @@
 import { Professional } from '../../database';
-import MergeObjects from '../../../imports/utils';
+import { mergeObjects } from '../../../imports/utils';
 
 export default class ProfessionalService {
     findById(id) {
@@ -23,7 +23,7 @@ export default class ProfessionalService {
     persist(object) {
         return new Promise((resolve, reject) => {
             let professional = new Professional();
-            professional = MergeObjects(professional, object);
+            professional = mergeObjects(professional, object);
 
             professional.save((err) => {
                 if (err) reject(err);

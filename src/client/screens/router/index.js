@@ -53,7 +53,7 @@ class Router extends Component {
             return <WorkOffered navigate={navigate} {...route.passProps} />;
 
         case 'account-edit':
-            return <AccountEdit navigate={navigate} {...route.passProps} />;
+            return <AccountEdit navigate={navigate} {...route.passProps} editable={false}/>;
 
         case 'login':
             return <Login navigate={navigate} {...route.passProps} />;
