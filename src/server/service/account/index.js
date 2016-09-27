@@ -6,7 +6,7 @@ export default class AccountService {
         return new Promise((resolve, reject) => {
             Account.find((err, result) => {
                 if (err) reject(err);
-                resolve(result);
+                resolve((result && result.length > 0)? result[0]: {});
             });
         });
     }

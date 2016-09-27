@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Container, Header, View, Text, Content, Button,
     Icon, InputGroup, Input, List, ListItem, Thumbnail } from 'native-base';
 
-import * as FilterMock from '../../mock/filter';
-import Style from './assets/style';
+import * as FilterMock from '../../../mock/filter';
+import Style from '../assets/style';
 
 export default class SearchComponent extends Component {
     static propTypes = {

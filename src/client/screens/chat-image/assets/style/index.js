@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { Commons } from '../../../../shared/assets/style';
-import { mergeObjects } from '../../../../../imports/utils';
+import mergeObjects from '../../../../../imports/utils';
 
 const StyleCustom = StyleSheet.create({
     buttonClose: {

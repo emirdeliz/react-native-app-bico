@@ -1,4 +1,4 @@
 const find = 'find';
-const error = 'error';
+const persist = 'persist';
 
-export { find, error };
+export { find, persist };

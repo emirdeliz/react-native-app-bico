@@ -7,3 +7,5 @@ export const findAll = () => (
 export const findById = () => (
     { type: Action.findById }
 );
+
+export { findAll, findById }

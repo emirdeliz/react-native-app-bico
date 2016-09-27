@@ -4,8 +4,9 @@ const initialState = Map();
 
 const actionsMap = {
     find(state, action) {
+        console.log(action)
         return state.set('account', action.account);
-    },
+    }
 };
 
 export default (state = initialState, action) => {
