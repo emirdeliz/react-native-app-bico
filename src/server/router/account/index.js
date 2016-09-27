@@ -1,14 +1,14 @@
-import AccountService from '../service/account';
-import accountPopulate from '../populate';
+import AccountService from '../../service/account';
+import accountPopulate from '../../populate';
 
-class AccountRouter() {
+class AccountRouter {
     constructor(router) {
         this.initialize(router);
     }
 
     initialize(router) {
         const accountService = new AccountService();
-        
+
         router.route('/account').post((req, res) => {
             accountService.persist(req.body).then(
                 (result) => res.json(result),
@@ -16,7 +16,7 @@ class AccountRouter() {
             );
         }).get((req, res) => {
             accountService.find().then(
-                (result) => res.json({result}),
+                (result) => res.json({ result }),
                 (err) => res.send(err)
             );
         });

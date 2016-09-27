@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const ProfessionalModel = {
     ...ProfessionalSchema,
     typeJob: [TypeJobSchema],
-    job: [JobSchema]
+    job: [JobSchema],
 };
 
 const Professional = mongoose.model('professional', new Schema(ProfessionalModel));

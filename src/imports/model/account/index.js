@@ -6,4 +6,4 @@ const AccountSchema = {
     email: String,
 };
 
-export default ProfessionalSchema;
+export default AccountSchema;

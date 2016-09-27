@@ -186,5 +186,5 @@ const data = [
 
 export {
     data, professional1, professional2, professional3, professional4, professional5,
-    professional6, professional7, professional8, professional9, professional10
+    professional6, professional7, professional8, professional9, professional10,
 };

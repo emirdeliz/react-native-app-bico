@@ -104,8 +104,4 @@ const Commons = {
     },
 };
 
-const mergeStyle = (target, source) => {
-    return mergeObjects(target, source);
-};
-
 export { Colors, Commons };

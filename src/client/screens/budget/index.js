@@ -96,7 +96,8 @@ export default class Budget extends Component {
             <Modal transparent={false} visible={this.state.cameraModalVisible}>
                 <Camera ref={(cam) => { this.camera = cam; }} style={Style.containerCamera}
                   type={this.state.cameraType} captureAudio={false}
-                  captureTarget={this.state.cameraTarget}>
+                  captureTarget={this.state.cameraTarget}
+                >
                     <Button style={Style.buttonClose} bordered onPress={() => {
                         this.setState({ cameraModalVisible: false });
                     }}>Fechar</Button>

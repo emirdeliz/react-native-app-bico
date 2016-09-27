@@ -9,7 +9,9 @@ class Search extends Component {
     static propTypes = {
         professional: PropTypes.array,
         actions: PropTypes.object,
-        dispatch: PropTypes.func
+        navigate: PropTypes.object,
+        dispatch: PropTypes.func,
+        findAll: PropTypes.func,
     }
 
     componentDidMount() {
@@ -17,15 +19,15 @@ class Search extends Component {
     }
 
     render() {
-        const {professional, navigate} = this.props;
+        const { professional, navigate } = this.props;
 
         return (
-            <SearchComponent navigate={navigate} professional={professional}/>
+            <SearchComponent navigate={navigate} professional={professional} />
         );
     }
 }
 
 export default connect(
-    state => ({professional: state.professionalReducer.get('professional') || []}),
+    state => ({ professional: state.professionalReducer.get('professional') || [] }),
     dispatch => bindActionCreators(ProfessionalActions, dispatch)
-)(Search)
+)(Search);

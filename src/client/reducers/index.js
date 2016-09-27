@@ -7,5 +7,5 @@ import routesReducer from './routes';
 export default combineReducers({
     professionalReducer,
     accountReducer,
-    routesReducer
+    routesReducer,
 });

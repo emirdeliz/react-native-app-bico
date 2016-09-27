@@ -1,3 +1,4 @@
+import * as AccountApi from './account';
 import * as ProfessionalApi from './professional';
 
-export { ProfessionalApi }
+export { AccountApi, ProfessionalApi };

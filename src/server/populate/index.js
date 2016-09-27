@@ -11,7 +11,7 @@ const accountPopulate = () => {
         accountService.removeAll().then(() => {
             console.log('Remoção concluída...');
 
-            accountService.persist(accountMock)).then(() => {
+            accountService.persist(accountMock).then(() => {
                 console.log('Persistência concluída...');
                 accountService.find().then(
                     (result) => resolve(result),
@@ -20,7 +20,7 @@ const accountPopulate = () => {
             });
         }, (err) => {
             console.log(`Error ${err}`);
-            reject(err)
+            reject(err);
         });
     });
 };
@@ -47,10 +47,10 @@ const professionalPopulate = () => {
             });
         }, (err) => {
             console.log(`Error ${err}`);
-            reject(err)
+            reject(err);
         });
     });
 };
 
 
-export { accountPopulate professionalPopulate };
+export { accountPopulate, professionalPopulate };

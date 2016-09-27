@@ -4,7 +4,7 @@ export default class Server {
     }
 
     static get SERVER_PORT() {
-        return 'N\A';
+        return 'N-A';
     }
 
     static get SERVER_REST() {

@@ -30,7 +30,8 @@ export default class SearchComponent extends Component {
                             professional: item,
                         },
                     });
-                }} style={Style.containerItem} iconRight>
+                }} style={Style.containerItem} iconRight
+                >
                     <View style={Style.containerRow}>
                         <Thumbnail circular size={80} source={{ uri: item.picture }} />
                         <View>

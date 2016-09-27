@@ -1,16 +1,14 @@
-import express from 'express';
+import ProfessionalService from '../../service/professional';
+import professionalPopulate from '../../populate';
 
-import ProfessionalService from '../service/professional';
-import professionalPopulate from '../populate';
-
-class ProfessionalRouter() {
+class ProfessionalRouter {
     constructor(router) {
         this.initialize(router);
     }
 
     initialize(router) {
         const professionalService = new ProfessionalService();
-        
+
         router.route('/professional').post((req, res) => {
             professionalService.persist(req.body).then(
                 (result) => res.json(result),
@@ -18,7 +16,7 @@ class ProfessionalRouter() {
             );
         }).get((req, res) => {
             professionalService.findAll().then(
-                (result) => res.json({result}),
+                (result) => res.json({ result }),
                 (err) => res.send(err)
             );
         });
@@ -49,4 +47,4 @@ class ProfessionalRouter() {
     }
 }
 
-export default router;
+export default ProfessionalRouter;
