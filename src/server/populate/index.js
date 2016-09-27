@@ -1,7 +1,5 @@
-import AccountService from '../service/account';
-import { data as accountMock } from '../../imports/mock/account';
-
-import ProfessionalService from '../service/professional';
+import { AccountService, ProfessionalService } from '../service';
+import { account as accountMock } from '../../imports/mock/account';
 import { data as professionalMock } from '../../imports/mock/professional';
 
 const accountPopulate = () => {
@@ -10,7 +8,7 @@ const accountPopulate = () => {
     return new Promise((resolve, reject) => {
         accountService.removeAll().then(() => {
             console.log('Remoção concluída...');
-
+            
             accountService.persist(accountMock).then(() => {
                 console.log('Persistência concluída...');
                 accountService.find().then(

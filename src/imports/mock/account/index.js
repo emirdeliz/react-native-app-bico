@@ -6,4 +6,8 @@ const account = {
     email: 'john.snow@gmail.com',
 };
 
-export default account;
+const data = [
+    account,
+];
+
+export { data, account };

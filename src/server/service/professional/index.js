@@ -1,5 +1,5 @@
 import { Professional } from '../../database';
-import { mergeObjects } from '../../../imports/utils';
+import mergeObjects from '../../../imports/utils';
 
 export default class ProfessionalService {
     findById(id) {

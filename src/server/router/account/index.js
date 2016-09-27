@@ -1,5 +1,5 @@
 import AccountService from '../../service/account';
-import accountPopulate from '../../populate';
+import { accountPopulate } from '../../populate';
 
 class AccountRouter {
     constructor(router) {

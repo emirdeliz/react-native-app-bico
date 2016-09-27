@@ -1,5 +1,5 @@
 import { Account } from '../../database';
-import { mergeObjects } from '../../../imports/utils';
+import mergeObjects from '../../../imports/utils';
 
 export default class AccountService {
     find() {
@@ -19,6 +19,15 @@ export default class AccountService {
             account.save((err) => {
                 if (err) reject(err);
                 resolve({ message: 'Account created!' });
+            });
+        });
+    }
+
+    removeAll() {
+        return new Promise((resolve, reject) => {
+            Account.remove({}, (err) => {
+                if (err) reject(err);
+                resolve({ message: 'Successfully all deleted' });
             });
         });
     }
