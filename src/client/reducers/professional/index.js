@@ -7,7 +7,7 @@ const actionsMap = {
         if(action.result && action.result.errmsg)
             return state.set('error', action.result.errmsg);
         else
-            return state.set('professional', action.result);
+            return state.set('result', action.result);
     },
 };
 

@@ -33,21 +33,24 @@ export default class AccountEditComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('---------------------')
-        console.log(nextProps.error)
-        console.log(nextProps.result)
-
         if(nextProps.error) {
             Alert.alert(
                 'Erro ao salvar',
-                this.props.error
+                nextProps.error
             )
-        } else if(nextProps.result) {
-            if (this.props.editable) this.props.navigate.pop();
-            else this.props.navigate.push({
-                name: 'home',
+        } else if(nextProps.account) {
+            if (this.props.editable) {
+                this.props.navigate.replacePreviousAndPop({name: 'home'}, {
+                    passProps: {
+                        account: nextProps.account
+                    }}
+                );
+            } else this.props.navigate.push({
+                name: 'home'
             });
         }
+
+        return true;
     }
 
     takePicture() {

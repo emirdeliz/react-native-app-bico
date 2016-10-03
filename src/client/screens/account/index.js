@@ -14,13 +14,14 @@ class Account extends Component {
         find: PropTypes.func,
     }
 
-    componentDidMount() {
-        this.props.find();
+    componentWillMount() {
+        if(!this.props.account._id)
+            this.props.find();
     }
 
     render() {
-        const { account, navigate } = this.props;
-        const props = { account, navigate };
+        const { account, navigate, pending } = this.props;
+        const props = { account, navigate, pending };
 
         return (
             <AccountComponent {...props}/>
@@ -29,6 +30,8 @@ class Account extends Component {
 }
 
 export default connect(
-    state => ({ account: state.accountReducer.get('account') || {} }),
+    state => ({
+        account: state.accountReducer.get('result') || {}
+    }),
     dispatch => bindActionCreators(AccountActions, dispatch)
 )(Account);

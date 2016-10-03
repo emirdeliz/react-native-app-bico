@@ -28,6 +28,6 @@ class Search extends Component {
 }
 
 export default connect(
-    state => ({ professional: state.professionalReducer.get('professional') || [] }),
+    state => ({ professional: state.professionalReducer.get('result') || [] }),
     dispatch => bindActionCreators(ProfessionalActions, dispatch)
 )(Search);

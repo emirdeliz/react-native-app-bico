@@ -1,7 +1,7 @@
 export default class Server {
     static get SERVER_HOST() {
-        //return 'app-bico.herokuapp.com';
-        return 'localhost:8080';
+        return 'app-bico.herokuapp.com';
+        //return 'localhost:8080';
     }
 
     static get SERVER_PORT() {

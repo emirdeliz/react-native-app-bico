@@ -8,7 +8,6 @@ export function* find() {
     try {
         const result = yield call(AccountApi.find);
         yield put({ type: actionTypeAccount.find, result });
-
     } catch (error) {
         console.log(`Saga error: ${error}`);
     }

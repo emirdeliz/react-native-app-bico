@@ -7,16 +7,16 @@ import * as AccountActions from '../../actions/account';
 
 class AccountEdit extends Component {
     static propTypes = {
-        actions: PropTypes.object,
+        account: PropTypes.object,
         navigate: PropTypes.object,
-        dispatch: PropTypes.func,
+        editable: PropTypes.bool,
         persist: PropTypes.func,
-        editable: PropTypes.bool
+        dispatch: PropTypes.string
     }
 
     render() {
-        const { account, navigate, editable, persist, error, result } = this.props;
-        const props = { account, navigate, editable, persist, error, result };
+        const { account, navigate, editable, persist, error } = this.props;
+        const props = { account, navigate, editable, persist, error };
 
         return (
             <AccountEditComponent {...props}/>
@@ -25,9 +25,9 @@ class AccountEdit extends Component {
 }
 
 export default connect(
-    state => (
-        { error: state.accountReducer.get('error') || '' },
-        { result: state.accountReducer.get('result')}
-    ),
+    state => ({
+        error: state.accountReducer.get('error'),
+        account: state.accountReducer.get('result')
+    }),
     dispatch => bindActionCreators(AccountActions, dispatch)
 )(AccountEdit);

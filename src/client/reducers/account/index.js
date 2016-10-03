@@ -7,13 +7,13 @@ const actionsMap = {
         if(action.result && action.result.errmsg)
             return state.set('error', action.result.errmsg);
         else
-            return state.set('account', action.result);
+            return state.set('result', action.result);
     },
     persist(state, action) {
         if(action.result && action.result.errmsg)
             return state.set('error', action.result.errmsg);
         else
-            return state.set('account', action.result);
+            return state.set('result', action.result);
     }
 };
 
