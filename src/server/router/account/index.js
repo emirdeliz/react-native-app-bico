@@ -11,7 +11,7 @@ class AccountRouter {
 
         router.route('/account').post((req, res) => {
             accountService.persist(req.body).then(
-                (result) => res.json(result),
+                (result) => res.json({ result }),
                 (err) => res.send(err)
             );
         }).get((req, res) => {
@@ -23,7 +23,7 @@ class AccountRouter {
 
         router.route('/populate/account').get((req, res) => {
             accountPopulate().then(
-                (result) => res.json(result),
+                (result) => res.json({ result }),
                 (err) => res.send(err)
             );
         });

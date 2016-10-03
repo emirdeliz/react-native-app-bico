@@ -4,22 +4,34 @@ import mergeObjects from '../../../imports/utils';
 export default class AccountService {
     find() {
         return new Promise((resolve, reject) => {
-            Account.find((err, result) => {
+            Account.findOne((err, result) => {
                 if (err) reject(err);
-                resolve((result && result.length > 0)? result[0]: {});
+                resolve(result);
             });
         });
     }
 
     persist(object) {
         return new Promise((resolve, reject) => {
-            let account = new Account();
-            account = mergeObjects(account, object);
+            const id = object._id;
+            const isUpdate = (id);
 
-            account.save((err) => {
-                if (err) reject(err);
-                resolve(account);
-            });
+            if(isUpdate) {
+                Account.findOne({'_id': id}, (err, objectDb) => {
+                    let account = mergeObjects(objectDb, object);
+                    account.save((err) => {
+                        if (err) reject(err);
+                            resolve(account);
+                    });
+                });
+            } else {
+                let account = new Account();
+                account = mergeObjects(account, object);
+                account.save((err) => {
+                    if (err) reject(err);
+                        resolve(account);
+                });
+            }
         });
     }
 

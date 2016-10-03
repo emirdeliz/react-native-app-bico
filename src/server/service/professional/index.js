@@ -4,7 +4,7 @@ import mergeObjects from '../../../imports/utils';
 export default class ProfessionalService {
     findById(id) {
         return new Promise((resolve, reject) => {
-            Professional.findById(id, (err, object) => {
+            Professional.find({'_id': ObjectId(id)}, (err, object) => {
                 if (err) reject(err);
                 resolve(object);
             });

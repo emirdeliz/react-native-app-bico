@@ -11,7 +11,7 @@ class ProfessionalRouter {
 
         router.route('/professional').post((req, res) => {
             professionalService.persist(req.body).then(
-                (result) => res.json(result),
+                (result) => res.json({ result }),
                 (err) => res.send(err)
             );
         }).get((req, res) => {
@@ -40,7 +40,7 @@ class ProfessionalRouter {
 
         router.route('/populate/professional').get((req, res) => {
             professionalPopulate().then(
-                (result) => res.json(result),
+                (result) => res.json({ result }),
                 (err) => res.send(err)
             );
         });
