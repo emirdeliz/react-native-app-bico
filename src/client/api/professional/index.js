@@ -5,7 +5,7 @@ const url = `${Constants.SERVER_REST}/professional`;
 const findAll = () => {
     return fetch(url).then((response) => {
         return response.json().then((json) => {
-            return json;
+            return json.result;
         });
     });
 };
@@ -13,7 +13,7 @@ const findAll = () => {
 const persist = () => {
     return fetch(url).then((response) => {
         return response.json().then((json) => {
-            return json;
+            return json.result;
         });
     });
 };
