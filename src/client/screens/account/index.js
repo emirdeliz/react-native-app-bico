@@ -8,6 +8,7 @@ import * as AccountActions from '../../actions/account';
 class Account extends Component {
     static propTypes = {
         actions: PropTypes.object,
+        account: PropTypes.object,
         navigate: PropTypes.object,
         dispatch: PropTypes.func,
         find: PropTypes.func,
@@ -19,19 +20,15 @@ class Account extends Component {
 
     render() {
         const { account, navigate } = this.props;
-
-        //console.log(account)
+        const props = { account, navigate };
 
         return (
-            <AccountComponent navigate={navigate} />
+            <AccountComponent {...props}/>
         );
     }
 }
 
 export default connect(
-    state = (state) => {
-        console.log('>> ' + state.accountReducer.get('account'))
-        return ({ account: state.accountReducer.get('account') || {} })
-    },
+    state => ({ account: state.accountReducer.get('account') || {} }),
     dispatch => bindActionCreators(AccountActions, dispatch)
 )(Account);

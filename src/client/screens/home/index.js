@@ -5,6 +5,7 @@ import Account from '../account';
 import Contact from '../contact';
 import Search from '../search';
 import Footer from '../../shared/footer';
+import Loading from  '../../shared/loading';
 
 import Style from './assets/style';
 
@@ -94,6 +95,7 @@ export default class Home extends Component {
 
         return (
             <View style={Style.containerColumn}>
+                <Loading />
                 <View style={Style.content}>
                     { this.buildContent() }
                 </View>

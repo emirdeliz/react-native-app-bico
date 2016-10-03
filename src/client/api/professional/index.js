@@ -1,17 +1,19 @@
 import Constants from '../../constants';
 
+const url = `${Constants.SERVER_REST}/professional`;
+
 const findAll = () => {
-    return fetch(`${Constants.SERVER_REST}/professional`).then((response) => {
+    return fetch(url).then((response) => {
         return response.json().then((json) => {
-            return json.result;
+            return json;
         });
     });
 };
 
 const persist = () => {
-    return fetch(`${Constants.SERVER_REST}/professional`).then((response) => {
+    return fetch(url).then((response) => {
         return response.json().then((json) => {
-            return json.result;
+            return json;
         });
     });
 };

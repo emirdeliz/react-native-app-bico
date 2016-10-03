@@ -94,7 +94,7 @@ export default class Budget extends Component {
     buildCameraModal() {
         return (
             <Modal transparent={false} visible={this.state.cameraModalVisible}>
-                <Camera ref={(cam) => { this.camera = cam; }} style={Style.containerCamera}
+                <Camera ref={(cam) => this.camera = cam} style={Style.containerCamera}
                   type={this.state.cameraType} captureAudio={false}
                   captureTarget={this.state.cameraTarget}
                 >

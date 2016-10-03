@@ -4,8 +4,16 @@ const initialState = Map();
 
 const actionsMap = {
     find(state, action) {
-        console.log(action)
-        return state.set('account', action.account);
+        if(action.result && action.result.errmsg)
+            return state.set('error', action.result.errmsg);
+        else
+            return state.set('account', action.result);
+    },
+    persist(state, action) {
+        if(action.result && action.result.errmsg)
+            return state.set('error', action.result.errmsg);
+        else
+            return state.set('account', action.result);
     }
 };
 

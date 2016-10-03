@@ -18,7 +18,7 @@ export default class AccountService {
 
             account.save((err) => {
                 if (err) reject(err);
-                resolve({ message: 'Account created!' });
+                resolve(account);
             });
         });
     }

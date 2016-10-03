@@ -2,22 +2,21 @@ import React, { Component, PropTypes } from 'react';
 import { Container, Header, Title, Button, Icon,
     View, Text, List, ListItem, Thumbnail } from 'native-base';
 
-import * as AccountMock from '../../../mock/account';
-
 import { Colors } from '../../../shared/assets/style';
 import Style from '../assets/style';
 
 export default class AccountComponent extends Component {
     static propTypes = {
         navigate: PropTypes.object,
+        account: PropTypes.object,
+        loading: PropTypes.bool,
     }
 
     constructor(props) {
         super(props);
 
         this.state = {
-            account: AccountMock.default,
-            editable: false,
+            editable: false
         };
     }
 
@@ -25,12 +24,13 @@ export default class AccountComponent extends Component {
         return (
             <Container>
                 <Header style={Style.toolbar}>
+                    <Button transparent><Text/></Button>
                     <Title style={Style.textToolbar}>Minha conta</Title>
                     <Button textStyle={{ color: Colors.WHITE }} transparent onPress={() => {
                         this.props.navigate.push({
                             name: 'account-edit',
                             passProps: {
-                                account: this.state.account,
+                                account: this.props.account,
                                 editable: true,
                             },
                         });
@@ -39,10 +39,10 @@ export default class AccountComponent extends Component {
                 </Header>
                 <View>
                     <View style={Style.containerPhoto}>
-                        <Thumbnail circular source={{ uri: this.state.account.picture }} size={100} />
-                        <Text style={[Style.textNormal, Style.textToolbar]}>{ this.state.account.name }</Text>
+                        <Thumbnail circular source={{ uri: this.props.account.picture }} size={100} />
+                        <Text style={[Style.textNormal, Style.textToolbar]}>{ this.props.account.name }</Text>
                         <Text style={[Style.textSmall, Style.textToolbar]}>
-                            DDD { `${this.state.account.ddd} - ${this.state.account.adress}` }
+                            DDD { `${this.props.account.ddd} - ${this.props.account.adress}` }
                         </Text>
                     </View>
                     <List>

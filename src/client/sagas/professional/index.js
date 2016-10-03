@@ -1,23 +1,24 @@
 import { call, put, take } from 'redux-saga/effects';
 
 import { ProfessionalApi } from '../../api';
-import * as actionType from '../../action-type/professional';
+import * as actionTypeProfessional from '../../action-type/professional';
+import * as actionTypeLoading from '../../action-type/loading';
 
 export function* findAll() {
     try {
-        const professional = yield call(ProfessionalApi.findAll);
-        yield put({ type: actionType.findAll, professional });
+        const result = yield call(ProfessionalApi.findAll);
+        yield put({ type: actionTypeProfessional.findAll, result });
     } catch (error) {
         console.log(`Saga error: ${error}`);
-        yield put({ type: actionType.error, error });
     }
+    yield put({ type: actionTypeLoading.default, meta: { loading: false } });
 }
 
 export function* watchFindAll() {
     const watch = true;
 
     while (watch) {
-        yield take(actionType.findAll);
+        yield take(actionTypeProfessional.findAll);
         yield call(findAll);
     }
 }

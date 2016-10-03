@@ -4,7 +4,10 @@ const initialState = Map();
 
 const actionsMap = {
     findAll(state, action) {
-        return state.set('professional', action.professional);
+        if(action.result && action.result.errmsg)
+            return state.set('error', action.result.errmsg);
+        else
+            return state.set('professional', action.result);
     },
 };
 

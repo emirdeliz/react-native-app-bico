@@ -10,25 +10,24 @@ class AccountEdit extends Component {
         actions: PropTypes.object,
         navigate: PropTypes.object,
         dispatch: PropTypes.func,
-        find: PropTypes.func,
-    }
-
-    componentDidMount() {
-        this.props.find();
+        persist: PropTypes.func,
+        editable: PropTypes.bool
     }
 
     render() {
-        const { professional, navigate } = this.props;
-
-        console.log(account)
+        const { account, navigate, editable, persist, error, result } = this.props;
+        const props = { account, navigate, editable, persist, error, result };
 
         return (
-            <AccountEditComponent navigate={navigate} />
+            <AccountEditComponent {...props}/>
         );
     }
 }
 
 export default connect(
-    state => ({ account: state.accountReducer.get('account') || [] }),
+    state => (
+        { error: state.accountReducer.get('error') || '' },
+        { result: state.accountReducer.get('result')}
+    ),
     dispatch => bindActionCreators(AccountActions, dispatch)
 )(AccountEdit);

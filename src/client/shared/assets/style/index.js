@@ -8,6 +8,7 @@ const Colors = {
     SILVER: '#c0c0c0',
     GAINSBORO: '#dcdcdc',
     ROYAL: '#886aea',
+    TRANSPARENT: 'transparent',
 
     LIGHT: '#858585',
     STABLE: '#f8f8f8',

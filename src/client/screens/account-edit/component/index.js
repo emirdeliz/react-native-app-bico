@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Modal } from 'react-native';
+import { Modal, Alert } from 'react-native';
 import { Container, Header, Title, Button, Icon,
-    View, List, ListItem, Input, InputGroup, Thumbnail } from 'native-base';
+    View, List, ListItem, Input, InputGroup, Thumbnail, Text } from 'native-base';
 
 import Camera from 'react-native-camera';
 
@@ -13,7 +13,8 @@ export default class AccountEditComponent extends Component {
     static propTypes = {
         account: PropTypes.object,
         navigate: PropTypes.object,
-        editable: PropTypes.boolean,
+        editable: PropTypes.bool,
+        error: PropTypes.string
     }
 
     constructor(props) {
@@ -29,6 +30,24 @@ export default class AccountEditComponent extends Component {
 
             account: this.props.account,
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('---------------------')
+        console.log(nextProps.error)
+        console.log(nextProps.result)
+
+        if(nextProps.error) {
+            Alert.alert(
+                'Erro ao salvar',
+                this.props.error
+            )
+        } else if(nextProps.result) {
+            if (this.props.editable) this.props.navigate.pop();
+            else this.props.navigate.push({
+                name: 'home',
+            });
+        }
     }
 
     takePicture() {
@@ -56,13 +75,16 @@ export default class AccountEditComponent extends Component {
         });
     }
 
+    persist() {
+        this.props.persist(this.state.account);
+    }
+
     buildCameraModal() {
         return (
             <Modal transparent={false} visible={this.state.cameraModalVisible}>
                 <Camera ref={(cam) => { this.camera = cam; }} style={Style.containerCamera}
                   type={this.state.cameraType} captureAudio={false}
-                  captureTarget={this.state.cameraTarget}
-                >
+                  captureTarget={this.state.cameraTarget}>
                     <Button style={Style.buttonClose} bordered onPress={() => {
                         this.setState({ cameraModalVisible: false });
                     }}>Fechar</Button>
@@ -82,10 +104,11 @@ export default class AccountEditComponent extends Component {
         return (
             <Container>
                 <Header style={Style.toolbar}>
+                    <Button transparent><Text/></Button>
+                    <Title style={Style.textToolbar}>Editar conta</Title>
                     <Button textStyle={{ color: Colors.WHITE }} transparent onPress={() => this.props.navigate.pop()}>
                         Cancelar
                     </Button>
-                    <Title style={Style.textToolbar}>Editar conta</Title>
                 </Header>
                 <View>
                     <View style={Style.containerPhoto}>
@@ -102,11 +125,11 @@ export default class AccountEditComponent extends Component {
                         <ListItem>
                             <InputGroup>
                                 <Input inlineLabel label="E-MAIL" value={this.state.account.email}
-                                  onChangeText={(value) => {
-                                      const account = this.state.account;
-                                      account.email = value;
-                                      this.setState({ account });
-                                  }
+                                    onChangeText={(value) => {
+                                        const account = this.state.account;
+                                        account.email = value;
+                                        this.setState({ account });
+                                    }
                                 }
                                 />
                             </InputGroup>
@@ -114,11 +137,11 @@ export default class AccountEditComponent extends Component {
                         <ListItem>
                             <InputGroup>
                                 <Input inlineLabel label="NOME" value={this.state.account.name}
-                                  onChangeText={(value) => {
-                                      const account = this.state.account;
-                                      account.name = value;
-                                      this.setState({ account });
-                                  }
+                                    onChangeText={(value) => {
+                                        const account = this.state.account;
+                                        account.name = value;
+                                        this.setState({ account });
+                                    }
                                 }
                                 />
                             </InputGroup>
@@ -126,24 +149,17 @@ export default class AccountEditComponent extends Component {
                         <ListItem>
                             <InputGroup>
                                 <Input stackedLabel label="ENDEREÇO" value={this.state.account.adress}
-                                  onChangeText={(value) => {
-                                      const account = this.state.account;
-                                      account.adress = value;
-                                      this.setState({ account });
-                                  }
-                                }
-                                />
+                                    onChangeText={(value) => {
+                                        const account = this.state.account;
+                                        account.adress = value;
+                                        this.setState({ account });
+                                    }
+                                }/>
                             </InputGroup>
                         </ListItem>
                     </List>
                     <View style={Style.containerSave}>
-                        <Button block onPress={() => {
-                            if (this.props.editable)
-                                this.props.navigate.pop();
-                            else this.props.navigate.push({
-                                name: 'home',
-                            });
-                        }}>
+                        <Button block onPress={this.persist.bind(this)}>
                             Salvar
                         </Button>
                     </View>

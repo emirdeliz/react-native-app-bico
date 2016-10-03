@@ -14,7 +14,7 @@ const StyleCustom = {
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        backgroundColor: 'transparent',
+        backgroundColor: Colors.TRANSPARENT,
     },
     buttonClose: {
         position: 'absolute',
