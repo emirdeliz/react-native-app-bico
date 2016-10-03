@@ -12,6 +12,7 @@
     "lint": "eslint src test *.js --fix",
     "test": "jest",
     "server": "node node_modules/babel-cli/bin/babel-node.js src/server",
+    "restart-server": "lsof -nti:8080 | xargs kill -9 & npm run start",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "cover": "nyc npm test",
