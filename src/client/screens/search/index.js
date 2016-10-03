@@ -20,9 +20,6 @@ class Search extends Component {
 
     render() {
         const { professional, navigate } = this.props;
-
-        console.log(professional);
-
         return (
             <SearchComponent navigate={navigate} professional={professional} />
         );
