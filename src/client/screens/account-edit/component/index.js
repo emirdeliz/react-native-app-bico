@@ -14,7 +14,7 @@ export default class AccountEditComponent extends Component {
         account: PropTypes.object,
         navigate: PropTypes.object,
         editable: PropTypes.bool,
-        error: PropTypes.string
+        error: PropTypes.string,
     }
 
     constructor(props) {
@@ -27,6 +27,7 @@ export default class AccountEditComponent extends Component {
             cameraTarget: Camera.constants.CaptureTarget.cameraRoll,
             cameraModalVisible: false,
             cameraProcessing: false,
+            captureQuality: Camera.constants.CaptureQuality.low,
 
             account: this.props.account,
         };
@@ -87,7 +88,7 @@ export default class AccountEditComponent extends Component {
             <Modal transparent={false} visible={this.state.cameraModalVisible}>
                 <Camera ref={(cam) => { this.camera = cam; }} style={Style.containerCamera}
                   type={this.state.cameraType} captureAudio={false}
-                  captureTarget={this.state.cameraTarget}>
+                  captureTarget={this.state.cameraTarget} captureQuality={this.state.captureQuality}>
                     <Button style={Style.buttonClose} bordered onPress={() => {
                         this.setState({ cameraModalVisible: false });
                     }}>Fechar</Button>

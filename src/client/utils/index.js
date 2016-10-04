@@ -10,4 +10,7 @@ const convertImageToBase64 = (uri) => {
     });
 };
 
-export default convertImageToBase64;
+const imageResize = (uri, dimension) => {
+}
+
+export { convertImageToBase64, imageResize };
