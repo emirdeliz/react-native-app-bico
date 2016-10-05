@@ -38,7 +38,7 @@ class ProfessionalRouter {
             );
         });
 
-        router.route('/populate/professional').get((req, res) => {
+        router.route('/professional/populate').get((req, res) => {
             professionalPopulate().then(
                 (result) => res.json({ result }),
                 (err) => res.send(err)
