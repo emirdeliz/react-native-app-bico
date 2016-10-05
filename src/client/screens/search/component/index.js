@@ -15,7 +15,7 @@ export default class SearchComponent extends Component {
         super(props);
 
         this.state = {
-            categoryFilter: null,
+            categoryFilter: [],
         };
     }
 
@@ -77,7 +77,7 @@ export default class SearchComponent extends Component {
                             name: 'filter',
                             passProps: {
                                 selectedFilter: (item) => this.setState({ categoryFilter: item }),
-                                filter: FilterMock.data,
+                                filter: FilterMock.default,
                             },
                         }); }}>
                         <Icon style={Style.iconFilter} name="ios-list" />

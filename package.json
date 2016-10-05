@@ -10,7 +10,7 @@
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
     "link": "node node_modules/react-native/local-cli/cli.js link",
     "lint": "eslint src test *.js --fix",
-    "test": "node node_modules/jest-cli/bin/jest.js",
+    "test": "node node_modules/jest-cli/bin/jest.js src/client/__tests__/index.js",
     "server": "node node_modules/babel-cli/bin/babel-node.js src/server",
     "restart-server": "lsof -nti:8080 | xargs kill -9 & npm run start",
     "test:watch": "jest --watch",
