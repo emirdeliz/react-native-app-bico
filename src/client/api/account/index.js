@@ -1,39 +1,27 @@
 import Constants from '../../constants';
 
-const urlBase = `${Constants.SERVER_REST}/account`;
+const url = `${Constants.SERVER_REST}/account`;
 
 const find = () => {
-    return fetch(urlBase).then((response) => {
+    return fetch(url).then((response) => {
         return response.json().then((json) => {
             return json.result;
         });
-    }, (err) => {
-        console.log(err);
     });
 };
 
 const persist = (object) => {
-    return fetch(urlBase, {
+    return fetch(url, {
         method: 'POST',
         body: JSON.stringify(object),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        headers: new Headers({
+		    'Content-Type': 'application/json'
+        })
     }).then((response) => {
         return response.json().then((json) => {
-            return json.result;
+            return json;
         });
     });
 };
 
-const populate = () => {
-    return fetch(`${urlBase}/populate`).then((response) => {
-        return response.json().then((json) => {
-            return json.result;
-        });
-    }, (err) => {
-        console.log(err);
-    });
-};
-
-export { find, persist, populate };
+export { find, persist };

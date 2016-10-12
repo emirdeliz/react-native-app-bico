@@ -41,7 +41,11 @@ export default class AccountEditComponent extends Component {
             )
         } else if(nextProps.account) {
             if (this.props.editable) {
-                this.props.navigate.pop();
+                this.props.navigate.replacePreviousAndPop({name: 'home'}, {
+                    passProps: {
+                        account: nextProps.account
+                    }}
+                );
             } else this.props.navigate.push({
                 name: 'home'
             });
