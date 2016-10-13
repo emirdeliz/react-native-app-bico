@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
   "presets": ["react-native"],
+=======
+  "presets": ["react-native", "stage-3"],
+>>>>>>> parent of 21f8a7a... Include teste api account
   "plugins": ["transform-decorators-legacy"]
 }
