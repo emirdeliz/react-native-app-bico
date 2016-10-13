@@ -17,3 +17,5 @@ const AppBico = () => (
 );
 
 AppRegistry.registerComponent('AppBico', () => AppBico);
+
+export default AppBico;

@@ -6,6 +6,7 @@ import { Container, Header, Title, Thumbnail, Content,
 import Swiper from 'react-native-swiper';
 import Camera from 'react-native-camera';
 
+import { convertImageToBase64 } from '../../utils';
 import RecordAudio from '../../shared/record-audio';
 import Style from './assets/style';
 
@@ -20,7 +21,9 @@ export default class Budget extends Component {
         this.camera = null;
         this.state = {
             cameraType: Camera.constants.Type.back,
-            cameraTarget: Camera.constants.CaptureTarget.disk,
+            cameraTarget: Camera.constants.CaptureTarget.cameraRoll,
+            captureQuality: Camera.constants.CaptureQuality.low,
+            cameraProcessing: false,
             cameraModalVisible: false,
 
             imageModalVisible: false,
@@ -35,20 +38,28 @@ export default class Budget extends Component {
     }
 
     takePicture() {
+        if (this.state.cameraProcessing)
+            return;
+
         const self = this;
+        self.setState({ cameraProcessing: true });
 
         this.camera.capture().then((data) => {
-            const images = self.state.images;
-            images.push({
-                isStatic: true,
-                uri: `file://${data.path}`,
-            });
-
-            self.setState({
-                images,
-                cameraModalVisible: false,
-            });
-        }).catch(err => console.error(err));
+            convertImageToBase64(data.path).then(
+                (result) => {
+                    const account = self.state.account;
+                    account.picture = `data:image/png;base64,${result}`;
+                    self.setState({ account, cameraModalVisible: false, cameraProcessing: false });
+                },
+                (err) => {
+                    self.setState({ cameraProcessing: false });
+                    console.log(err);
+                }
+            );
+        }).catch((err) => {
+            self.setState({ cameraProcessing: false });
+            console.error(err);
+        });
     }
 
     buildPhotos() {
@@ -96,7 +107,7 @@ export default class Budget extends Component {
             <Modal transparent={false} visible={this.state.cameraModalVisible}>
                 <Camera ref={(cam) => this.camera = cam} style={Style.containerCamera}
                   type={this.state.cameraType} captureAudio={false}
-                  captureTarget={this.state.cameraTarget}
+                  captureTarget={this.state.cameraTarget} captureQuality={this.state.captureQuality}
                 >
                     <Button style={Style.buttonClose} bordered onPress={() => {
                         this.setState({ cameraModalVisible: false });

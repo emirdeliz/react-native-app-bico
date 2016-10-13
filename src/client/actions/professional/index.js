@@ -1,10 +1,10 @@
 import * as Action from '../../action-type/professional';
 
-export const findAll = () => (
+const findAll = () => (
     { type: Action.findAll }
 );
 
-export const findById = () => (
+const findById = () => (
     { type: Action.findById }
 );
 
