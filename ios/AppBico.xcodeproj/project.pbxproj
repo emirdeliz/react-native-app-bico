@@ -63,6 +63,13 @@
 			remoteGlobalIDString = E7E77AF21D911ED5004B91C7;
 			remoteInfo = RNImageToBase64;
 		};
+		00672BDF1DA4246800ED397E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F41C7477244BC39831393C /* RCTImageResizer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D72D2E81C16249000E22EC1;
+			remoteInfo = RCTImageResizer;
+		};
 		00AAE4AB1D6FAFEF005AFAFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00AAE4A71D6FAFEF005AFAFC /* RCTCameraRoll.xcodeproj */;
@@ -199,6 +206,7 @@
 		00E356EE1AD99517003FC87E /* AppBicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppBicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AppBicoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppBicoTests.m; sourceTree = "<group>"; };
+		00F41C7477244BC39831393C /* RCTImageResizer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTImageResizer.xcodeproj; path = "../node_modules/react-native-image-resizer/ios/RCTImageResizer.xcodeproj"; sourceTree = "<group>"; };
 		0A311FADBFAE420B810D58F9 /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAudio.a; sourceTree = "<group>"; };
 		0EFC6D3EE7214DBB8235CDAA /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -288,6 +296,14 @@
 			isa = PBXGroup;
 			children = (
 				0031EAD11D99D1D800C66840 /* libRNImageToBase64.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00672BD61DA4246800ED397E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00672BE01DA4246800ED397E /* libRCTImageResizer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -473,6 +489,7 @@
 				F938191C29CF48C0855F04F0 /* RNVectorIcons.xcodeproj */,
 				D1B8F35CEC1F42BDA64FA35A /* RCTFBSDK.xcodeproj */,
 				C8ECB40E44164E6FB8B37778 /* RNImageToBase64.xcodeproj */,
+				00F41C7477244BC39831393C /* RCTImageResizer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -629,6 +646,10 @@
 					ProjectRef = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
 				},
 				{
+					ProductGroup = 00672BD61DA4246800ED397E /* Products */;
+					ProjectRef = 00F41C7477244BC39831393C /* RCTImageResizer.xcodeproj */;
+				},
+				{
 					ProductGroup = 78C398B11ACF4ADC00677621 /* Products */;
 					ProjectRef = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
 				},
@@ -687,6 +708,13 @@
 			fileType = archive.ar;
 			path = libRNImageToBase64.a;
 			remoteRef = 0031EAD01D99D1D800C66840 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00672BE01DA4246800ED397E /* libRCTImageResizer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTImageResizer.a;
+			remoteRef = 00672BDF1DA4246800ED397E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		00AAE4AC1D6FAFEF005AFAFC /* libRCTCameraRoll.a */ = {
