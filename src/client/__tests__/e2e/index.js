@@ -12,6 +12,4 @@ global.React = React;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
 */
 
-console.log('HALAM')
-
 import './account';

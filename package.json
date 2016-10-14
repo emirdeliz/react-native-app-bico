@@ -85,6 +85,13 @@
         "sinon": "^1.17.2"
     },
     "jest": {
+        "globals": {
+            "__DEV__": true
+        },
+        "scriptPreprocessor": "./node_modules/babel-jest",
+        "preprocessorIgnorePatterns": [
+            "/node_modules/(?!react-native|native-base|react)"
+        ],
         "preset": "jest-react-native"
     }
 }
