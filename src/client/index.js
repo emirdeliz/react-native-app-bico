@@ -9,11 +9,11 @@ import configureStore from './store';
 const store = configureStore();
 
 const AppBico = () => (
-    <FormattedWrapper locale="pt" currency="R$">
-        <Provider store={store}>
-            <Router />
-        </Provider>
-    </FormattedWrapper>
+  <FormattedWrapper locale="pt" currency="R$">
+    <Provider store={store}>
+      <Router />
+    </Provider>
+  </FormattedWrapper>
 );
 
 AppRegistry.registerComponent('AppBico', () => AppBico);

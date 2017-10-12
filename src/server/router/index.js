@@ -6,7 +6,7 @@ import ProfessionalRouter from './professional';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.json({ message: 'hooray! welcome to our api!' });
+  res.json({ message: 'hooray! welcome to our api!' });
 });
 
 new AccountRouter(router);

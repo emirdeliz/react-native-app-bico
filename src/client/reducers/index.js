@@ -6,8 +6,8 @@ import accountReducer from './account';
 import routesReducer from './routes';
 
 export default combineReducers({
-    loadingReducer,
-    professionalReducer,
-    accountReducer,
-    routesReducer,
+  loadingReducer,
+  professionalReducer,
+  accountReducer,
+  routesReducer,
 });

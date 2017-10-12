@@ -1,92 +1,112 @@
-import React, { Component, PropTypes } from 'react';
-import { Container, Header, Title, Content,
-    Button, Icon, List, ListItem, InputGroup, Input } from 'native-base';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Button,
+  Icon,
+  List,
+  ListItem,
+  InputGroup,
+  Input,
+} from 'native-base';
 import { View, Text } from 'react-native';
 
 import Rating from '../../shared/rating';
 import Style from './assets/style';
 
 export default class Evaluation extends Component {
-    static propTypes = {
-        navigate: PropTypes.object,
-        job: PropTypes.object,
-    }
-    constructor(props) {
-        super(props);
+  static propTypes = {
+    navigate: PropTypes.object.isRequired,
+    job: PropTypes.object,
+  };
 
-        this.state = {
-            notePrice: 0,
-            noteService: 0,
-            noteScore: 0,
-        };
-    }
+  static defaultProps = {
+    job: {},
+  }
 
-    buildRating() {
-        const items = [
-            { icon: 'logo-usd', description: 'PREÇO', value: this.state.notePrice },
-            { icon: 'ios-pricetag', description: 'QUALIDADE', value: this.state.noteService },
-            { icon: 'ios-timer', description: 'PRAZO', value: this.state.noteScore },
-        ];
+  constructor(props) {
+    super(props);
 
-        const rows = [];
+    this.state = {
+      notePrice: 0,
+      noteService: 0,
+      noteScore: 0,
+    };
+  }
 
-        items.forEach((item, i) => {
-            rows.push(
-                <ListItem iconLeft key={i}>
-                    <View>
-                        <View style={Style.containerRow}>
-                            <Icon style={Style.iconRating} name={item.icon} />
-                            <Text style={Style.descriptionItem}>{ item.description }</Text>
-                        </View>
-                        <Rating editable score={item.value} />
-                    </View>
-                </ListItem>
-            );
-        });
+  buildRating() {
+    const items = [
+      { icon: 'logo-usd', description: 'PREÇO', value: this.state.notePrice },
+      { icon: 'ios-pricetag', description: 'QUALIDADE', value: this.state.noteService },
+      { icon: 'ios-timer', description: 'PRAZO', value: this.state.noteScore },
+    ];
 
-        return (
-            <List>
-                <ListItem itemDivider>
-                    <Text>Notas</Text>
-                </ListItem>
-                { rows }
-                <ListItem>
-                    <InputGroup>
-                        <Input stackedLabel placeholder="OBSERVAÇÕES" />
-                    </InputGroup>
-                </ListItem>
-            </List>
-        );
-    }
+    const rows = [];
 
-    sendRating() {
-        this.props.navigate.pop();
-    }
+    items.forEach((item, index) => {
+      const key = index;
+      rows.push((
+        <ListItem iconLeft key={key}>
+          <View>
+            <View style={Style.containerRow}>
+              <Icon style={Style.iconRating} name={item.icon} />
+              <Text style={Style.descriptionItem}>{item.description}</Text>
+            </View>
+            <Rating editable score={item.value} />
+          </View>
+        </ListItem>
+      ));
+    });
 
-    render() {
-        return (
-            <Container>
-                <Header>
-                    <Button transparent onPress={() => this.props.navigate.pop()}>
-                        <Icon name="ios-arrow-back" />
-                    </Button>
-                    <Title>Avaliação Serviço</Title>
-                </Header>
-                <Content>
-                    <List>
-                        <ListItem itemDivider>
-                            <Text>Descrição</Text>
-                        </ListItem>
-                    </List>
-                    <View>
-                        <Text style={Style.descriptionJob}>{ this.props.job.description }</Text>
-                    </View>
-                    { this.buildRating() }
-                    <View style={Style.containerSend}>
-                        <Button block onPress={this.sendRating.bind(this)}> Enviar </Button>
-                    </View>
-                </Content>
-            </Container>
-        );
-    }
+    return (
+      <List>
+        <ListItem itemDivider>
+          <Text>Notas</Text>
+        </ListItem>
+        {rows}
+        <ListItem>
+          <InputGroup>
+            <Input stackedLabel placeholder="OBSERVAÇÕES" />
+          </InputGroup>
+        </ListItem>
+      </List>
+    );
+  }
+
+  sendRating() {
+    this.props.navigate.pop();
+  }
+
+  render() {
+    return (
+      <Container>
+        <Header>
+          <Button transparent onPress={() => this.props.navigate.pop()}>
+            <Icon name="ios-arrow-back" />
+          </Button>
+          <Title>Avaliação Serviço</Title>
+        </Header>
+        <Content>
+          <List>
+            <ListItem itemDivider>
+              <Text>Descrição</Text>
+            </ListItem>
+          </List>
+          <View>
+            <Text style={Style.descriptionJob}>{this.props.job.description}</Text>
+          </View>
+          {this.buildRating()}
+          <View style={Style.containerSend}>
+            <Button block onPress={this.sendRating.bind(this)}>
+              {' '}
+              Enviar{' '}
+            </Button>
+          </View>
+        </Content>
+      </Container>
+    );
+  }
 }

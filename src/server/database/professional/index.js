@@ -3,11 +3,11 @@ import JobSchema from '../../../imports/model/job';
 import TypeJobSchema from '../../../imports/model/type-job';
 import ProfessionalSchema from '../../../imports/model/professional';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 const ProfessionalModel = {
-    ...ProfessionalSchema,
-    typeJob: [TypeJobSchema],
-    job: [JobSchema],
+  ...ProfessionalSchema,
+  typeJob: [TypeJobSchema],
+  job: [JobSchema],
 };
 
 const Professional = mongoose.model('professional', new Schema(ProfessionalModel));

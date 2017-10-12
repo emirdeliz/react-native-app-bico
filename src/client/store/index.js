@@ -3,7 +3,7 @@ import installDevTools from 'immutable-devtools';
 import remoteReduxDevtools from 'remote-redux-devtools';
 import { Platform } from 'react-native';
 
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import loadingMiddleware from '../middleware/loading';
@@ -21,33 +21,33 @@ let enhancer;
 let updateStore = f => f;
 
 if (__DEV__) {
-    installDevTools(Immutable);
-    updateStore = devTools.updateStore || updateStore;
+  installDevTools(Immutable);
+  updateStore = devTools.updateStore || updateStore;
 
-    enhancer = compose(
-        applyMiddleware(...middlewares),
-        devTools({
-            name: Platform.OS,
-            actionCreators,
-            ...packageJson.remotedev,
-        })
-    );
+  enhancer = compose(
+    applyMiddleware(...middlewares),
+    devTools({
+      name: Platform.OS,
+      actionCreators,
+      ...packageJson.remotedev,
+    }),
+  );
 } else {
-    enhancer = applyMiddleware(...middlewares);
+  enhancer = applyMiddleware(...middlewares);
 }
 
 const configureStore = (initialState) => {
-    const store = createStore(reducer, initialState, enhancer);
+  const store = createStore(reducer, initialState, enhancer);
 
-    sagaMiddleware.run(rootSaga);
-    updateStore(store);
+  sagaMiddleware.run(rootSaga);
+  updateStore(store);
 
-    if (module.hot) {
-        module.hot.accept(() => {
-            store.replaceReducer(reducer.default);
-        });
-    }
-    return store;
+  if (module.hot) {
+    module.hot.accept(() => {
+      store.replaceReducer(reducer.default);
+    });
+  }
+  return store;
 };
 
 export default configureStore;

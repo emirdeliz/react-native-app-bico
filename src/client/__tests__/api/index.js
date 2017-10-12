@@ -1,3 +1,6 @@
+/* eslint no-undef: 0 */
+/* eslint import/first: 0 */
+
 import { expect } from 'chai';
 import fetch from 'isomorphic-fetch';
 

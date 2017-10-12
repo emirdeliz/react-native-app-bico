@@ -1,9 +1,7 @@
-//import server from '../../helpers/server';
+// import server from '../../helpers/server';
 
-import Account from '../../../screens/account';
+// import Account from '../../../screens/account';
 
-describe("<Account />", () => {
-    it('renders correctly', () => {
-
-    });
+describe('<Account />', () => {
+  it('renders correctly', () => {});
 });

@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.json({ limit: '50mb' }));
 
 app.get('/', (req, res) => {
-    res.write('<p>Hello World</p>');
-    res.end();
+  res.write('<p>Hello World</p>');
+  res.end();
 });
 
 app.use('/api', router);

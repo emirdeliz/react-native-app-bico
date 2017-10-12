@@ -1,23 +1,23 @@
-import React, { Component, PropTypes } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import LoadingComponent from './component';
 
 class Loading extends Component {
-    static propTypes = {
-        pending: PropTypes.number
-    }
+  static propTypes = {
+    done: PropTypes.bool,
+  };
 
-    render() {
-        const loading = (!this.props.done? <LoadingComponent/>: <View/>)
-        return (
-            loading
-        );
-    }
+  static defaultProps = {
+    done: true,
+  };
+
+  render() {
+    const loading = !this.props.done ? <LoadingComponent /> : <View />;
+    return loading;
+  }
 }
 
-export default connect(
-    state => ({ done: state.loadingReducer.done })
-)(Loading);
+export default connect(state => ({ done: state.loadingReducer.done }))(Loading);

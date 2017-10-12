@@ -1,6 +1,6 @@
 const ImageSchema = {
-    path: String,
-    description: String,
+  path: String,
+  description: String,
 };
 
 export default ImageSchema;
