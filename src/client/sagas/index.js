@@ -3,6 +3,8 @@ import account from './account';
 
 export { professional, account };
 
-export default function* rootSaga() {
+const root = function * root () {
   yield [professional(), account()];
-}
+};
+
+export default root;

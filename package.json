@@ -1,58 +1,7 @@
 {
-  "name": "AppBico",
-  "version": "0.9.0",
+  "name": "app-bico",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "npm run server",
-    "run-cli": "node node_modules/react-native/local-cli/cli.js start",
-    "ios-open": "open ios/*.xcodeproj",
-    "ios": "node node_modules/react-native/local-cli/cli.js run-ios --simulator 'iPhone 5'",
-    "android": "node node_modules/react-native/local-cli/cli.js run-android",
-    "link": "node node_modules/react-native/local-cli/cli.js link",
-    "lint": "eslint src test *.js --fix",
-    "test-api": "node node_modules/jest-cli/bin/jest.js src/client/__tests__/api/index.js",
-    "test-e2e": "node node_modules/jest-cli/bin/jest.js src/client/__tests__/e2e/index.js",
-    "test": "npm run test-api && npm run test-e2e",
-    "server": "node node_modules/babel-cli/bin/babel-node.js src/server",
-    "restart-server": "lsof -nti:8080 | xargs kill -9 & npm run start",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "cover": "nyc npm test",
-    "remotedev": "remotedev-debugger --injectserver",
-    "upgrade": "ncu -u && npm install",
-    "check:libs": "ncu"
-  },
-  "remotedev": {
-    "hostname": "localhost",
-    "port": 5678
-  },
-  "dependencies": {
-    "body-parser": "~1.18.2",
-    "express": "~4.16.1",
-    "immutable": "^4.0.0-rc.4",
-    "immutable-devtools": "0.0.7",
-    "mongoose": "^4.6.1",
-    "native-base": "^2.3.2",
-    "react": "^16.0.0",
-    "react-native": "^0.48.4",
-    "react-native-audio": "^3.2.2",
-    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera",
-    "react-native-camera-roll-picker": "^1.1.7",
-    "react-native-fbsdk": "^0.6.0",
-    "react-native-gifted-chat": "0.2.8",
-    "react-native-globalize": "^1.2.2",
-    "react-native-image-to-base64": "^0.1.0",
-    "react-native-simple-auth": "^2.1.0",
-    "react-native-swipeout": "git+https://github.com/dancormier/react-native-swipeout",
-    "react-native-swiper": "^1.4.9",
-    "react-native-vector-icons": "^4.4.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.5.2",
-    "redux-saga": "^0.15.6",
-    "redux-thunk": "^2.1.0",
-    "remote-redux-devtools": "^0.5.12",
-    "remote-redux-devtools-on-debugger": "^0.8.2"
-  },
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-core": "^6.5.2",
@@ -61,7 +10,7 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react-native": "^4.0.0",
+    "babel-preset-react-native": "3.0.2",
     "babel-preset-stage-1": "^6.5.0",
     "chai": "^4.1.2",
     "enzyme": "^3.0.0",
@@ -73,6 +22,7 @@
     "eslint-plugin-react-native": "^3.1.0",
     "isomorphic-fetch": "^2.2.1",
     "jest-cli": "^21.2.1",
+    "jest-expo": "^22.0.0",
     "jest-react-native": "^18.0.0",
     "jsdom": "^11.2.0",
     "mocha": "^4.0.1",
@@ -84,16 +34,49 @@
     "react-dom": "~16.0.0",
     "react-native-debugger-open": "^0.3.0",
     "react-native-mock": "^0.3.1",
-    "sinon": "^4.0.0"
+    "react-native-scripts": "1.5.0",
+    "react-test-renderer": "16.0.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "upgrade": "ncu -u && npm install",
+    "check:libs": "ncu"
   },
   "jest": {
-    "globals": {
-      "__DEV__": true
-    },
-    "scriptPreprocessor": "./node_modules/babel-jest",
-    "preprocessorIgnorePatterns": [
-      "/node_modules/(?!react-native|native-base|react)"
-    ],
-    "preset": "jest-react-native"
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "expo": "^22.0.0",
+    "express": "~4.16.1",
+    "immutable": "^4.0.0-rc.4",
+    "immutable-devtools": "0.0.7",
+    "mongoose": "^4.6.1",
+    "native-base": "^2.3.2",
+    "react": "16.0.0",
+    "react-native": "^0.49.3",
+    "react-native-audio": "^3.2.2",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera",
+    "react-native-camera-roll-picker": "^1.1.7",
+    "react-native-fbsdk": "^0.6.0",
+    "react-native-gifted-chat": "0.2.9",
+    "react-native-globalize": "^1.2.2",
+    "react-native-image-to-base64": "^0.1.0",
+    "react-native-simple-auth": "^2.1.0",
+    "react-native-swipeout": "git+https://github.com/dancormier/react-native-swipeout",
+    "react-native-swiper": "^1.4.9",
+    "react-native-vector-icons": "^4.4.0",
+    "react-navigation": "^1.0.0-beta.15",
+    "react-redux": "^5.0.6",
+    "redux": "^3.5.2",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.1.0",
+    "remote-redux-devtools": "^0.5.12",
+    "remote-redux-devtools-on-debugger": "^0.8.2"
   }
 }

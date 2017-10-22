@@ -1,4 +1,24 @@
 {
-  "name": "AppBico",
-  "displayName": "AppBico"
+  "expo": {
+    "name": "app-bico",
+    "description": "An empty new project",
+    "slug": "app-bico",
+    "privacy": "public",
+    "sdkVersion": "22.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
 }

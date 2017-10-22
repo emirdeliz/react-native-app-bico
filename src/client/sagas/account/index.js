@@ -4,7 +4,7 @@ import { AccountApi } from '../../api';
 import * as actionTypeAccount from '../../action-type/account';
 import * as actionTypeLoading from '../../action-type/loading';
 
-export function* find() {
+const find = function* find() {
   try {
     const result = yield call(AccountApi.find);
     yield put({ type: actionTypeAccount.find, result });
@@ -13,9 +13,9 @@ export function* find() {
   }
 
   yield put({ type: actionTypeLoading.default, meta: { loading: false } });
-}
+};
 
-export function* persist(object) {
+const persist = function* persist(object) {
   try {
     const result = yield call(AccountApi.persist, object);
     yield put({ type: actionTypeAccount.persist, result });
@@ -23,26 +23,28 @@ export function* persist(object) {
     console.log(`Saga error: ${error}`);
   }
   yield put({ type: actionTypeLoading.default, meta: { loading: false } });
-}
+};
 
-export function* watchfind() {
+const watchfind = function* watchfind() {
   const watch = true;
 
   while (watch) {
     yield take(actionTypeAccount.find);
     yield call(find);
   }
-}
+};
 
-export function* watchPersist() {
+const watchPersist = function* watchPersist() {
   const watch = true;
 
   while (watch) {
     const { account } = yield take(actionTypeAccount.persist);
     yield call(persist, account);
   }
-}
+};
 
-export default function* () {
+const root = function* root() {
   yield [watchfind(), watchPersist()];
-}
+};
+
+export default root;

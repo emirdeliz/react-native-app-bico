@@ -94,7 +94,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.appbico"
+        applicationId "com.app-bico"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -135,7 +135,6 @@ android {
 dependencies {
     compile project(':react-native-vector-icons')
     compile project(':react-native-image-to-base64')
-    compile project(':react-native-icons')
     compile project(':react-native-fbsdk')
     compile project(':react-native-camera')
     compile project(':react-native-audio')

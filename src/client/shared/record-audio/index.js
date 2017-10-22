@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Icon, View, Text } from 'native-base';
-import { AudioRecorder, AudioUtils } from 'react-native-audio';
+// import { AudioRecorder, AudioUtils } from 'react-native-audio';
 
 import Style from './assets/style';
 
@@ -17,45 +17,68 @@ export default class RecordAudio extends Component {
   }
 
   componentDidMount() {
-    const audioPath = `${AudioUtils.DocumentDirectoryPath}/record-bico.aac`;
+    this.checkPermission().then((hasPermission) => {
+      /*
+      const audioPath = `${AudioUtils.DocumentDirectoryPath}/record-bico.aac`;
 
-    AudioRecorder.prepareRecordingAtPath(audioPath, {
-      SampleRate: 22050,
-      Channels: 1,
-      AudioQuality: 'Medium',
-      AudioEncoding: 'aac',
+      AudioRecorder.prepareRecordingAtPath(audioPath, {
+        SampleRate: 22050,
+        Channels: 1,
+        AudioQuality: 'Medium',
+        AudioEncoding: 'aac',
+      });
+
+      AudioRecorder.onProgress = (data) => {
+        this.setState({ currentTime: data.currentTime });
+
+        if (this.state.recording)
+          this.setState({ recordTime: data.currentTime });
+        else if ((data.currentTime + 0.001) >= this.state.recordTime)
+          this.play(false);
+      };
+
+      AudioRecorder.onFinished = (data) => {
+        this.setState({ fileRecord: data.audioFileURL });
+      };
+      */
     });
+  }
 
-    AudioRecorder.onProgress = (data) => {
-      this.setState({ currentTime: data.currentTime });
+  checkPermission() {
+    if (Platform.OS !== 'android') {
+      return Promise.resolve(true);
+    }
 
-      if (this.state.recording)
-        this.setState({ recordTime: data.currentTime });
-      else if ((data.currentTime + 0.001) >= this.state.recordTime)
-        this.play(false);
+    const rationale = {
+      'title': 'Microphone Permission',
+      'message': 'AudioExample needs access to your microphone so you can record audio.'
     };
 
-    AudioRecorder.onFinished = (data) => {
-      this.setState({ fileRecord: data.audioFileURL });
-    };
+    return PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO, rationale)
+      .then((result) => {
+        console.log('Permission result:', result);
+        return (result === true || result === PermissionsAndroid.RESULTS.GRANTED);
+      });
   }
 
   record(isRecording) {
     this.setState({ recording: isRecording, currentTime: 0 });
 
-    if (isRecording)
-      AudioRecorder.startRecording();
-    else
-      AudioRecorder.stopRecording();
+    if (isRecording) {
+      // AudioRecorder.startRecording();
+    } else {
+      // AudioRecorder.stopRecording();
+    }
   }
 
   play(isPlaying) {
     this.setState({ playing: isPlaying, currentTime: 0 });
 
-    if (isPlaying)
-      AudioRecorder.playRecording();
-    else
-      AudioRecorder.stopPlaying();
+    if (isPlaying) {
+      // AudioRecorder.playRecording();
+    } else {
+      // AudioRecorder.stopPlaying();
+    }
   }
 
   formatTime(totalSeconds) {
