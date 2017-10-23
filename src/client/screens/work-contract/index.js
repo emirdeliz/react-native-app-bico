@@ -23,7 +23,7 @@ import Style from './assets/style';
 
 export default class WorkContract extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -72,11 +72,13 @@ export default class WorkContract extends Component {
                       normal
                       iconLeft
                       bordered
-                      onPress={() =>
-                          this.props.navigate.push({
-                            name: 'chat',
-                            passProps: { sender: item.professional },
-                          })}
+                      onPress={() => {
+                        const { navigate } = this.props.navigation;
+                        navigate.push({
+                          name: 'chat',
+                          passProps: { sender: item.professional },
+                        });
+                      }}
                     >
                       <Icon name="ios-chatbubbles" />
                     </Button>
@@ -91,7 +93,8 @@ export default class WorkContract extends Component {
                       disabled={!executed}
                       onPress={() => {
                           if (executed) {
-                            this.props.navigate.push({
+                            const { navigate } = this.props.navigation;
+                            navigate.push({
                               name: 'evaluation',
                               passProps: { job: item },
                             });

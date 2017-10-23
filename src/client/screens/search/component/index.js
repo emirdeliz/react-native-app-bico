@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {
   Container,
   Header,
+  Body,
+  Right,
   View,
   Text,
   Content,
@@ -20,7 +22,7 @@ import Style from '../assets/style';
 
 export default class SearchComponent extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     professional: PropTypes.array,
   };
 
@@ -36,7 +38,8 @@ export default class SearchComponent extends Component {
         <ListItem
           key={key}
           onPress={() => {
-              this.props.navigate.push({
+              const { navigate } = this.props.navigation;
+              navigate.push({
                 name: 'professional',
                 passProps: {
                   professional: item,
@@ -81,22 +84,27 @@ export default class SearchComponent extends Component {
     return (
       <Container>
         <Header style={Style.header} searchBar rounded>
-          <InputGroup>
-            <Input placeholder="Buscar" style={Style.inputSearch} />
-          </InputGroup>
-          <Button
-            transparent
-            onPress={() => {
-              this.props.navigate.push({
-                name: 'filter',
-                passProps: {
-                  filter: FilterMock.default,
-                },
-              });
-            }}
-          >
-            <Icon style={Style.iconFilter} name="ios-list" />
-          </Button>
+          <Body>
+            <InputGroup>
+              <Input placeholder="Buscar" style={Style.inputSearch} />
+            </InputGroup>
+          </Body>
+          <Right>
+            <Button
+              transparent
+              onPress={() => {
+                const { navigate } = this.props.navigation;
+                navigate({
+                  name: 'filter',
+                  passProps: {
+                    filter: FilterMock.default,
+                  },
+                });
+              }}
+            >
+              <Icon style={Style.iconFilter} name="ios-list" />
+            </Button>
+          </Right>
         </Header>
         <Content>{this.buildRows()}</Content>
       </Container>

@@ -23,7 +23,7 @@ import Style from './assets/style';
 
 export default class Provider extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -68,11 +68,13 @@ export default class Provider extends Component {
                     info
                     normal
                     iconLeft
-                    onPress={() =>
-                        this.props.navigate.push({
-                          name: 'chat',
-                          passProps: { professional: item.professional },
-                        })}
+                    onPress={() => {
+                      const { navigate } = this.props.navigation;
+                      navigate.push({
+                        name: 'chat',
+                        passProps: { professional: item.professional },
+                      });
+                    }}
                   >
                     <Icon name="ios-chatbubbles" />
                   </Button>
@@ -82,11 +84,13 @@ export default class Provider extends Component {
                     iconLeft
                     success
                     style={Style.buttonEvaluate}
-                    onPress={() =>
-                      this.props.navigate.push({
+                    onPress={() => {
+                      const { navigate } = this.props.navigation;
+                      navigate.push({
                         name: 'evaluation',
                         passProps: { job: item },
-                      })}
+                      });
+                    }}
                   >
                     <Icon name="ios-ribbon" />
                   </Button>
@@ -117,13 +121,22 @@ export default class Provider extends Component {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate.pop()}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>Contratados</Title>
           <Button
             transparent
-            onPress={() => this.props.navigate.pop()}
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
           >
             {this.state.editable ? 'OK' : 'Editar'}
           </Button>

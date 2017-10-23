@@ -26,14 +26,11 @@ class AppBico extends Component {
   }
 
   render() {
-    if (!this.state.isReady) {
-      return <Expo.AppLoading />;
-    }
-
+    const { isReady } = this.state;
     return (
       <FormattedWrapper locale="pt" currency="R$">
         <Provider store={store}>
-          <Router />
+          { isReady ? <Router /> : <Expo.AppLoading /> }
         </Provider>
       </FormattedWrapper>
     );

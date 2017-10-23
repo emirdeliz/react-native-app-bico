@@ -20,7 +20,7 @@ export default class Home extends Component {
   // https://facebook.github.io/react-native/docs/view.html
 
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -32,13 +32,14 @@ export default class Home extends Component {
 
   componentDidMount() {
     /*
-        this.props.navigate.push({
-            name: 'login',
-            passProps: {
-                navigate: this.props.navigate
-            }
-        })
-        */
+    const { navigate } = this.props.navigation;
+    navigate.push({
+      name: 'login',
+      passProps: {
+          navigate: this.props.navigate
+      }
+    })
+    */
   }
 
   onChangeTab(item) {
@@ -48,18 +49,21 @@ export default class Home extends Component {
   }
 
   buildContent() {
-    switch (this.state.currentPage) {
+    const { navigation } = this.props;
+    const { currentPage } = this.state;
+
+    switch (currentPage) {
       case 'search':
-        return <Search navigate={this.props.navigate} />;
+        return <Search navigation={navigation} />;
 
       case 'account':
-        return <Account navigate={this.props.navigate} />;
+        return <Account navigation={navigation} />;
 
       //  case 'clients':
-      //      return <Clients navigate={ this.props.navigate }/>
+      //    return <Clients navigation={navigation}/>
 
       case 'chat':
-        return <Contact navigate={this.props.navigate} />;
+        return <Contact navigation={navigation} />;
 
       default:
         break;
@@ -72,24 +76,25 @@ export default class Home extends Component {
         desc: 'Buscar',
         icon: 'ios-search',
         page: 'search',
-      },
-      {
+      }, {
         desc: 'Minha Conta',
         icon: 'ios-create',
         page: 'account',
-      },
-      /*
-            {
-                desc: 'Cliente',
-                icon: 'ios-archive',
-                page: 'clients'
-            },
-            */ {
+      }, /* {
+          desc: 'Cliente',
+          icon: 'ios-archive',
+          page: 'clients'
+      }, */ {
         desc: 'Chat',
         icon: 'ios-chatboxes',
         page: 'chat',
       },
     ];
+
+    const style = {
+      borderColor: '#000',
+      borderWidth: 3,
+    };
 
     return (
       <View style={Style.containerColumn}>

@@ -25,7 +25,7 @@ import Style from '../assets/style';
 export default class AccountEditComponent extends Component {
   static propTypes = {
     persist: PropTypes.func.isRequired,
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     account: PropTypes.object,
     editable: PropTypes.bool,
     error: PropTypes.string,
@@ -58,11 +58,14 @@ export default class AccountEditComponent extends Component {
       Alert.alert('Erro ao salvar', nextProps.error);
     } else if (nextProps.account) {
       if (this.props.editable) {
-        this.props.navigate.pop();
-      } else
-        this.props.navigate.push({
+        const { navigate } = this.props.navigation;
+        navigate.pop();
+      } else {
+        const { navigate } = this.props.navigation;
+        navigate.push({
           name: 'home',
         });
+      }
     }
 
     return true;

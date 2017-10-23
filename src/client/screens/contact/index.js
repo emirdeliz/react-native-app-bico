@@ -22,7 +22,7 @@ import * as ContactMock from '../../mock/contact';
 
 export default class Contact extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -58,14 +58,15 @@ export default class Contact extends Component {
             <TouchableOpacity
               style={Style.containerRow}
               onPress={() => {
-                  this.props.navigate.push({
-                    name: 'chat',
-                    passProps: {
-                      messages: item.messages,
-                      sender: item.sender,
-                    },
-                  });
-                }}
+                const { navigate } = this.props.navigation;
+                navigate.push({
+                  name: 'chat',
+                  passProps: {
+                    messages: item.messages,
+                    sender: item.sender,
+                  },
+                });
+              }}
             >
               <Thumbnail circular size={80} source={{ uri: item.sender.picture }} />
               <View style={Style.containerDescription}>

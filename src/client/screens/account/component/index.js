@@ -18,7 +18,7 @@ import Style from '../assets/style';
 
 export default class AccountComponent extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     account: PropTypes.object,
   };
 
@@ -38,7 +38,8 @@ export default class AccountComponent extends Component {
             textStyle={{ color: Colors.WHITE }}
             transparent
             onPress={() => {
-              this.props.navigate.push({
+              const { navigate } = this.props.navigation;
+              navigate.push({
                 name: 'account-edit',
                 passProps: {
                   account: this.props.account,
@@ -60,20 +61,24 @@ export default class AccountComponent extends Component {
           </View>
           <List>
             <ListItem
-              onPress={() =>
-                this.props.navigate.push({
+              onPress={() => {
+                const { navigate } = this.props.navigation;
+                navigate.push({
                   name: 'work-contract',
-                })}
+                });
+              }}
               iconRight
             >
               <Text style={Style.textNormal}>Meus serviços</Text>
               <Icon name="ios-arrow-forward" style={Style.iconList} />
             </ListItem>
             <ListItem
-              onPress={() =>
-                this.props.navigate.push({
+              onPress={() => {
+                const { navigate } = this.props.navigation;
+                navigate.push({
                   name: 'work-offered',
-                })}
+                });
+              }}
               iconRight
             >
               <Text style={Style.textNormal}>Meus clientes</Text>

@@ -1,4 +1,7 @@
+import React from 'react';
+import { Container } from 'native-base';
 import { StackNavigator } from 'react-navigation';
+
 import Home from '../home';
 import Professional from '../professional';
 import Job from '../job';
@@ -11,7 +14,7 @@ import WorkContract from '../work-contract';
 import WorkOffered from '../work-offered';
 import AccountEdit from '../account-edit';
 
-const Router = new StackNavigator({
+const DataRouter = new StackNavigator({
   home: { screen: Home },
   professional: { screen: Professional },
   job: { screen: Job },
@@ -25,4 +28,17 @@ const Router = new StackNavigator({
   accountEdit: { screen: AccountEdit },
 });
 
-export default Router;
+const style = {
+  borderColor: '#000',
+  borderWidth: 3,
+};
+
+export default class Router extends React.Component {
+  render() {
+    return (
+      <Container>
+        <DataRouter style={style} />
+      </Container>
+    );
+  }
+}

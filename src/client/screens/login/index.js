@@ -7,7 +7,7 @@ import Style from './assets/style';
 
 export default class Login extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -47,7 +47,8 @@ export default class Login extends Component {
         account.email = result.email;
         account.picture = `http://graph.facebook.com/${result.id}/picture?type=normal`;
 
-        this.props.navigate.push({
+        const { navigate } = this.props.navigation;
+        navigate.push({
           name: 'account-edit',
           passProps: {
             account,
@@ -98,7 +99,8 @@ export default class Login extends Component {
               <Button
                 block
                 onPress={() => {
-                  this.props.navigate.push({
+                  const { navigate } = this.props.navigation;
+                  navigate.push({
                     name: 'account-edit',
                     passProps: {
                       account: this.state.account,

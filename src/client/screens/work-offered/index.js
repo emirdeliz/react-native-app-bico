@@ -23,7 +23,7 @@ import Style from './assets/style';
 
 export default class WorkOffered extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -70,11 +70,13 @@ export default class WorkOffered extends Component {
                       info
                       normal
                       bordered
-                      onPress={() =>
-                        this.props.navigate.push({
+                      onPress={() => {
+                        const { navigate } = this.props.navigation;
+                        navigate.push({
                           name: 'chat',
                           passProps: { sender: item.professional },
-                        })}
+                        });
+                      }}
                     >
                       <Icon name="ios-chatbubbles" />
                     </Button>

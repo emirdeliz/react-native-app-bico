@@ -9,7 +9,7 @@ import * as ProfessionalActions from '../../actions/professional';
 class Search extends Component {
   static propTypes = {
     professional: PropTypes.array.isRequired,
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     findAll: PropTypes.func.isRequired,
   };
 
@@ -18,8 +18,8 @@ class Search extends Component {
   }
 
   render() {
-    const { professional, navigate } = this.props;
-    return <SearchComponent navigate={navigate} professional={professional} />;
+    const { professional, navigation } = this.props;
+    return <SearchComponent navigation={navigation} professional={professional} />;
   }
 }
 

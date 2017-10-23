@@ -21,7 +21,7 @@ import Style from './assets/style';
 
 export default class Professional extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     professional: PropTypes.object,
   };
 
@@ -32,14 +32,15 @@ export default class Professional extends Component {
   componentDidMount() {
     // MOCK
     /*
-        this.changePage('chat', {
-            professional: this.props.professional
-        })
-        */
+    this.changePage('chat', {
+        professional: this.props.professional
+    })
+    */
   }
 
   changePage(target, props) {
-    this.props.navigate.push({
+    const { navigate } = this.props.navigation;
+    navigate.push({
       name: target,
       passProps: props,
     });
