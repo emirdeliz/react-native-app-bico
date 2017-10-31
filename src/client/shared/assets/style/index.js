@@ -58,8 +58,6 @@ const Commons = {
   containerColumn: {
     ...container,
     flexDirection: 'column',
-    borderWidth: 3,
-    borderColor: '#000',
   },
   containerRow: {
     ...container,

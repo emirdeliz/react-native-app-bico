@@ -26,18 +26,13 @@ const DataRouter = new StackNavigator({
   workContract: { screen: WorkContract },
   workOffered: { screen: WorkOffered },
   accountEdit: { screen: AccountEdit },
-});
-
-const style = {
-  borderColor: '#000',
-  borderWidth: 3,
-};
+}, { headerMode: 'none' });
 
 export default class Router extends React.Component {
   render() {
     return (
       <Container>
-        <DataRouter style={style} />
+        <DataRouter />
       </Container>
     );
   }

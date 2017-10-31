@@ -18,10 +18,7 @@ class AppBico extends Component {
   }
 
   async componentWillMount() {
-    await Expo.Font.loadAsync({
-      Ionicons,
-    });
-
+    await Expo.Font.loadAsync({ Ionicons });
     this.setState({ isReady: true });
   }
 

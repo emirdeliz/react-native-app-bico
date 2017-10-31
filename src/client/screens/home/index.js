@@ -91,11 +91,6 @@ export default class Home extends Component {
       },
     ];
 
-    const style = {
-      borderColor: '#000',
-      borderWidth: 3,
-    };
-
     return (
       <View style={Style.containerColumn}>
         <Loading />
