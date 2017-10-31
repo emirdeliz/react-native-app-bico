@@ -131,13 +131,22 @@ export default class WorkContract extends Component {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate.pop()}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>Fornecedores</Title>
           <Button
             transparent
-            onPress={() => this.props.navigate.pop()}
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
           >
             {this.state.editable ? 'OK' : 'Editar'}
           </Button>

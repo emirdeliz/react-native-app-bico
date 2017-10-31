@@ -36,7 +36,7 @@ const initialState = {
   routes: [{ key: 'home' }],
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState) => {
   /*
   const reduceFn = actionsMap[action.type];
   if (!reduceFn) return state;

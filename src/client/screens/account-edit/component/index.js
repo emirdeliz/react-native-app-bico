@@ -150,7 +150,10 @@ export default class AccountEditComponent extends Component {
           <Button
             textStyle={{ color: Colors.WHITE }}
             transparent
-            onPress={() => this.props.navigate.pop()}
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
           >
             Cancelar
           </Button>

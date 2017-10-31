@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { Button, Icon, View, Text } from 'native-base';
+import { Component } from 'react';
+// import { Button, Icon, View, Text } from 'native-base';
 // import { AudioRecorder, AudioUtils } from 'react-native-audio';
 
-import Style from './assets/style';
+// import Style from './assets/style';
 
 export default class RecordAudio extends Component {
+  /*
   constructor(props) {
     super(props);
 
@@ -17,8 +18,9 @@ export default class RecordAudio extends Component {
   }
 
   componentDidMount() {
+    /*
     this.checkPermission().then((hasPermission) => {
-      /*
+
       const audioPath = `${AudioUtils.DocumentDirectoryPath}/record-bico.aac`;
 
       AudioRecorder.prepareRecordingAtPath(audioPath, {
@@ -40,7 +42,6 @@ export default class RecordAudio extends Component {
       AudioRecorder.onFinished = (data) => {
         this.setState({ fileRecord: data.audioFileURL });
       };
-      */
     });
   }
 
@@ -50,8 +51,8 @@ export default class RecordAudio extends Component {
     }
 
     const rationale = {
-      'title': 'Microphone Permission',
-      'message': 'AudioExample needs access to your microphone so you can record audio.'
+      title: 'Microphone Permission',
+      message: 'AudioExample needs access to your microphone so you can record audio.',
     };
 
     return PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO, rationale)
@@ -118,6 +119,11 @@ export default class RecordAudio extends Component {
         </Text>
       </View>
     );
+  }
+  */
+
+  render() {
+    return null;
   }
 }
 

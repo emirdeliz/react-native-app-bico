@@ -45,7 +45,13 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
     "upgrade": "ncu -u && npm install",
-    "check:libs": "ncu"
+    "check:libs": "ncu",
+    "lint": "eslint src test *.js --fix",
+    "test": "jest",
+    "server": "node node_modules/babel-cli/bin/babel-node.js src/server",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "cover": "nyc npm test"
   },
   "jest": {
     "preset": "jest-expo"

@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
+[![Build Status](https://travis-ci.org/emirdeliz/react-native-app-bico.svg?branch=master)](https://travis-ci.org/emirdeliz/react-native-app-bico) [![Heroku](https://heroku-badge.herokuapp.com/?app=app-bico&style=flat&svg=1)](https://heroku-badge.herokuapp.com/?app=app-bico&style=flat&svg=1)
+
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
 
 ## Table of Contents
