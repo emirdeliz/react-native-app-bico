@@ -29,10 +29,8 @@ const StyleCustom = {
   },
   containerItem: {
     ...Commons.containerRow,
-    height: undefined,
-  },
-  inputSearch: {
-    paddingBottom: 10,
+    marginLeft: 0,
+    paddingLeft: 15,
   },
 };
 

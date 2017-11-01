@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import {
   Container,
   Header,
-  Body,
-  Right,
+  Item,
+  List,
   View,
   Text,
   Content,
   Button,
   Icon,
-  InputGroup,
   Input,
-  List,
   ListItem,
   Thumbnail,
 } from 'native-base';
@@ -38,14 +36,9 @@ export default class SearchComponent extends Component {
         <ListItem
           key={key}
           onPress={() => {
-              const { navigate } = this.props.navigation;
-              navigate.push({
-                name: 'professional',
-                passProps: {
-                  professional: item,
-                },
-              });
-            }}
+            const { navigate } = this.props.navigation;
+            navigate('professional', item);
+          }}
           style={Style.containerItem}
           iconRight
         >
@@ -84,27 +77,25 @@ export default class SearchComponent extends Component {
     return (
       <Container>
         <Header style={Style.header} searchBar rounded>
-          <Body>
-            <InputGroup>
-              <Input placeholder="Buscar" style={Style.inputSearch} />
-            </InputGroup>
-          </Body>
-          <Right>
-            <Button
-              transparent
-              onPress={() => {
-                const { navigate } = this.props.navigation;
-                navigate({
-                  name: 'filter',
-                  passProps: {
-                    filter: FilterMock.default,
-                  },
-                });
-              }}
-            >
-              <Icon style={Style.iconFilter} name="ios-list" />
-            </Button>
-          </Right>
+          <Item>
+            <Icon name="ios-search" />
+            <Input placeholder="Buscar" />
+            <Icon name="ios-people" />
+          </Item>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate({
+                name: 'filter',
+                passProps: {
+                  filter: FilterMock.default,
+                },
+              });
+            }}
+          >
+            <Icon style={Style.iconFilter} name="ios-list" />
+          </Button>
         </Header>
         <Content>{this.buildRows()}</Content>
       </Container>
