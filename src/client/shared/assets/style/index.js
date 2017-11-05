@@ -38,6 +38,9 @@ const input = {
 };
 
 const Commons = {
+  bodyHeader: {
+    flex: 3,
+  },
   content: {
     flex: 1,
   },

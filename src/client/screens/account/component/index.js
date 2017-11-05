@@ -39,12 +39,9 @@ export default class AccountComponent extends Component {
             transparent
             onPress={() => {
               const { navigate } = this.props.navigation;
-              navigate.push({
-                name: 'account-edit',
-                passProps: {
-                  account: this.props.account,
-                  editable: true,
-                },
+              navigate('account-edit', {
+                account: this.props.account,
+                editable: true,
               });
             }}
           >
@@ -63,9 +60,7 @@ export default class AccountComponent extends Component {
             <ListItem
               onPress={() => {
                 const { navigate } = this.props.navigation;
-                navigate.push({
-                  name: 'work-contract',
-                });
+                navigate('work-contract');
               }}
               iconRight
             >
@@ -75,9 +70,7 @@ export default class AccountComponent extends Component {
             <ListItem
               onPress={() => {
                 const { navigate } = this.props.navigation;
-                navigate.push({
-                  name: 'work-offered',
-                });
+                navigate('work-offered');
               }}
               iconRight
             >

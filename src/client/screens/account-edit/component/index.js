@@ -62,9 +62,7 @@ export default class AccountEditComponent extends Component {
         navigate.pop();
       } else {
         const { navigate } = this.props.navigation;
-        navigate.push({
-          name: 'home',
-        });
+        navigate('home');
       }
     }
 

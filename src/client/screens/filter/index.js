@@ -6,7 +6,7 @@ import Style from './assets/style';
 
 export default class Filter extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     selectedFilter: PropTypes.func.isRequired,
     filter: PropTypes.object,
   };
@@ -42,7 +42,8 @@ export default class Filter extends Component {
                 this.setState({ currentFilter: item, path: this.state.path });
               } else {
                 this.props.selectedFilter(item);
-                this.props.navigate.pop();
+                const { navigate } = this.props.navigation;
+                navigate.pop();
               }
             }}
         >

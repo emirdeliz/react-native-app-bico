@@ -18,7 +18,7 @@ export default class Chat extends Component {
 /*
 export default class Chat extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     messages: PropTypes.array,
     sender: PropTypes.object,
   };
@@ -57,7 +57,13 @@ export default class Chat extends Component {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate.pop()}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>{this.props.sender.name}</Title>

@@ -19,7 +19,7 @@ import Style from './assets/style';
 
 export default class Evaluation extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     job: PropTypes.object,
   };
 
@@ -77,14 +77,21 @@ export default class Evaluation extends Component {
   }
 
   sendRating() {
-    this.props.navigate.pop();
+    const { navigate } = this.props.navigation;
+    navigate.pop();
   }
 
   render() {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate.pop()}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>Avaliação Serviço</Title>

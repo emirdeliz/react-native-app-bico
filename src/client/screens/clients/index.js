@@ -4,14 +4,20 @@ import { Container, Header, Title, Content, Button, Icon } from 'native-base';
 
 export default class Clients extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   render() {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate({ type: 'pop' })}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>Clientes</Title>

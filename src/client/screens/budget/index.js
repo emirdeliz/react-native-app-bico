@@ -25,7 +25,7 @@ import Style from './assets/style';
 
 export default class Budget extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -162,7 +162,13 @@ export default class Budget extends Component {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate.pop()}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>Orçamento</Title>

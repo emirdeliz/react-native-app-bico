@@ -72,10 +72,7 @@ export default class WorkOffered extends Component {
                       bordered
                       onPress={() => {
                         const { navigate } = this.props.navigation;
-                        navigate.push({
-                          name: 'chat',
-                          passProps: { sender: item.professional },
-                        });
+                        navigate('chat', { sender: item.professional });
                       }}
                     >
                       <Icon name="ios-chatbubbles" />

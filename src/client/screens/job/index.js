@@ -20,7 +20,7 @@ import Style from './assets/style';
 
 export default class Job extends Component {
   static propTypes = {
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     professional: PropTypes.object,
     job: PropTypes.object,
   };
@@ -108,7 +108,13 @@ export default class Job extends Component {
     return (
       <Container>
         <Header>
-          <Button transparent onPress={() => this.props.navigate.pop()}>
+          <Button
+            transparent
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate.pop();
+            }}
+          >
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>{this.props.professional.name}</Title>

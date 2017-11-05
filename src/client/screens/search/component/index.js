@@ -28,6 +28,14 @@ export default class SearchComponent extends Component {
     professional: [],
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      const { professional, navigation } = this.props;
+      const { navigate } = navigation;
+      navigate('professional', { professional: professional[0] });
+    }, 2000);
+  }
+
   buildRows() {
     const rows = [];
     this.props.professional.forEach((item, index) => {
@@ -37,7 +45,7 @@ export default class SearchComponent extends Component {
           key={key}
           onPress={() => {
             const { navigate } = this.props.navigation;
-            navigate('professional', item);
+            navigate('professional', { professional: item });
           }}
           style={Style.containerItem}
           iconRight
@@ -86,11 +94,8 @@ export default class SearchComponent extends Component {
             transparent
             onPress={() => {
               const { navigate } = this.props.navigation;
-              navigate({
-                name: 'filter',
-                passProps: {
-                  filter: FilterMock.default,
-                },
+              navigate('filter', {
+                filter: FilterMock.default,
               });
             }}
           >

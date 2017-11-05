@@ -48,12 +48,7 @@ export default class Login extends Component {
         account.picture = `http://graph.facebook.com/${result.id}/picture?type=normal`;
 
         const { navigate } = this.props.navigation;
-        navigate.push({
-          name: 'account-edit',
-          passProps: {
-            account,
-          },
-        });
+        navigate('account-edit', { account });
       }
     };
 
@@ -100,11 +95,8 @@ export default class Login extends Component {
                 block
                 onPress={() => {
                   const { navigate } = this.props.navigation;
-                  navigate.push({
-                    name: 'account-edit',
-                    passProps: {
-                      account: this.state.account,
-                    },
+                  navigate('account-edit', {
+                    account: this.state.account,
                   });
                 }}
               >

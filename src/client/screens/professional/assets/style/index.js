@@ -64,7 +64,8 @@ const StyleCustom = {
     marginBottom: 5,
   },
   menuItem: {
-    padding: 10,
+    marginLeft: 0,
+    paddingLeft: 15,
   },
 };
 

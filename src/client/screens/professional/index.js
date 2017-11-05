@@ -4,6 +4,9 @@ import {
   Container,
   Content,
   Header,
+  Body,
+  Left,
+  Right,
   Title,
   Button,
   Icon,
@@ -40,24 +43,23 @@ export default class Professional extends Component {
 
   changePage(target, props) {
     const { navigate } = this.props.navigation;
-    navigate.push({
-      name: target,
-      passProps: props,
-    });
+    navigate(target, { ...props });
   }
 
   buildLastJob() {
     const rows = [];
-    this.props.professional.job.forEach((item, index) => {
+
+    const { professional } = this.props.navigation.state.params;
+    professional.job.forEach((item, index) => {
       const key = index;
       rows.push((
         <ListItem
           key={key}
           onPress={this.changePage.bind(this, 'job', {
-              job: item,
-              professional: this.props.professional,
-            })}
+            job: item, professional,
+          })}
           iconRight
+          style={Style.menuItem}
         >
           <View>
             <View style={Style.containerRow}>
@@ -87,7 +89,7 @@ export default class Professional extends Component {
 
     return (
       <List>
-        <ListItem itemDivider>
+        <ListItem style={Style.menuItem} itemDivider>
           <Text>Últimos serviços</Text>
         </ListItem>
         {rows}
@@ -96,22 +98,22 @@ export default class Professional extends Component {
   }
 
   buildRating() {
+    const { professional } = this.props.navigation.state.params;
     const items = [
-      { icon: 'logo-usd', description: 'PREÇO', value: this.props.professional.noteAveragePrice },
+      { icon: 'logo-usd', description: 'PREÇO', value: professional.noteAveragePrice },
       {
         icon: 'ios-pricetag',
         description: 'QUALIDADE',
-        value: this.props.professional.noteAverageService,
+        value: professional.noteAverageService,
       },
-      { icon: 'ios-timer', description: 'PRAZO', value: this.props.professional.noteAverageScore },
+      { icon: 'ios-timer', description: 'PRAZO', value: professional.noteAverageScore },
     ];
 
     const rows = [];
-
     items.forEach((item, index) => {
       const key = index;
       rows.push((
-        <ListItem iconLeft key={key}>
+        <ListItem style={Style.menuItem} iconLeft key={key}>
           <View>
             <View style={Style.containerRow}>
               <Icon style={Style.iconRating} name={item.icon} />
@@ -125,7 +127,7 @@ export default class Professional extends Component {
 
     return (
       <List>
-        <ListItem itemDivider>
+        <ListItem style={Style.menuItem} itemDivider>
           <Text>Média avalições</Text>
         </ListItem>
         {rows}
@@ -139,8 +141,8 @@ export default class Professional extends Component {
       { description: 'Enviar mensagem', target: 'chat' },
     ];
 
+    const { professional } = this.props.navigation.state.params;
     const rows = [];
-
     items.forEach((item, index) => {
       const key = index;
       rows.push((
@@ -148,7 +150,7 @@ export default class Professional extends Component {
           style={Style.menuItem}
           iconLeft
           key={key}
-          onPress={this.changePage.bind(this, item.target, { sender: this.props.professional })}
+          onPress={this.changePage.bind(this, item.target, { sender: professional })}
         >
           <Text>{item.description}</Text>
         </ListItem>
@@ -159,19 +161,25 @@ export default class Professional extends Component {
   }
 
   render() {
+    const { professional } = this.props.navigation.state.params;
     return (
       <Container>
         <Header>
-          <Button
-            transparent
-            onPress={() => {
-              const { navigate } = this.props.navigation;
-              navigate.pop();
-            }}
-          >
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>{this.props.professional.name}</Title>
+          <Left>
+            <Button
+              transparent
+              onPress={() => {
+                const { navigate } = this.props.navigation;
+                navigate.pop();
+              }}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body style={Style.bodyHeader}>
+            <Title>{professional.name}</Title>
+          </Body>
+          <Right />
         </Header>
         <Content>
           <View style={Style.containerRow}>
@@ -179,12 +187,12 @@ export default class Professional extends Component {
               style={Style.picture}
               circular
               size={80}
-              source={{ uri: this.props.professional.picture }}
+              source={{ uri: professional.picture }}
             />
             <View style={Style.containerHeader}>
               <View>
                 <Icon name="ios-navigate" style={Style.iconNormal} />
-                <Text style={Style.textHeader}>{this.props.professional.distance} KM</Text>
+                <Text style={Style.textHeader}>{professional.distance} KM</Text>
               </View>
               <View style={Style.containerPhone}>
                 <Icon name="ios-call" style={Style.iconNormal} />
@@ -194,7 +202,7 @@ export default class Professional extends Component {
           </View>
           <View style={Style.containerDescription}>
             <Text style={Style.description}>Sobre mim:</Text>
-            <Text style={Style.description}>{this.props.professional.description}</Text>
+            <Text style={Style.description}>{professional.description}</Text>
           </View>
           {this.buildMenu()}
           {this.buildRating()}

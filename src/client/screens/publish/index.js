@@ -70,10 +70,7 @@ export default class Provider extends Component {
                     iconLeft
                     onPress={() => {
                       const { navigate } = this.props.navigation;
-                      navigate.push({
-                        name: 'chat',
-                        passProps: { professional: item.professional },
-                      });
+                      navigate('chat', { professional: item.professional });
                     }}
                   >
                     <Icon name="ios-chatbubbles" />
@@ -86,10 +83,7 @@ export default class Provider extends Component {
                     style={Style.buttonEvaluate}
                     onPress={() => {
                       const { navigate } = this.props.navigation;
-                      navigate.push({
-                        name: 'evaluation',
-                        passProps: { job: item },
-                      });
+                      navigate('evaluation', { job: item });
                     }}
                   >
                     <Icon name="ios-ribbon" />

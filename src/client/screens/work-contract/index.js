@@ -74,10 +74,7 @@ export default class WorkContract extends Component {
                       bordered
                       onPress={() => {
                         const { navigate } = this.props.navigation;
-                        navigate.push({
-                          name: 'chat',
-                          passProps: { sender: item.professional },
-                        });
+                        navigate('chat', { sender: item.professional });
                       }}
                     >
                       <Icon name="ios-chatbubbles" />
@@ -94,10 +91,7 @@ export default class WorkContract extends Component {
                       onPress={() => {
                           if (executed) {
                             const { navigate } = this.props.navigation;
-                            navigate.push({
-                              name: 'evaluation',
-                              passProps: { job: item },
-                            });
+                            navigate('evaluation', { job: item });
                           }
                         }}
                     >

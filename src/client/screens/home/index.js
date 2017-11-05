@@ -33,7 +33,7 @@ export default class Home extends Component {
   componentDidMount() {
     /*
     const { navigate } = this.props.navigation;
-    navigate.push({
+    navigate({
       name: 'login',
       passProps: {
           navigate: this.props.navigate

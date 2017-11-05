@@ -59,12 +59,9 @@ export default class Contact extends Component {
               style={Style.containerRow}
               onPress={() => {
                 const { navigate } = this.props.navigation;
-                navigate.push({
-                  name: 'chat',
-                  passProps: {
-                    messages: item.messages,
-                    sender: item.sender,
-                  },
+                navigate('chat', {
+                  messages: item.messages,
+                  sender: item.sender,
                 });
               }}
             >
