@@ -13,10 +13,8 @@ export default class Clients extends Component {
         <Header>
           <Button
             transparent
-            onPress={() => {
-              const { navigate } = this.props.navigation;
-              navigate.pop();
-            }}
+            onPress={() => this.props.navigation.goBack()}
+
           >
             <Icon name="ios-arrow-back" />
           </Button>

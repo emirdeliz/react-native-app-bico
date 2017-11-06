@@ -94,10 +94,7 @@ export default class Contact extends Component {
           <Title>Chat</Title>
           <Button
             transparent
-            onPress={() => {
-              const { navigate } = this.props.navigation;
-              navigate.pop();
-            }}
+            onPress={() => this.props.navigation.goBack()}
           >
             {this.state.editable ? 'OK' : 'Editar'}
           </Button>

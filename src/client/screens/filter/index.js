@@ -42,8 +42,7 @@ export default class Filter extends Component {
                 this.setState({ currentFilter: item, path: this.state.path });
               } else {
                 this.props.selectedFilter(item);
-                const { navigate } = this.props.navigation;
-                navigate.pop();
+                this.props.navigation.goBack();
               }
             }}
         >
@@ -64,7 +63,7 @@ export default class Filter extends Component {
           <Button
             transparent
             onPress={() => {
-              if (this.state.path.length === 0) this.props.navigate.pop();
+              if (this.state.path.length === 0) this.props.navigate.goBack();
               else {
                 const previousFilter = this.state.path.pop();
                 this.setState({ currentFilter: previousFilter, path: this.state.path });

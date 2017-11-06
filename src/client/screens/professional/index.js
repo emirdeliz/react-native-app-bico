@@ -168,10 +168,7 @@ export default class Professional extends Component {
           <Left>
             <Button
               transparent
-              onPress={() => {
-                const { navigate } = this.props.navigation;
-                navigate.pop();
-              }}
+              onPress={() => this.props.navigation.goBack()}
             >
               <Icon name="ios-arrow-back" />
             </Button>

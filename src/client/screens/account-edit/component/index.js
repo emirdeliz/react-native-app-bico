@@ -58,8 +58,7 @@ export default class AccountEditComponent extends Component {
       Alert.alert('Erro ao salvar', nextProps.error);
     } else if (nextProps.account) {
       if (this.props.editable) {
-        const { navigate } = this.props.navigation;
-        navigate.pop();
+        this.props.navigation.goBack();
       } else {
         const { navigate } = this.props.navigation;
         navigate('home');
@@ -148,10 +147,7 @@ export default class AccountEditComponent extends Component {
           <Button
             textStyle={{ color: Colors.WHITE }}
             transparent
-            onPress={() => {
-              const { navigate } = this.props.navigation;
-              navigate.pop();
-            }}
+            onPress={() => this.props.navigation.goBack()}
           >
             Cancelar
           </Button>
