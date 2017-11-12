@@ -35,6 +35,11 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactNativeAudioPackage()
       );
     }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
+    }
   };
 
   @Override

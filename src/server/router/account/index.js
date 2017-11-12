@@ -17,10 +17,6 @@ class AccountRouter {
       .get((req, res) => {
         accountService.find().then(result => res.json({ result }), err => res.send(err));
       });
-
-    router.route('/account/populate').get((req, res) => {
-      accountPopulate().then(result => res.json({ result }), err => res.send(err));
-    });
   }
 }
 export default AccountRouter;

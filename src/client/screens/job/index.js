@@ -9,6 +9,9 @@ import {
   Thumbnail,
   Content,
   Button,
+  Left,
+  Right,
+  Body,
   Icon,
   View,
   Text,
@@ -41,8 +44,8 @@ export default class Job extends Component {
 
   buildPhotosModal() {
     const rows = [];
-
-    this.props.job.images.forEach((item, index) => {
+    const { job } = this.props.navigation.state.params;
+    job.images.forEach((item, index) => {
       const key = index;
       rows.push((
         <View key={key} style={Style.imageModalItem}>
@@ -72,8 +75,8 @@ export default class Job extends Component {
 
   buildPhotos() {
     const rows = [];
-
-    this.props.job.images.forEach((item, index) => {
+    const { job } = this.props.navigation.state.params;
+    job.images.forEach((item, index) => {
       const key = index;
       rows.push((
         <ListItem
@@ -81,6 +84,7 @@ export default class Job extends Component {
           onPress={() => {
             this.setState({ imageModalVisible: true, imageModalSelected: index });
           }}
+          style={Style.menuItem}
           iconRight
         >
           <View style={Style.containerRow}>
@@ -96,7 +100,7 @@ export default class Job extends Component {
 
     return (
       <List>
-        <ListItem itemDivider>
+        <ListItem style={Style.menuItem} itemDivider>
           <Text>Fotos</Text>
         </ListItem>
         {rows}
@@ -105,25 +109,31 @@ export default class Job extends Component {
   }
 
   render() {
+    const { job, professional } = this.props.navigation.state.params;
     return (
       <Container>
         <Header>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>{this.props.professional.name}</Title>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body style={Style.bodyHeader}>
+            <Title>{professional.name}</Title>
+          </Body>
+          <Right />
         </Header>
         <Content>
           <List>
-            <ListItem itemDivider>
+            <ListItem style={Style.menuItem} itemDivider>
               <Text>Descrição</Text>
             </ListItem>
-            <ListItem>
+            <ListItem style={Style.menuItem}>
               <View>
-                <Text style={Style.textSmall}>{this.props.job.description}</Text>
+                <Text style={Style.textSmall}>{job.description}</Text>
               </View>
             </ListItem>
           </List>

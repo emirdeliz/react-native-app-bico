@@ -18,7 +18,7 @@ export default class ProfessionalService {
       Professional.find((err, result) => {
         if (err) reject(err);
         resolve(result);
-      });
+      }).catch(err => reject(err));
     });
   }
 

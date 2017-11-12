@@ -37,10 +37,6 @@ class ProfessionalRouter {
           .remove(req.params.professional_id)
           .then(result => res.json({ result }), err => res.send(err));
       });
-
-    router.route('/professional/populate').get((req, res) => {
-      professionalPopulate().then(result => res.json({ result }), err => res.send(err));
-    });
   }
 }
 

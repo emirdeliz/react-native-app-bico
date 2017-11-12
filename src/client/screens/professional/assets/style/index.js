@@ -63,10 +63,6 @@ const StyleCustom = {
   menu: {
     marginBottom: 5,
   },
-  menuItem: {
-    marginLeft: 0,
-    paddingLeft: 15,
-  },
 };
 
 const Style = StyleSheet.create(mergeObjects(StyleCustom, Commons));

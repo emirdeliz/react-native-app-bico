@@ -50,4 +50,5 @@ const professionalPopulate = () => {
   });
 };
 
-export { accountPopulate, professionalPopulate };
+accountPopulate();
+professionalPopulate();

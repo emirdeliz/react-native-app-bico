@@ -38,6 +38,10 @@ const input = {
 };
 
 const Commons = {
+  menuItem: {
+    marginLeft: 0,
+    paddingLeft: 15,
+  },
   bodyHeader: {
     flex: 3,
   },

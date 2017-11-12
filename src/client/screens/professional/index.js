@@ -34,11 +34,10 @@ export default class Professional extends Component {
 
   componentDidMount() {
     // MOCK
-    /*
-    this.changePage('chat', {
-        professional: this.props.professional
-    })
-    */
+    const { professional } = this.props.navigation.state.params;
+    this.changePage('job', {
+      professional, job: professional.job[0],
+    });
   }
 
   changePage(target, props) {

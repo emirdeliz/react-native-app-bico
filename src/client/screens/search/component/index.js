@@ -33,7 +33,7 @@ export default class SearchComponent extends Component {
       const { professional, navigation } = this.props;
       const { navigate } = navigation;
       navigate('professional', { professional: professional[0] });
-    }, 2000);
+    }, 3000);
   }
 
   buildRows() {
