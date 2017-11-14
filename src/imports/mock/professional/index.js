@@ -22,7 +22,7 @@ const professional2 = {
   name: 'Perdigueiro',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://www.gameofthronesbrasil.com.br/wp-content/uploads/2014/04/game-of-thrones-4-temporada-mortes-c%C3%A3o-de-ca%C3%A7a.jpg',
+    'https://vignette.wikia.nocookie.net/gameofthrones/images/7/7f/SandorS6.png/revision/latest?cb=20160608063447',
   note: 'This is item # 2',
   typeJob: [typeJob2, typeJob3],
   job: [job3, job4, job5],

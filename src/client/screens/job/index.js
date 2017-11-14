@@ -47,6 +47,7 @@ export default class Job extends Component {
     const { job } = this.props.navigation.state.params;
     job.images.forEach((item, index) => {
       const key = index;
+
       rows.push((
         <View key={key} style={Style.imageModalItem}>
           <Button
@@ -56,9 +57,9 @@ export default class Job extends Component {
                 this.setState({ imageModalVisible: false });
               }}
           >
-              Fechar
+            <Text>Fechar</Text>
           </Button>
-          <Thumbnail style={Style.image} square source={item.path} />
+          <Thumbnail style={Style.image} square source={{ uri: item.path }} />
           <Text style={Style.imageModalDescription}>{item.description}</Text>
         </View>
       ));
@@ -88,7 +89,7 @@ export default class Job extends Component {
           iconRight
         >
           <View style={Style.containerRow}>
-            <Thumbnail square size={80} source={item.path} />
+            <Thumbnail square size={80} source={{ uri: item.path }} />
             <View style={Style.containerPhotoDescription}>
               <Text style={Style.textSmall}>{item.description}</Text>
             </View>

@@ -5,6 +5,7 @@ import mergeObjects from '../../../../../imports/utils';
 const StyleCustom = {
   containerPhotoDescription: {
     ...Commons.containerColumn,
+    marginLeft: 15,
   },
   imageModalItem: {
     ...Commons.containerColumn,
