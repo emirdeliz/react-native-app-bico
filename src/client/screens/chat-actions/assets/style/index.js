@@ -1,8 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Commons } from '../../../../shared/assets/style';
-import mergeObjects from '../../../../../imports/utils';
+import { Colors } from '../../../../shared/assets/style';
 
-const StyleCustom = StyleSheet.create({
+const Style = StyleSheet.create({
   container: {
     width: 26,
     height: 26,
@@ -24,5 +23,4 @@ const StyleCustom = StyleSheet.create({
   },
 });
 
-const Style = StyleSheet.create(mergeObjects(StyleCustom, Commons));
 export default Style;

@@ -4,6 +4,9 @@ import { Modal, ScrollView, Text } from 'react-native';
 import {
   Container,
   Header,
+  Body,
+  Left,
+  Right,
   Title,
   Thumbnail,
   Content,
@@ -162,17 +165,22 @@ export default class Budget extends Component {
     return (
       <Container>
         <Header>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>Orçamento</Title>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body style={Style.bodyHeader}>
+            <Title>Orçamento</Title>
+          </Body>
+          <Right />
         </Header>
         <Content>
           <List>
-            <ListItem itemDivider>
+            <ListItem itemDivider style={Style.menuItem}>
               <Text>Fotos</Text>
             </ListItem>
           </List>
@@ -190,10 +198,10 @@ export default class Budget extends Component {
             {this.buildPhotos()}
           </ScrollView>
           <List>
-            <ListItem>
+            <ListItem style={Style.menuItem}>
               <RecordAudio style={Style.containerDescription} />
             </ListItem>
-            <ListItem>
+            <ListItem style={Style.menuItem}>
               <InputGroup>
                 <Input
                   placeholder="Descrição"

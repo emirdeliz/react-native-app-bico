@@ -24,7 +24,7 @@ export default class ChatActions extends Component {
     icon: PropTypes.func,
     containerStyle: PropTypes.object,
     wrapperStyle: PropTypes.object,
-    iconTextStyle: Text.propTypes.object,
+    iconTextStyle: PropTypes.object,
   };
 
   constructor(props) {

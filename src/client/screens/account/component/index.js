@@ -45,7 +45,7 @@ export default class AccountComponent extends Component {
               });
             }}
           >
-            Editar
+            <Text>Editar</Text>
           </Button>
         </Header>
         <View>

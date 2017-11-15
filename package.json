@@ -48,6 +48,7 @@
     "check:libs": "ncu",
     "lint": "eslint src test *.js --fix",
     "test": "jest",
+    "populate": "babel-node ./src/server/populate",
     "server": "node node_modules/babel-cli/bin/babel-node.js src/server",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

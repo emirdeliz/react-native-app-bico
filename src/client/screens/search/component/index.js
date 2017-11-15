@@ -29,11 +29,13 @@ export default class SearchComponent extends Component {
   };
 
   componentDidMount() {
+    /*
     setTimeout(() => {
       const { professional, navigation } = this.props;
       const { navigate } = navigation;
       navigate('professional', { professional: professional[0] });
     }, 3000);
+    */
   }
 
   buildRows() {

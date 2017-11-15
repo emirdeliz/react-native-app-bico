@@ -62,7 +62,11 @@ export default class Provider extends Component {
                   source={{ uri: item.professional.picture }}
                 />
                 <Text style={Style.typeJob}>{item.typeJob.description}</Text>
-                <FormattedDate style={Style.dateJob} value={item.dateExecution} skeleton="yMdhm" />
+                <FormattedDate
+                  style={Style.dateJob}
+                  value={new Date(item.dateExecution)}
+                  skeleton="yMdhm"
+                />
                 <View style={Style.containerButtom}>
                   <Button
                     info

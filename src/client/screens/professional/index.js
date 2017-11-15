@@ -34,10 +34,12 @@ export default class Professional extends Component {
 
   componentDidMount() {
     // MOCK
+    /*
     const { professional } = this.props.navigation.state.params;
-    this.changePage('job', {
-      professional, job: professional.job[0],
+    this.changePage('budget', {
+      professional,
     });
+    */
   }
 
   changePage(target, props) {
@@ -63,7 +65,11 @@ export default class Professional extends Component {
           <View>
             <View style={Style.containerRow}>
               <Text style={Style.typeJob}>{item.typeJob.description}</Text>
-              <FormattedDate style={Style.dateJob} value={item.dateExecution} skeleton="yMdhm" />
+              <FormattedDate
+                style={Style.dateJob}
+                value={new Date(item.dateExecution)}
+                skeleton="yMdhm"
+              />
             </View>
             <View style={Style.containerRow}>
               <View style={Style.containerRow}>

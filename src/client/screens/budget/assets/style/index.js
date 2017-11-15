@@ -10,10 +10,10 @@ const StyleCustom = {
     marginTop: 10,
   },
   buttonPhoto: {
-    marginLeft: 3,
     width: 100,
     height: 100,
     backgroundColor: Colors.WHITE,
+    justifyContent: 'center',
   },
   imageModalItem: {
     ...Commons.containerColumn,
