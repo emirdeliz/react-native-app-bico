@@ -9,9 +9,7 @@ import * as AccountActions from '../../actions/account';
 
 class Account extends Component {
   static propTypes = {
-    actions: PropTypes.object.isRequired,
-    navigate: PropTypes.object.isRequired,
-    dispatch: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired,
     find: PropTypes.func.isRequired,
     account: PropTypes.object,
     pending: PropTypes.bool,
@@ -27,8 +25,8 @@ class Account extends Component {
   }
 
   render() {
-    const { account, navigate, pending } = this.props;
-    const props = { account, navigate, pending };
+    const { account, navigation, pending } = this.props;
+    const props = { account, navigation, pending };
 
     return <AccountComponent {...props} />;
   }

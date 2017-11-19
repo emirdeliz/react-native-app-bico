@@ -5,6 +5,7 @@ import {
   Header,
   Item,
   List,
+  Body,
   View,
   Text,
   Content,
@@ -12,6 +13,7 @@ import {
   Icon,
   Input,
   ListItem,
+  Right,
   Thumbnail,
 } from 'native-base';
 
@@ -52,30 +54,34 @@ export default class SearchComponent extends Component {
           style={Style.containerItem}
           iconRight
         >
-          <View style={Style.containerRow}>
-            <Thumbnail circular size={80} source={{ uri: item.picture }} />
-            <View>
-              <View style={Style.containerDistance}>
-                <Text>{item.name}</Text>
-                <Text style={Style.textDistance}>{item.distance} KM</Text>
-              </View>
-              <View style={Style.containerRow}>
-                <View style={Style.containerRating}>
-                  <Icon name="logo-usd" style={Style.iconRating} />
-                  <Text style={Style.textRating}>{item.noteAveragePrice}</Text>
+          <Body>
+            <View style={Style.containerRow}>
+              <Thumbnail circular size={80} source={{ uri: item.picture }} />
+              <View>
+                <View style={Style.containerDistance}>
+                  <Text>{item.name}</Text>
+                  <Text style={Style.textDistance}>{item.distance} KM</Text>
                 </View>
-                <View style={Style.containerRating}>
-                  <Icon name="ios-pricetag" style={Style.iconRating} />
-                  <Text style={Style.textRating}>{item.noteAverageService}</Text>
-                </View>
-                <View style={Style.containerRating}>
-                  <Icon name="ios-timer" style={Style.iconRating} />
-                  <Text style={Style.textRating}>{item.noteAverageScore}</Text>
+                <View style={Style.containerRow}>
+                  <View style={Style.containerRating}>
+                    <Icon name="logo-usd" style={Style.iconRating} />
+                    <Text style={Style.textRating}>{item.noteAveragePrice}</Text>
+                  </View>
+                  <View style={Style.containerRating}>
+                    <Icon name="ios-pricetag" style={Style.iconRating} />
+                    <Text style={Style.textRating}>{item.noteAverageService}</Text>
+                  </View>
+                  <View style={Style.containerRating}>
+                    <Icon name="ios-timer" style={Style.iconRating} />
+                    <Text style={Style.textRating}>{item.noteAverageScore}</Text>
+                  </View>
                 </View>
               </View>
             </View>
-          </View>
-          <Icon name="ios-arrow-forward" style={Style.iconList} />
+          </Body>
+          <Right>
+            <Icon name="ios-arrow-forward" style={Style.iconList} />
+          </Right>
         </ListItem>
       ));
     });

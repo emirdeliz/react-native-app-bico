@@ -6,6 +6,9 @@ import {
   Header,
   Title,
   Button,
+  Left,
+  Right,
+  Body,
   Icon,
   View,
   List,
@@ -139,18 +142,27 @@ export default class AccountEditComponent extends Component {
   render() {
     return (
       <Container>
-        <Header style={Style.toolbar}>
-          <Button transparent>
-            <Text />
-          </Button>
-          <Title style={Style.textToolbar}>Editar conta</Title>
-          <Button
-            textStyle={{ color: Colors.WHITE }}
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            Cancelar
-          </Button>
+        <Header>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Editar conta</Title>
+          </Body>
+          <Right>
+            <Button
+              textStyle={{ color: Colors.WHITE }}
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Text>Voltar</Text>
+            </Button>
+          </Right>
         </Header>
         <View>
           <View style={Style.containerPhoto}>
@@ -167,7 +179,7 @@ export default class AccountEditComponent extends Component {
             </View>
           </View>
           <List>
-            <ListItem>
+            <ListItem style={Style.menuItem}>
               <InputGroup>
                 <Input
                   inlineLabel
@@ -181,7 +193,7 @@ export default class AccountEditComponent extends Component {
                 />
               </InputGroup>
             </ListItem>
-            <ListItem>
+            <ListItem style={Style.menuItem}>
               <InputGroup>
                 <Input
                   inlineLabel
@@ -195,7 +207,7 @@ export default class AccountEditComponent extends Component {
                 />
               </InputGroup>
             </ListItem>
-            <ListItem>
+            <ListItem style={Style.menuItem}>
               <InputGroup>
                 <Input
                   stackedLabel
@@ -212,7 +224,7 @@ export default class AccountEditComponent extends Component {
           </List>
           <View style={Style.containerSave}>
             <Button block onPress={this.persist.bind(this)}>
-              Salvar
+              <Text>Salvar</Text>
             </Button>
           </View>
           {this.buildCameraModal()}

@@ -88,13 +88,17 @@ export default class Job extends Component {
           style={Style.menuItem}
           iconRight
         >
-          <View style={Style.containerRow}>
-            <Thumbnail square size={80} source={{ uri: item.path }} />
-            <View style={Style.containerPhotoDescription}>
-              <Text style={Style.textSmall}>{item.description}</Text>
+          <Body>
+            <View style={Style.containerRow}>
+              <Thumbnail square size={80} source={{ uri: item.path }} />
+              <View style={Style.containerPhotoDescription}>
+                <Text style={Style.textSmall}>{item.description}</Text>
+              </View>
             </View>
-          </View>
-          <Icon name="ios-arrow-forward" style={Style.iconList} />
+          </Body>
+          <Right>
+            <Icon name="ios-arrow-forward" style={Style.iconList} />
+          </Right>
         </ListItem>
       ));
     });

@@ -10,25 +10,25 @@ class AccountEdit extends Component {
   static propTypes = {
     account: PropTypes.object,
     editable: PropTypes.bool,
-    navigate: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
     persist: PropTypes.func.isRequired,
     dispatch: PropTypes.string,
-    error: PropTypes.object,
+    error: PropTypes.string,
   };
 
   static defaultProps = {
     account: {},
     editable: false,
     dispatch: '',
-    error: {},
+    error: '',
   };
 
   render() {
     const {
-      account, navigate, editable, persist, error,
+      account, navigation, editable, persist, error,
     } = this.props;
     const props = {
-      account, navigate, editable, persist, error,
+      account, navigation, editable, persist, error,
     };
 
     return <AccountEditComponent {...props} />;
