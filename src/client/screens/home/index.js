@@ -35,7 +35,7 @@ export default class Home extends Component {
     const { navigation } = this.props;
     navigate('login', { navigation });
     */
-    const page = { page: 'account' };
+    const page = { page: 'chat' };
     this.onChangeTab(page);
   }
 

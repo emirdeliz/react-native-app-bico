@@ -5,14 +5,18 @@ import {
   Header,
   Title,
   Content,
+  Left,
+  Right,
+  Body,
   Button,
   Icon,
   List,
   ListItem,
   InputGroup,
   Input,
+  Text,
 } from 'native-base';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import Rating from '../../shared/rating';
 import Style from './assets/style';
@@ -49,7 +53,7 @@ export default class Evaluation extends Component {
     items.forEach((item, index) => {
       const key = index;
       rows.push((
-        <ListItem iconLeft key={key}>
+        <ListItem iconLeft key={key} style={Style.menuItem}>
           <View>
             <View style={Style.containerRow}>
               <Icon style={Style.iconRating} name={item.icon} />
@@ -63,11 +67,11 @@ export default class Evaluation extends Component {
 
     return (
       <List>
-        <ListItem itemDivider>
+        <ListItem itemDivider style={Style.menuItem}>
           <Text>Notas</Text>
         </ListItem>
         {rows}
-        <ListItem>
+        <ListItem style={Style.menuItem}>
           <InputGroup>
             <Input stackedLabel placeholder="OBSERVAÇÕES" />
           </InputGroup>
@@ -84,17 +88,22 @@ export default class Evaluation extends Component {
     return (
       <Container>
         <Header>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>Avaliação Serviço</Title>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Avaliação Serviço</Title>
+          </Body>
+          <Right />
         </Header>
         <Content>
           <List>
-            <ListItem itemDivider>
+            <ListItem itemDivider style={Style.menuItem}>
               <Text>Descrição</Text>
             </ListItem>
           </List>
@@ -103,9 +112,8 @@ export default class Evaluation extends Component {
           </View>
           {this.buildRating()}
           <View style={Style.containerSend}>
-            <Button block onPress={this.sendRating.bind(this)}>
-              {' '}
-              Enviar{' '}
+            <Button block primary onPress={this.sendRating.bind(this)}>
+              <Text>Enviar</Text>
             </Button>
           </View>
         </Content>

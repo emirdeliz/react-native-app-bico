@@ -5,6 +5,9 @@ import {
   Header,
   Title,
   Content,
+  Body,
+  Left,
+  Right,
   Button,
   Icon,
   View,
@@ -42,39 +45,40 @@ export default class WorkContract extends Component {
       const executed = item.dateExecution.getTime() < new Date().getTime();
       const key = index;
       rows.push((
-        <ListItem key={key} iconRight>
+        <ListItem key={key} style={Style.menuItem}>
           <Swipeout
-            right={[
-                {
-                  text: 'Remover',
-                  backgroundColor: Colors.RED,
-                  onPress: this.remove.bind(this, item, index),
-                },
-              ]}
+            right={[{
+              text: 'Remover',
+              backgroundColor: Colors.RED,
+              onPress: this.remove.bind(this, item, index),
+            }]}
             backgroundColor="transparent"
             close={!this.state.editable}
           >
-            <View style={Style.containerRow}>
+            <View>
               <View style={Style.containerProfessional}>
-                <Thumbnail
-                  style={Style.picture}
-                  circular
-                  size={80}
-                  source={{ uri: item.professional.picture }}
-                />
-                <Text style={Style.textSmall}>{item.professional.name}</Text>
-                <Text style={Style.typeJob}>{item.typeJob.description}</Text>
-                <FormattedDate
-                  style={Style.dateJob}
-                  value={new Date(item.dateExecution)}
-                  skeleton="yMdhm"
-                />
+                <View style={Style.containerRow}>
+                  <Thumbnail
+                    style={Style.picture}
+                    circular
+                    size={80}
+                    source={{ uri: item.professional.picture }}
+                  />
+                  <View style={Style.containerProfessionalResume}>
+                    <Text style={Style.textSmall}>{item.professional.name}</Text>
+                    <Text style={Style.typeJob}>{item.typeJob.description}</Text>
+                    <FormattedDate
+                      style={Style.dateJob}
+                      value={new Date(item.dateExecution)}
+                      skeleton="yMdhm"
+                    />
+                  </View>
+                </View>
                 <View style={Style.containerButtom}>
                   <View>
                     <Button
                       info
                       normal
-                      iconLeft
                       bordered
                       onPress={() => {
                         const { navigate } = this.props.navigation;
@@ -88,16 +92,15 @@ export default class WorkContract extends Component {
                     <Button
                       info
                       normal
-                      iconLeft
                       success
                       bordered
                       disabled={!executed}
                       onPress={() => {
-                          if (executed) {
-                            const { navigate } = this.props.navigation;
-                            navigate('evaluation', { job: item });
-                          }
-                        }}
+                        if (executed) {
+                          const { navigate } = this.props.navigation;
+                          navigate('evaluation', { job: item });
+                        }
+                      }}
                     >
                       <Icon name="ios-ribbon" />
                     </Button>
@@ -129,19 +132,18 @@ export default class WorkContract extends Component {
     return (
       <Container>
         <Header>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>Fornecedores</Title>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            {this.state.editable ? 'OK' : 'Editar'}
-          </Button>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Fornecedores</Title>
+          </Body>
+          <Right />
         </Header>
         <Content>{this.buildJobs()}</Content>
       </Container>

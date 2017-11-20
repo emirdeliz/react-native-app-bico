@@ -4,8 +4,7 @@ import mergeObjects from '../../../../../imports/utils';
 
 const StyleCustom = {
   containerDescription: {
-    ...Commons.containerColumn,
-    paddingLeft: 10,
+    marginLeft: 5,
   },
   professionalName: {
     ...Commons.textSmall,

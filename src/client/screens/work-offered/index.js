@@ -5,6 +5,9 @@ import {
   Header,
   Title,
   Content,
+  Left,
+  Right,
+  Body,
   Button,
   Icon,
   View,
@@ -41,33 +44,35 @@ export default class WorkOffered extends Component {
     this.state.jobs.forEach((item, index) => {
       const key = index;
       rows.push((
-        <ListItem key={key} iconRight>
+        <ListItem key={key} style={Style.menuItem}>
           <Swipeout
-            right={[
-                {
-                  text: 'Remover',
-                  backgroundColor: Colors.RED,
-                  onPress: this.remove.bind(this, item, index),
-                },
-              ]}
+            right={[{
+              text: 'Remover',
+              backgroundColor: Colors.RED,
+              onPress: this.remove.bind(this, item, index),
+            }]}
             backgroundColor="transparent"
             close={!this.state.editable}
           >
-            <View style={Style.containerRow}>
+            <View>
               <View style={Style.containerProfessional}>
-                <Thumbnail
-                  style={Style.picture}
-                  circular
-                  size={80}
-                  source={{ uri: item.client.picture }}
-                />
-                <Text style={Style.textSmall}>{item.client.name}</Text>
-                <Text style={Style.typeJob}>{item.typeJob.description}</Text>
-                <FormattedDate
-                  style={Style.dateJob}
-                  value={new Date(item.dateExecution)}
-                  skeleton="yMdhm"
-                />
+                <View style={Style.containerRow}>
+                  <Thumbnail
+                    style={Style.picture}
+                    circular
+                    size={80}
+                    source={{ uri: item.client.picture }}
+                  />
+                  <View style={Style.containerProfessionalResume}>
+                    <Text style={Style.textSmall}>{item.client.name}</Text>
+                    <Text style={Style.typeJob}>{item.typeJob.description}</Text>
+                    <FormattedDate
+                      style={Style.dateJob}
+                      value={new Date(item.dateExecution)}
+                      skeleton="yMdhm"
+                    />
+                  </View>
+                </View>
                 <View style={Style.containerButtom}>
                   <View>
                     <Button
@@ -109,19 +114,18 @@ export default class WorkOffered extends Component {
     return (
       <Container>
         <Header>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>Clientes</Title>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            {this.state.editable ? 'OK' : 'Editar'}
-          </Button>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Icon name="ios-arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Clientes</Title>
+          </Body>
+          <Right />
         </Header>
         <Content>{this.buildJobs()}</Content>
       </Container>

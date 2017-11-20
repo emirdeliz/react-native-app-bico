@@ -32,14 +32,15 @@ export default class AccountComponent extends Component {
 
   componentDidMount() {
     // MOCK
-
+    /*
     setTimeout(() => {
       const { navigate } = this.props.navigation;
-      navigate('workContract', {
+      navigate('workOffered', {
         account: this.props.account,
         editable: true,
       });
     }, 1000);
+    */
   }
 
   render() {

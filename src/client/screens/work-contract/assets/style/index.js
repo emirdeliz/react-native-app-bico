@@ -11,6 +11,9 @@ const StyleCustom = {
     ...Commons.containerColumn,
     flex: 2,
   },
+  containerProfessionalResume: {
+    marginLeft: 5,
+  },
   typeJob: {
     ...Commons.textNormal,
     fontWeight: 'bold',
@@ -29,10 +32,13 @@ const StyleCustom = {
   },
   containerEvaluate: {
     flex: 1,
+    marginLeft: 5,
   },
   containerButtom: {
     ...Commons.containerRow,
     alignItems: 'center',
+    marginBottom: 5,
+    marginTop: 5,
   },
 };
 

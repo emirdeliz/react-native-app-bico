@@ -6,6 +6,9 @@ import {
   Header,
   Title,
   Content,
+  Left,
+  Right,
+  Body,
   Button,
   View,
   Text,
@@ -43,15 +46,13 @@ export default class Contact extends Component {
       const lastMessage = item.messages[indexLastMessage - 1].text;
 
       rows.push((
-        <ListItem key={key} iconRight>
+        <ListItem key={key} style={Style.menuItem}>
           <Swipeout
-            right={[
-                {
-                  text: 'Remover',
-                  backgroundColor: Colors.RED,
-                  onPress: this.remove.bind(this, item, index),
-                },
-              ]}
+            right={[{
+              text: 'Remover',
+              backgroundColor: Colors.RED,
+              onPress: this.remove.bind(this, item, index),
+            }]}
             backgroundColor="transparent"
             close={!this.state.editable}
           >
@@ -65,10 +66,21 @@ export default class Contact extends Component {
                 });
               }}
             >
-              <Thumbnail circular size={80} source={{ uri: item.sender.picture }} />
-              <View style={Style.containerDescription}>
-                <Text style={Style.professionalName}>{item.sender.name}</Text>
-                <Text style={Style.lastMessage}>{lastMessage}</Text>
+              <View>
+                <View style={Style.containerColumn}>
+                  <View style={Style.containerRow}>
+                    <Thumbnail
+                      circular
+                      size={80}
+                      source={{ uri: item.sender.picture }}
+                      style={Style.picture}
+                    />
+                    <View style={Style.containerDescription}>
+                      <Text style={Style.professionalName}>{item.sender.name}</Text>
+                      <Text style={Style.lastMessage}>{lastMessage}</Text>
+                    </View>
+                  </View>
+                </View>
               </View>
             </TouchableOpacity>
           </Swipeout>
@@ -91,13 +103,18 @@ export default class Contact extends Component {
     return (
       <Container>
         <Header>
-          <Title>Chat</Title>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.goBack()}
-          >
-            {this.state.editable ? 'OK' : 'Editar'}
-          </Button>
+          <Left />
+          <Body>
+            <Title>Chat</Title>
+          </Body>
+          <Right>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Text>{this.state.editable ? 'OK' : 'Editar'}</Text>
+            </Button>
+          </Right>
         </Header>
         <Content>{this.buildMessages()}</Content>
       </Container>
