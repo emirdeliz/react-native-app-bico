@@ -16,8 +16,9 @@ import {
   ListItem,
   Thumbnail,
 } from 'native-base';
-
+import { FormattedDate } from 'react-native-globalize';
 import Swipeout from 'react-native-swipeout';
+
 import { Colors } from '../../shared/assets/style';
 import Style from './assets/style';
 
@@ -43,7 +44,7 @@ export default class Contact extends Component {
     this.state.contact.forEach((item, index) => {
       const key = index;
       const indexLastMessage = item.messages.length;
-      const lastMessage = item.messages[indexLastMessage - 1].text;
+      const lastMessage = item.messages[indexLastMessage - 1];
 
       rows.push((
         <ListItem key={key} style={Style.menuItem}>
@@ -52,6 +53,7 @@ export default class Contact extends Component {
               text: 'Remover',
               backgroundColor: Colors.RED,
               onPress: this.remove.bind(this, item, index),
+              type: 'delete',
             }]}
             backgroundColor="transparent"
             close={!this.state.editable}
@@ -77,7 +79,12 @@ export default class Contact extends Component {
                     />
                     <View style={Style.containerDescription}>
                       <Text style={Style.professionalName}>{item.sender.name}</Text>
-                      <Text style={Style.lastMessage}>{lastMessage}</Text>
+                      <Text style={Style.lastMessageText}>{lastMessage.text}</Text>
+                      <FormattedDate
+                        style={Style.lastMessageDate}
+                        value={new Date(lastMessage.createdAt)}
+                        skeleton="yMdhm"
+                      />
                     </View>
                   </View>
                 </View>
@@ -100,6 +107,7 @@ export default class Contact extends Component {
   }
 
   render() {
+    const { editable } = this.state;
     return (
       <Container>
         <Header>
@@ -110,7 +118,7 @@ export default class Contact extends Component {
           <Right>
             <Button
               transparent
-              onPress={() => this.props.navigation.goBack()}
+              onPress={() => this.setState({ editable: !editable })}
             >
               <Text>{this.state.editable ? 'OK' : 'Editar'}</Text>
             </Button>

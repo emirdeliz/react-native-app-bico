@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button, Icon, Text, View, Input, InputGroup } from 'native-base';
-import FBSDK from 'react-native-fbsdk';
+import Expo from 'expo';
 
 import Style from './assets/style';
 
@@ -22,54 +22,33 @@ export default class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    this.initializeLoginFacebook();
-  }
-
-  initializeLoginFacebook() {
-    const { AccessToken } = FBSDK;
-    const self = this;
-
-    AccessToken.getCurrentAccessToken().then((data) => {
-      self.buildDataFacebook(data.accessToken.toString());
+  async logIn() {
+    // raul.aranguez@yannmail.win
+    // data@123
+    const key = '609576282546984';
+    const {
+      type, token,
+    } = await Expo.Facebook.logInWithReadPermissionsAsync(key, {
+      permissions: ['public_profile', 'email'],
     });
-  }
 
-  buildDataFacebook(token) {
-    const { GraphRequest, GraphRequestManager } = FBSDK;
+    if (type === 'success') {
+      // Get the user's name using Facebook's Graph API
+      const response = await fetch(`https://graph.facebook.com/me?fields=id,name,email&access_token=${token}`);
+      const result = await response.json();
 
-    const responseCallback = (error, result) => {
-      if (error) {
-        console.log(`Erro ao autenticar com facebook: ${error.code} ${error.message}`);
-      } else {
-        const { account } = this.state;
-        account.name = result.name;
-        account.email = result.email;
-        account.picture = `http://graph.facebook.com/${result.id}/picture?type=normal`;
+      const { id, name, email } = result;
+      const { account } = this.state;
+      account.name = name;
+      account.email = email;
+      account.picture = `http://graph.facebook.com/${id}/picture?type=normal`;
 
-        const { navigate } = this.props.navigation;
-        navigate('account-edit', { account });
-      }
-    };
-
-    const profileRequestConfig = {
-      httpMethod: 'GET',
-      version: 'v2.5',
-      parameters: {
-        fields: {
-          string: 'id, name, email, first_name, last_name, gender, picture',
-        },
-      },
-      accessToken: token,
-    };
-
-    new GraphRequestManager()
-      .addRequest(new GraphRequest('/me', profileRequestConfig, responseCallback))
-      .start();
+      const { navigate } = this.props.navigation;
+      navigate('accountEdit', { account });
+    }
   }
 
   render() {
-    const { LoginButton } = FBSDK;
     return (
       <Container>
         <View style={Style.containerContent}>
@@ -95,32 +74,25 @@ export default class Login extends Component {
                 block
                 onPress={() => {
                   const { navigate } = this.props.navigation;
-                  navigate('account-edit', {
+                  navigate('accountEdit', {
                     account: this.state.account,
                   });
                 }}
               >
-                Salvar
+                <Text>Salvar</Text>
               </Button>
             </View>
             <View style={Style.containerDivider}>
               <Text style={Style.textDivider}>Ou</Text>
             </View>
             <View style={Style.containerButton}>
-              <LoginButton
-                style={Style.buttonLoginSocial}
-                publishPermissions={['publish_actions']}
-                onLoginFinished={(error, result) => {
-                  if (error) {
-                    console.log(`login has error: ${result.error}`);
-                  } else if (result.isCancelled) {
-                    console.log('login is cancelled.');
-                  } else {
-                    this.initializeLoginFacebook();
-                  }
-                }}
-                onLogoutFinished={() => console.log('logout.')}
-              />
+              <Button
+                block
+                primary
+                onPress={() => this.logIn()}
+              >
+                <Text>Login com Facebook</Text>
+              </Button>
             </View>
           </View>
         </View>

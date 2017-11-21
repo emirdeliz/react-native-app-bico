@@ -60,7 +60,7 @@ const Commons = {
   },
   textSmall: {
     ...text,
-    fontSize: 13,
+    fontSize: 12,
   },
   containerColumn: {
     ...container,

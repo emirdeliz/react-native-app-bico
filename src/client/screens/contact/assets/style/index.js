@@ -10,7 +10,12 @@ const StyleCustom = {
     ...Commons.textSmall,
     fontWeight: 'bold',
   },
-  lastMessage: {
+  lastMessageText: {
+    ...Commons.textSmall,
+    color: Colors.GRAY,
+    marginRight: 30,
+  },
+  lastMessageDate: {
     ...Commons.textSmall,
     color: Colors.GRAY,
   },

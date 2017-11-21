@@ -45,6 +45,7 @@ export default class AccountEditComponent extends Component {
 
     this.camera = null;
 
+    const { account } = this.props.navigation.state.params;
     this.state = {
       // cameraType: Camera.constants.Type.back,
       // cameraTarget: Camera.constants.CaptureTarget.cameraRoll,
@@ -52,7 +53,7 @@ export default class AccountEditComponent extends Component {
       cameraProcessing: false,
       // captureQuality: Camera.constants.CaptureQuality.low,
 
-      account: this.props.account,
+      account: account || this.props.account,
     };
   }
 

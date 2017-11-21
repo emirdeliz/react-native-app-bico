@@ -16,6 +16,7 @@ const StyleCustom = {
   },
   containerDivider: {
     flex: 1,
+    marginBottom: 15,
   },
   containerButton: {
     padding: 10,
