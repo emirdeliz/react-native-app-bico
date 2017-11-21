@@ -41,13 +41,12 @@ const StyleCustom = {
     marginBottom: 5,
   },
   dateJob: {
-    ...Commons.textNormal,
+    ...Commons.textSmall,
     marginRight: 10,
     marginBottom: 5,
   },
   descriptionJob: {
     ...Commons.textSmall,
-    textAlign: 'left',
   },
   containerDescription: {
     marginBottom: 10,

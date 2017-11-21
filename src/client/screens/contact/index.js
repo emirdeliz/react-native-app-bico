@@ -47,51 +47,49 @@ export default class Contact extends Component {
       const lastMessage = item.messages[indexLastMessage - 1];
 
       rows.push((
-        <ListItem key={key} style={Style.menuItem}>
-          <Swipeout
-            right={[{
-              text: 'Remover',
-              backgroundColor: Colors.RED,
-              onPress: this.remove.bind(this, item, index),
-              type: 'delete',
-            }]}
-            backgroundColor="transparent"
-            close={!this.state.editable}
+        <Swipeout
+          key={key}
+          style={Style.swipeout}
+          right={[{
+            text: 'Remover',
+            onPress: this.remove.bind(this, item, index),
+            type: 'delete',
+          }]}
+          close={!this.state.editable}
+        >
+          <TouchableOpacity
+            style={Style.swipeoutItem}
+            onPress={() => {
+              const { navigate } = this.props.navigation;
+              navigate('chat', {
+                messages: item.messages,
+                sender: item.sender,
+              });
+            }}
           >
-            <TouchableOpacity
-              style={Style.containerRow}
-              onPress={() => {
-                const { navigate } = this.props.navigation;
-                navigate('chat', {
-                  messages: item.messages,
-                  sender: item.sender,
-                });
-              }}
-            >
-              <View>
-                <View style={Style.containerColumn}>
-                  <View style={Style.containerRow}>
-                    <Thumbnail
-                      circular
-                      size={80}
-                      source={{ uri: item.sender.picture }}
-                      style={Style.picture}
+            <View>
+              <View style={Style.containerColumn}>
+                <View style={Style.containerRow}>
+                  <Thumbnail
+                    circular
+                    size={80}
+                    source={{ uri: item.sender.picture }}
+                    style={Style.picture}
+                  />
+                  <View style={Style.containerDescription}>
+                    <Text style={Style.professionalName}>{item.sender.name}</Text>
+                    <Text style={Style.lastMessageText}>{lastMessage.text}</Text>
+                    <FormattedDate
+                      style={Style.lastMessageDate}
+                      value={new Date(lastMessage.createdAt)}
+                      skeleton="yMdhm"
                     />
-                    <View style={Style.containerDescription}>
-                      <Text style={Style.professionalName}>{item.sender.name}</Text>
-                      <Text style={Style.lastMessageText}>{lastMessage.text}</Text>
-                      <FormattedDate
-                        style={Style.lastMessageDate}
-                        value={new Date(lastMessage.createdAt)}
-                        skeleton="yMdhm"
-                      />
-                    </View>
                   </View>
                 </View>
               </View>
-            </TouchableOpacity>
-          </Swipeout>
-        </ListItem>
+            </View>
+          </TouchableOpacity>
+        </Swipeout>
       ));
     });
 

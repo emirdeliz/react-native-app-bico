@@ -1,7 +1,7 @@
 const Colors = {
   RED: '#b22222',
   BLUE: '#4682b4',
-  WHITE: '#f6f6f6',
+  WHITE: '#ffffff',
   POSITIVE: '#9acd32',
   BLACK: '#000',
   GRAY: '#808080',
@@ -17,6 +17,7 @@ const Colors = {
   BALANCED: '#33cd5f',
   ENERGIZED: '#ffc900',
   ASSERTIVE: '#ef473a',
+  GALLERY: '#eeeeee',
 };
 
 const text = {
@@ -38,6 +39,19 @@ const input = {
 };
 
 const Commons = {
+  swipeout: {
+    backgroundColor: Colors.WHITE,
+    flex: 1,
+  },
+  swipeoutItem: {
+    borderBottomColor: Colors.GALLERY,
+    borderColor: Colors.TRANSPARENT,
+    borderWidth: 1,
+    paddingLeft: 5,
+    paddingRight: 25,
+    paddingTop: 5,
+    paddingBottom: 5,
+  },
   menuItem: {
     marginLeft: 0,
     paddingLeft: 15,

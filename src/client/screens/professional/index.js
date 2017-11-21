@@ -62,36 +62,34 @@ export default class Professional extends Component {
           iconRight
           style={Style.menuItem}
         >
-          <View>
-            <Body>
-              <View style={Style.containerRow}>
-                <Text style={Style.typeJob}>{item.typeJob.description}</Text>
-                <FormattedDate
-                  style={Style.dateJob}
-                  value={new Date(item.dateExecution)}
-                  skeleton="yMdhm"
-                />
-              </View>
-              <View style={Style.containerRow}>
-                <View style={Style.containerRow}>
-                  <Icon style={Style.iconRating} name="logo-usd" />
-                  <Text style={Style.descriptionRating}>{item.rating.notePrice}</Text>
-                </View>
-                <View style={Style.containerRow}>
-                  <Icon style={Style.iconRating} name="ios-pricetag" />
-                  <Text style={Style.descriptionRating}>{item.rating.noteService}</Text>
-                </View>
-                <View style={Style.containerRow}>
-                  <Icon style={Style.iconRating} name="ios-timer" />
-                  <Text style={Style.descriptionRating}>{item.rating.noteScore}</Text>
-                </View>
-              </View>
-              <Text style={Style.descriptionJob}>{item.rating.description}</Text>
-            </Body>
-            <Right>
-              <Icon name="ios-arrow-forward" style={Style.iconList} />
-            </Right>
-          </View>
+          <Body>
+            <View style={Style.containerRow}>
+              <Text style={Style.typeJob}>{item.typeJob.description}</Text>
+              <FormattedDate
+                style={Style.dateJob}
+                value={new Date(item.dateExecution)}
+                skeleton="yMdhm"
+              />
+            </View>
+            <View style={Style.containerRow}>
+              <Text style={Style.descriptionRating}>
+                <Icon style={Style.iconRating} name="logo-usd" />
+                {item.rating.notePrice}
+              </Text>
+              <Text style={Style.descriptionRating}>
+                <Icon style={Style.iconRating} name="ios-pricetag" />
+                {item.rating.noteService}
+              </Text>
+              <Text style={Style.descriptionRating}>
+                <Icon style={Style.iconRating} name="ios-timer" />
+                {item.rating.noteScore}
+              </Text>
+            </View>
+            <Text style={Style.descriptionJob}>{item.rating.description}</Text>
+          </Body>
+          <Right>
+            <Icon name="ios-arrow-forward" style={Style.iconList} />
+          </Right>
         </ListItem>
       ));
     });

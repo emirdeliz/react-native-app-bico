@@ -44,57 +44,56 @@ export default class WorkOffered extends Component {
     this.state.jobs.forEach((item, index) => {
       const key = index;
       rows.push((
-        <ListItem key={key} style={Style.menuItem}>
-          <Swipeout
-            right={[{
-              text: 'Remover',
-              backgroundColor: Colors.RED,
-              onPress: this.remove.bind(this, item, index),
-            }]}
-            backgroundColor="transparent"
-            close={!this.state.editable}
-          >
-            <View>
-              <View style={Style.containerProfessional}>
-                <View style={Style.containerRow}>
-                  <Thumbnail
-                    style={Style.picture}
-                    circular
-                    size={80}
-                    source={{ uri: item.client.picture }}
+        <Swipeout
+          key={key}
+          right={[{
+            text: 'Remover',
+            type: 'delete',
+            onPress: this.remove.bind(this, item, index),
+          }]}
+          style={Style.swipeout}
+          close={!this.state.editable}
+        >
+          <View style={Style.swipeoutItem}>
+            <View style={Style.containerProfessional}>
+              <View style={Style.containerRow}>
+                <Thumbnail
+                  style={Style.picture}
+                  circular
+                  size={80}
+                  source={{ uri: item.client.picture }}
+                />
+                <View style={Style.containerProfessionalResume}>
+                  <Text style={Style.textSmall}>{item.client.name}</Text>
+                  <Text style={Style.typeJob}>{item.typeJob.description}</Text>
+                  <FormattedDate
+                    style={Style.dateJob}
+                    value={new Date(item.dateExecution)}
+                    skeleton="yMdhm"
                   />
-                  <View style={Style.containerProfessionalResume}>
-                    <Text style={Style.textSmall}>{item.client.name}</Text>
-                    <Text style={Style.typeJob}>{item.typeJob.description}</Text>
-                    <FormattedDate
-                      style={Style.dateJob}
-                      value={new Date(item.dateExecution)}
-                      skeleton="yMdhm"
-                    />
-                  </View>
-                </View>
-                <View style={Style.containerButtom}>
-                  <View>
-                    <Button
-                      info
-                      normal
-                      bordered
-                      onPress={() => {
-                        const { navigate } = this.props.navigation;
-                        navigate('chat', { sender: item.professional });
-                      }}
-                    >
-                      <Icon name="ios-chatbubbles" />
-                    </Button>
-                  </View>
                 </View>
               </View>
-              <View style={Style.containerTypeJob}>
-                <Text style={Style.descriptionJob}>{item.description}</Text>
+              <View style={Style.containerButtom}>
+                <View>
+                  <Button
+                    info
+                    normal
+                    bordered
+                    onPress={() => {
+                      const { navigate } = this.props.navigation;
+                      navigate('chat', { sender: item.professional });
+                    }}
+                  >
+                    <Icon name="ios-chatbubbles" />
+                  </Button>
+                </View>
               </View>
             </View>
-          </Swipeout>
-        </ListItem>
+            <View style={Style.containerTypeJob}>
+              <Text style={Style.descriptionJob}>{item.description}</Text>
+            </View>
+          </View>
+        </Swipeout>
       ));
     });
 
