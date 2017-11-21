@@ -13,14 +13,12 @@ import {
   View,
   Text,
   List,
-  ListItem,
   Thumbnail,
 } from 'native-base';
 
 import { FormattedDate } from 'react-native-globalize';
 import Swipeout from 'react-native-swipeout';
 
-import { Colors } from '../../shared/assets/style';
 import * as JobMock from '../../mock/job';
 import Style from './assets/style';
 

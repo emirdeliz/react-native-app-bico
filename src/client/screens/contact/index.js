@@ -13,13 +13,11 @@ import {
   View,
   Text,
   List,
-  ListItem,
   Thumbnail,
 } from 'native-base';
 import { FormattedDate } from 'react-native-globalize';
 import Swipeout from 'react-native-swipeout';
 
-import { Colors } from '../../shared/assets/style';
 import Style from './assets/style';
 
 import * as ContactMock from '../../mock/contact';
@@ -55,6 +53,7 @@ export default class Contact extends Component {
             onPress: this.remove.bind(this, item, index),
             type: 'delete',
           }]}
+          autoClose
           close={!this.state.editable}
         >
           <TouchableOpacity

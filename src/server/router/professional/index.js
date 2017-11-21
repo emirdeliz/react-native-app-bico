@@ -1,5 +1,4 @@
 import ProfessionalService from '../../service/professional';
-import { professionalPopulate } from '../../populate';
 
 class ProfessionalRouter {
   constructor(router) {
