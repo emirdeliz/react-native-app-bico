@@ -4,7 +4,7 @@ import remoteReduxDevtools from 'remote-redux-devtools';
 import { Platform } from 'react-native';
 
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import loadingMiddleware from '../middleware/loading';
 
@@ -15,14 +15,14 @@ import * as actionCreators from '../actions';
 
 const devTools = global.reduxNativeDevTools || remoteReduxDevtools;
 const sagaMiddleware = createSagaMiddleware();
-const middlewares = [thunk, loadingMiddleware, sagaMiddleware];
+const middlewares = [loadingMiddleware, sagaMiddleware];
 
 let enhancer;
 let updateStore = f => f;
 
 if (__DEV__) {
   installDevTools(Immutable);
-  updateStore = devTools.updateStore || updateStore;
+  // updateStore = devTools.updateStore || updateStore;
 
   enhancer = compose(
     applyMiddleware(...middlewares),

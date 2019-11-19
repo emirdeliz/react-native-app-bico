@@ -3,6 +3,7 @@ import Constants from '../../constants';
 const urlBase = `${Constants.SERVER_REST}/account`;
 
 const find = () => {
+  console.log('HALAM')
   return fetch(urlBase).then(
     (response) => {
       return response.json().then((json) => {

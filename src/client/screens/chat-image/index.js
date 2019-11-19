@@ -19,7 +19,7 @@ export default class ChatImage extends Component {
   static propTypes = {
     images: PropTypes.array,
     currentMessage: PropTypes.object,
-    containerStyle: View.propTypes.style,
+    containerStyle: PropTypes.any,
     imageStyle: Image.propTypes.style,
   };
 

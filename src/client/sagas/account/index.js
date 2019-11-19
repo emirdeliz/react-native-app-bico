@@ -1,4 +1,4 @@
-import { call, put, take } from 'redux-saga/effects';
+import { call, put, take, all } from 'redux-saga/effects';
 
 import { AccountApi } from '../../api';
 import * as actionTypeAccount from '../../action-type/account';
@@ -25,26 +25,20 @@ const persist = function* persist(object) {
   yield put({ type: actionTypeLoading.default, meta: { loading: false } });
 };
 
-const watchfind = function* watchfind() {
-  const watch = true;
-
-  while (watch) {
-    yield take(actionTypeAccount.find);
-    yield call(find);
+function* watchFind() {
+  while (yield take(actionTypeAccount.find)) {
+    yield call(find); // waits for the fetchPosts task to terminate
   }
-};
+}
 
-const watchPersist = function* watchPersist() {
-  const watch = true;
-
-  while (watch) {
-    const { account } = yield take(actionTypeAccount.persist);
-    yield call(persist, account);
+function* watchPersist() {
+  while (yield take(actionTypeAccount.persist)) {
+    yield call(persist); // waits for the fetchPosts task to terminate
   }
-};
+}
 
 const root = function* root() {
-  yield [watchfind(), watchPersist()];
+  yield all([call(watchFind), call(watchPersist)]);
 };
 
 export default root;

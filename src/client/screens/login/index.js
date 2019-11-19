@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button, Icon, Text, View, Input, InputGroup } from 'native-base';
-import Expo from 'expo';
+import * as Facebook from 'expo-facebook';
 
 import Style from './assets/style';
 
@@ -28,7 +28,7 @@ export default class Login extends Component {
     const key = '609576282546984';
     const {
       type, token,
-    } = await Expo.Facebook.logInWithReadPermissionsAsync(key, {
+    } = await Facebook.logInWithReadPermissionsAsync(key, {
       permissions: ['public_profile', 'email'],
     });
 

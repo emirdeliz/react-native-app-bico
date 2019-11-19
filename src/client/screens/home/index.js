@@ -36,9 +36,11 @@ export default class Home extends Component {
     this.onChangeTab(page);
 
     const { navigate } = this.props.navigation;
+    navigate('login');
+
+    const { navigate } = this.props.navigation;
     navigate('login')
-    ;
-    */
+   */
   }
 
   onChangeTab(item) {

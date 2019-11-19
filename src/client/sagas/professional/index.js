@@ -14,17 +14,10 @@ const findAll = function* findAll() {
   yield put({ type: actionTypeLoading.default, meta: { loading: false } });
 };
 
-const watchFindAll = function* watchFindAll() {
-  const watch = true;
-
-  while (watch) {
-    yield take(actionTypeProfessional.findAll);
-    yield call(findAll);
+function* watchFindAll() {
+  while (yield take(actionTypeProfessional.findAll)) {
+    yield call(findAll) // waits for the fetchPosts task to terminate
   }
-};
+}
 
-const root = function* root() {
-  yield [watchFindAll()];
-};
-
-export default root;
+export default watchFindAll;

@@ -7,8 +7,8 @@ import Style from './assets/style';
 export default class ChatView extends Component {
   static propTypes = {
     currentMessage: PropTypes.object,
-    containerStyle: View.propTypes.style,
-    mapViewStyle: View.propTypes.style,
+    containerStyle: PropTypes.any,
+    mapViewStyle: PropTypes.any,
   };
 
   static defaultProps = {
