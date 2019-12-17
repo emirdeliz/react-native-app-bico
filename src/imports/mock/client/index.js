@@ -2,7 +2,7 @@ const client1 = {
   name: 'Arya Stark',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/5331dfe4e4b0f77da2dde21c/1395777673152/06-06-arya-portrait.jpg?format=1000w',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pierre-Person.jpg/400px-Pierre-Person.jpg',
   distance: 456,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -13,7 +13,7 @@ const client1 = {
 const client2 = {
   name: 'Shae',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'http://assets.viewers-guide.hbo.com/large534da4d1ef818.jpg',
+  picture: 'https://i.f1g.fr/media/eidos/orig/2019/06/19/XVMf257e1c6-9267-11e9-bbe0-3557fdf7f672.jpg',
   distance: 876,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -36,7 +36,7 @@ const client3 = {
 const client4 = {
   name: 'Khal Drogo',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'http://images.hellogiggles.com/uploads/2016/06/14003242/khal.jpg',
+  picture: 'https://admin.euro.savills.co.uk/_images/honeyview-aaron-croskery.jpg',
   distance: 899,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -47,7 +47,7 @@ const client4 = {
 const client5 = {
   name: 'Tormund Giantsbane',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'https://pbs.twimg.com/profile_images/488492306438180867/3fZ7sTHv.jpeg',
+  picture: 'https://bitcoin.fr/wp-content/uploads/2018/10/pierre-person8.jpg',
   distance: 456,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -59,7 +59,7 @@ const client6 = {
   name: 'Samwell Tarly',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://images3.wikia.nocookie.net/__cb20130113224412/gameofthrones/images/e/ef/Samwell_profile.png',
+    'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
   distance: 456,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -70,7 +70,7 @@ const client6 = {
 const client7 = {
   name: 'Grey Worm',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'http://www.geekbomb.net/wp-content/uploads/2016/04/greyworm-200x200.jpg',
+  picture: 'https://www.midlandsderm.com/wp-content/uploads/2019/04/Rachel-R.-Person-760x760.jpg',
   distance: 876,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -82,7 +82,7 @@ const client8 = {
   name: 'Brienne of Tarth',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://vignette1.wikia.nocookie.net/gameofthrones/images/4/4c/Brenne.jpg/revision/latest?cb=20130609223805',
+    'https://switchsolarusa.com/wp-content/uploads/2018/01/melanie-person.jpg',
   distance: 123,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -94,7 +94,7 @@ const client9 = {
   name: 'Bronn',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://4.bp.blogspot.com/-4gT-CAtgVB4/UUjIf144LTI/AAAAAAAAAJ8/afjBlVdSRMY/s1600/Bronn.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jamie_Shupe_Age_55.jpg/1200px-Jamie_Shupe_Age_55.jpg',
   distance: 899,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +
@@ -105,7 +105,7 @@ const client9 = {
 const client10 = {
   name: 'Eddard Stark',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'http://basementrejects.com/wp-content/uploads/2011/06/eddard-stark-game-of-thrones.jpg',
+  picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRft_iWFbuXSGWkTlsNekfrohKZP-CESa8EhE_jrvjPmjZ7Nzw-AQ&s',
   distance: 456,
   description:
     'Tincidunt fermentum, sit dolor. Risus dui metus repellendus euismod scelerisque, diam mauris ut facilisi, lacus sagittis.' +

@@ -7,10 +7,7 @@ const message1 = {
     name: ProfessionalMock.data[0].name,
     avatar: ProfessionalMock.data[0].picture,
   },
-  text:
-    'Aqui é Body renderer Ipsum PORRA! Que não vai dá rapaiz, não vai dá essa porra. Não vai dá não.' +
-    'Sabe o que é isso daí? Trapézio descendente é o nome disso aí. Eita porra!, tá saindo da jaula o monstro!' +
-    'Bora caralho, você quer ver essa porra velho. Vo derrubar tudo essas árvore do parque ibirapuera.',
+  text: 'Teste',
   createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0)),
 };
 
@@ -43,7 +40,7 @@ const message4 = {
     name: ProfessionalMock.data[1].name,
     avatar: ProfessionalMock.data[1].picture,
   },
-  text: 'Eu quero esse 13',
+  text: 'Teste',
   createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0)),
 };
 
@@ -54,7 +51,7 @@ const message5 = {
     name: ProfessionalMock.data[1].name,
     avatar: ProfessionalMock.data[1].picture,
   },
-  text: 'É verão o ano ano ano',
+  text: 'Teste',
   createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0)),
 };
 
@@ -65,9 +62,7 @@ const message6 = {
     name: ProfessionalMock.data[1].name,
     avatar: ProfessionalMock.data[0].picture,
   },
-  text:
-    ' Que não vai dá rapaiz, não vai dá essa porra.' +
-    'Tá comigo porra. Bora caralho, você quer ver essa porra velho.',
+  text: 'Teste',
   createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0)),
 };
 
@@ -78,7 +73,7 @@ const message7 = {
     name: ProfessionalMock.data[1].name,
     avatar: ProfessionalMock.data[1].picture,
   },
-  text: 'Bora caralho, você quer ver essa porra velho.',
+  text: 'Teste',
   createdAt: new Date(Date.UTC(2016, 7, 30, 17, 20, 0)),
 };
 

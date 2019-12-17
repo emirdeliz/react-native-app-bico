@@ -1,6 +1,6 @@
 const account = {
-  name: 'John Snow',
-  adress: 'Sete Reinos de Westeros, Casa Stark, Winterfell',
+  name: 'Albert Jhon',
+  adress: 'Rua das canoas, nr 176',
   picture: 'https://goo.gl/qDXGew',
   ddd: 47,
   email: 'john.snow@gmail.com',

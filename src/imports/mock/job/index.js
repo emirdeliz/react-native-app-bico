@@ -7,7 +7,7 @@ const professional1 = {
   name: 'Ragnar Lodbrok',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://s-media-cache-ak0.pinimg.com/736x/35/c8/2c/35c82c9beb22560f2abdbec089a7d945.jpg',
+    'https://www.biography.com/.image/ar_8:10%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQxNDAyNjQ0MzAzMzI1MDc0/roald_dahl_getty_images_tony_evansgetty_images_108874289_croppedjpg.jpg',
   note: 'This is item # 1',
   typeJob: [typeJob1, typeJob3],
   noteAveragePrice: 4,
@@ -24,7 +24,7 @@ const professional2 = {
   name: 'Lagertha',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://s-media-cache-ak0.pinimg.com/236x/a5/e3/44/a5e344bffed13bb6d6bb6890fa58c9ed.jpg',
+    'https://www.jadelogistics.com/wp-content/uploads/2018/04/person-kaustubh-dalvi-full.jpg',
   note: 'This is item # 2',
   typeJob: [typeJob2, typeJob3],
   noteAveragePrice: 5,
@@ -41,7 +41,7 @@ const professional3 = {
   name: 'Floki',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://s-media-cache-ak0.pinimg.com/564x/df/92/e0/df92e000528887eb765c0ea1c5fabf5e.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Tadashi_Yanai.jpg/220px-Tadashi_Yanai.jpg',
   note: 'This is item # 3',
   typeJob: [typeJob1, typeJob2],
   noteAveragePrice: 3,
@@ -58,7 +58,7 @@ const professional4 = {
   name: 'Björn Lodbrok',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://tribzap2it.files.wordpress.com/2015/02/alexander-ludwig-vikings-history.jpg?w=900&h=400',
+    'https://www.biography.com/.image/ar_8:10%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTUwOTc3MzM5NDY1OTMzOTE3/jeff_flake_photo_for_the_washington_post_laura_segall_getty_images_545484698_500x500.jpg',
   note: 'This is item # 4',
   typeJob: [typeJob3],
   noteAveragePrice: 3,
@@ -74,7 +74,7 @@ const professional4 = {
 const professional5 = {
   name: 'Rolo',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'http://ciborguesedinossauros.com.br/wp-content/uploads/2015/04/rollo.jpg',
+  picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Emmanuel_Macron_in_2019.jpg/220px-Emmanuel_Macron_in_2019.jpg',
   note: 'This is item # 5',
   typeJob: [typeJob1],
   noteAveragePrice: 4.5,

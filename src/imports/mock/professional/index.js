@@ -4,7 +4,7 @@ import { typeJob1, typeJob2, typeJob3 } from '../type-job';
 const professional1 = {
   name: 'Tyrion Lannister',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'https://pbs.twimg.com/profile_images/668279339838935040/8sUE9d4C.jpg',
+  picture: 'https://img-0.journaldunet.com/q_Px3oiB1PHu5hFllyEMYqDLcPw=/1080x/smart/925a5b0ae0034281b2e83af34d80339d/ccmcms-jdn/10747834.jpg',
   note: 'This is item # 1',
   typeJob: [typeJob1, typeJob3],
   job: [job1, job2, job3],
@@ -19,10 +19,10 @@ const professional1 = {
 };
 
 const professional2 = {
-  name: 'Perdigueiro',
+  name: 'Peter Jaws',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://vignette.wikia.nocookie.net/gameofthrones/images/7/7f/SandorS6.png/revision/latest?cb=20160608063447',
+    'https://www.cleveland.com/resizer/drJqTdO3kOanfmbO-NSPXUq1IE8=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.cleveland.com/home/cleve-media/width2048/img/shaker-heights/photo/dr-brian-harte-d3f4c91a99c436a4.jpg',
   note: 'This is item # 2',
   typeJob: [typeJob2, typeJob3],
   job: [job3, job4, job5],
@@ -40,7 +40,7 @@ const professional3 = {
   name: 'Daenerys Targaryen',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://i.lv3.hbo.com/assets/images/series/game-of-thrones/character/s5/daenarys-1024.jpg',
+    'https://1y8gyr2l868c3en357219qn1-wpengine.netdna-ssl.com/wp-content/uploads/2016/12/DSC2416-1-thegem-person.jpg',
   note: 'This is item # 3',
   typeJob: [typeJob1, typeJob2],
   job: [job2, job1, job3],
@@ -58,7 +58,7 @@ const professional4 = {
   name: 'Rob Stark',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://s-media-cache-ak0.pinimg.com/564x/a4/8a/d9/a48ad96bb5be9e5bf0d8347e0e3f3487.jpg',
+    'https://www.interpack.com/interpackcache/pica/5/7/2/8/2/1/131051506409843/Pfluegge_2367_500x750.jpg',
   note: 'This is item # 4',
   typeJob: [typeJob3],
   job: [job1],
@@ -76,7 +76,7 @@ const professional5 = {
   name: 'Jamie Lannister',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://i.lv3.hbo.com/assets/images/series/game-of-thrones/character/s5/jamie-lannister-512x512.jpg',
+    'https://assets.ldscdn.org/81/9f/819f193b26e356b19940cf4e11db57eedc0a5e9b/elder_kazuhiko_yamashita_lds.jpg',
   note: 'This is item # 5',
   typeJob: [typeJob1],
   job: [job1, job2],
@@ -111,7 +111,7 @@ const professional6 = {
 const professional7 = {
   name: 'Joffrey Baratheon',
   adress: 'Tincidunt fermentum, sit dolor',
-  picture: 'http://s00.yaplakal.com/pics/pics_original/1/4/2/8192241.jpg',
+  picture: 'https://radiocms-images.us1.eldarioncloud.com/resize/380x380/https://storage.googleapis.com/media.mwcradio.com/broadcast/show_logos/hannity-new_sv7fLu2.jpg?crop=center',
   note: 'This is item # 2',
   typeJob: [typeJob2, typeJob3],
   job: [job3, job4, job5],
@@ -129,7 +129,7 @@ const professional8 = {
   name: 'Jorah Mormont',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Jorah_Mormont-Iain_Glen.jpg/220px-Jorah_Mormont-Iain_Glen.jpg',
+    'https://i1.wp.com/homann-recht.de/wp-content/uploads/2017/11/cornelius-homann-foto.1024x1024.jpg?resize=768%2C768&ssl=1',
   note: 'This is item # 3',
   typeJob: [typeJob1, typeJob2],
   job: [job2, job1, job3],
@@ -147,7 +147,7 @@ const professional9 = {
   name: 'Lorde Varys',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://img3.rnkr-static.com/user_node_img/3144/62863639/870/varys-tv-characters-photo-u2.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Todd_Haberkorn.jpg/220px-Todd_Haberkorn.jpg',
   note: 'This is item # 4',
   typeJob: [typeJob3],
   job: [job1],
@@ -165,7 +165,7 @@ const professional10 = {
   name: 'Oberyn Martell',
   adress: 'Tincidunt fermentum, sit dolor',
   picture:
-    'http://vignette3.wikia.nocookie.net/gameofthrones/images/9/90/Oberyn-Martell-Profile-HD.png/revision/latest?cb=20140515152752',
+    'https://px3-static.sfo2.cdn.digitaloceanspaces.com/futurecom19/_person_3aad92df-7fbc-4cd8-a0eb-7dfa1daf47c4.jpeg',
   note: 'This is item # 5',
   typeJob: [typeJob1],
   job: [job1, job2],
