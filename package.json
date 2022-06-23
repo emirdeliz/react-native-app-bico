@@ -24,7 +24,7 @@
     "jest-cli": "^24.9.0",
     "jest-expo": "^35.0.0",
     "jest-react-native": "^18.0.0",
-    "jsdom": "^15.2.1",
+    "jsdom": "^16.5.0",
     "mocha": "^6.2.2",
     "npm-check-updates": "^3.2.1",
     "nyc": "^14.1.1",
