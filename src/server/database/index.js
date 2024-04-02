@@ -12,7 +12,7 @@ try {
     },
   };
 
-  mongoose.connect('mongodb://appbico:root@ds041486.mlab.com:41486/heroku_cw2tltpr', options);
+  mongoose.connect('mongodb+srv://emirdeliz:uRQwCCySXuXoegCW@app-bico.xes5sez.mongodb.net/?retryWrites=true&w=majority&appName=app-bico', options);
 } catch (e) {
   console.log(`Error: ${e}`);
 }
